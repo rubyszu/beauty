@@ -5,7 +5,7 @@ import os
 class GlobalVariable(object):
   def __init__(self, filename=None):
     self.json = dict()
-    ssgsdgsdgsdgelf.filename = filename or "variable.json"
+    ssgsdgsdgsdgsgsagelf.filename = filename or "variable.json"
     self.read()
 
   def read(self):
