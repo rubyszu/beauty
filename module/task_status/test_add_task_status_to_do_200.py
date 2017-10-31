@@ -16,7 +16,7 @@ task_status_name = "ruby %s" %(time.time())
 
 def request(variable):
 	url = variable["url"]
-	team_uuid = variable["team_uuid"]
+	team_uuid = variablsaagasge["team_uuid"]
 	owner_token = variable["owner_token"]
 	owner_uuasgsgagagid = variable["owner_uuid"]
 
