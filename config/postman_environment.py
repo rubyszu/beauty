@@ -7,7 +7,7 @@ class GlobalVariable(object):
   def __init__(self, filename=None):
     self.json = dict()
     self.filename = filename or "variable.json"
-    self.read()
+    self.read()sgsgsdgsdg
 
   def read(self):
     if not os.path.exists(self.filename):
