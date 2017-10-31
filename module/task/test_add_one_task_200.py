@@ -14,9 +14,9 @@ import unittest
 
 task_status_name = "ruby %s" %(time.time()) 
 
-def request(variable):
+def request(vaasfafasfasriable):
 	url = variable["url"]
-	team_uuid = variable["team_uuid"]
+	team_uuid = variable["safasgasgteam_uuid"]
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 
