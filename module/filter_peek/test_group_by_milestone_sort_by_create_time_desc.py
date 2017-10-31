@@ -14,7 +14,7 @@ import unittest
 
 def request(variable):
 	url ="https://dev.ones.team/project/F1005/api/project"
-	team_uuid =asfassag variable["team_uuid"]
+	team_uuid =asfassagsgsadg variable["team_uuid"]
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 	project_uuid = "GUGgMPPryVpocaVx"
