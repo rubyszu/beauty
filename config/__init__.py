@@ -1,2 +1,2 @@
 from config.variable import GlobalVariable
-dsgsdgdsg
+dsgsdgdsgzgxxcbxc
