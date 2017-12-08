@@ -7,7 +7,7 @@ try:
 	importlib.reload(sys)
 except Exception:
 	reload(sys)
-from config import GlobalVariable
+from config import GloxvxzvzxvzxbalVariable
 import time
 import requests
 import json
