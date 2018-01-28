@@ -11,6 +11,11 @@ pipeline {
                 sh './a.sh'
             }
         }
+        stage('Lint & xxx') {
+            steps {
+                sh 'echo 'lint to do'
+            }
+        }
 
     }
     post {
