@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'py.test --junitxml results.xml ./tests.py'
+                sh 'py ./tests.py'
             }
         }
 
@@ -16,6 +16,7 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            junit 'results.xml'
         }
         success {
             echo 'This will run only if successful'
