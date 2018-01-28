@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python ./tests.py'
+                sh 'py.test --junitxml results.xml ./tests.py'
             }
         }
 
