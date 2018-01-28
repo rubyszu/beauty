@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Lint & xxx') {
             steps {
-                sh 'echo 'lint to do'
+                sh 'echo "lint to do"'
             }
         }
 
