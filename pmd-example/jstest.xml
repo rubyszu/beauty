@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.0.0" timestamp="2018-01-24T16:09:43.076">
+<file name="/Users/ruby/beauty/pmd-example/src/JsExample.js">
+<violation beginline="9" endline="9" begincolumn="5" endcolumn="49" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="10" endline="10" begincolumn="10" endcolumn="13" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="11" endline="11" begincolumn="9" endcolumn="26" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="68" endline="68" begincolumn="5" endcolumn="36" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="69" endline="69" begincolumn="52" endcolumn="72" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="70" endline="70" begincolumn="48" endcolumn="68" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="71" endline="71" begincolumn="29" endcolumn="53" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="72" endline="72" begincolumn="33" endcolumn="56" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="73" endline="73" begincolumn="5" endcolumn="30" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="76" endline="76" begincolumn="10" endcolumn="12" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="77" endline="77" begincolumn="10" endcolumn="12" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="82" endline="82" begincolumn="9" endcolumn="36" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="86" endline="86" begincolumn="9" endcolumn="36" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="92" endline="92" begincolumn="10" endcolumn="12" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="94" endline="94" begincolumn="10" endcolumn="12" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="106" endline="106" begincolumn="5" endcolumn="26" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="110" endline="110" begincolumn="18" endcolumn="29" rule="UnreachableCode" ruleset="Code Style" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_codestyle.html#unreachablecode" priority="1">
+A 'return', 'break', 'continue', or 'throw' statement should be the last in a block.
+</violation>
+<violation beginline="111" endline="111" begincolumn="11" endcolumn="26" rule="EqualComparison" ruleset="Error Prone" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_errorprone.html#equalcomparison" priority="3">
+Use ===/!== to compare with true/false or Numbers
+</violation>
+<violation beginline="112" endline="112" begincolumn="3" endcolumn="12" rule="UnreachableCode" ruleset="Code Style" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_codestyle.html#unreachablecode" priority="1">
+A 'return', 'break', 'continue', or 'throw' statement should be the last in a block.
+</violation>
+<violation beginline="118" endline="118" begincolumn="5" endcolumn="52" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="119" endline="119" begincolumn="5" endcolumn="52" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="120" endline="120" begincolumn="9" endcolumn="23" rule="EqualComparison" ruleset="Error Prone" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_errorprone.html#equalcomparison" priority="3">
+Use ===/!== to compare with true/false or Numbers
+</violation>
+<violation beginline="121" endline="121" begincolumn="9" endcolumn="58" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="123" endline="123" begincolumn="9" endcolumn="27" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="124" endline="124" begincolumn="13" endcolumn="20" rule="UseBaseWithParseInt" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#usebasewithparseint" priority="1">
+Always provide a base when using parseInt() functions
+</violation>
+<violation beginline="124" endline="124" begincolumn="34" endcolumn="45" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="124" endline="124" begincolumn="57" endcolumn="68" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="125" endline="125" begincolumn="9" endcolumn="46" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="127" endline="127" begincolumn="9" endcolumn="23" rule="EqualComparison" ruleset="Error Prone" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_errorprone.html#equalcomparison" priority="3">
+Use ===/!== to compare with true/false or Numbers
+</violation>
+<violation beginline="128" endline="128" begincolumn="9" endcolumn="58" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="130" endline="130" begincolumn="9" endcolumn="27" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="131" endline="131" begincolumn="13" endcolumn="20" rule="UseBaseWithParseInt" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#usebasewithparseint" priority="1">
+Always provide a base when using parseInt() functions
+</violation>
+<violation beginline="131" endline="131" begincolumn="34" endcolumn="45" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="131" endline="131" begincolumn="57" endcolumn="68" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="132" endline="132" begincolumn="9" endcolumn="46" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="140" endline="140" begincolumn="5" endcolumn="75" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="141" endline="141" begincolumn="5" endcolumn="75" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="146" endline="146" begincolumn="5" endcolumn="64" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="147" endline="147" begincolumn="20" endcolumn="25" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="148" endline="148" begincolumn="5" endcolumn="64" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="149" endline="149" begincolumn="20" endcolumn="25" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="154" endline="154" begincolumn="5" endcolumn="66" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="155" endline="155" begincolumn="5" endcolumn="66" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="162" endline="162" begincolumn="5" endcolumn="52" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+<violation beginline="163" endline="163" begincolumn="5" endcolumn="52" rule="GlobalVariable" ruleset="Best Practices" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_ecmascript_bestpractices.html#globalvariable" priority="1">
+Avoid using global variables
+</violation>
+</file>
+</pmd>

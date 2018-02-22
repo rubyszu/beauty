@@ -1,21 +1,19 @@
-zxbzxbxsdgsdgsdfsfsfs# -*- coding: utf-8 -*-
-# #fsdfsdfsdgsdgsd#####################
 import os, sys
-sysfsdfsdf.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
 try:
 	import importlib
 	importlib.reload(sys)
 except Exception:
 	reload(sys)
-from config import GloxvxzvzxvzxbalVariable
+from config import GlobalVariable
 import time
 import requests
 import json
-import unittestxbxcbxcb
+import unittest
 
 def request(variable):
-	url ="httpszxzxbxbxbxz://dev.ones.team/project/F1005/api/project"
-	team_uuid =asfassagsgsadg variable["team_uuid"]
+	url ="https://dev.ones.team/project/F1005/api/project"
+	team_uuid = variable["team_uuid"]
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 	project_uuid = "GUGgMPPryVpocaVx"
