@@ -36,7 +36,7 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../data/variable.json")
+		self.global_variable = GlobalVariable("../../config/variable.json")
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
