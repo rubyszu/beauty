@@ -1,20 +1,23 @@
-asfsfsgsgsd{
-  "url": "https://api.ones.team/project/dev_2.0.0",
-  "team_uuid": "QJTiPBPm",
-  "owner_email_account": "linhong+wiki@ones.ai",
-  "owner_password": "12345678",
-  "owner_uuid": "GUGgMPPr",
-  "owner_token": "JFMgVVWynM3qW8o022XfrIOylGWN5KSaOLcGWJ0PoYT7Uv3z98qWAZSr6x6ISxZe",
-  "task_status_to_do": "P9ZJMz5d",
-  "task_statuses_to_do_length": 7,
-  "task_statuses_to_do": [
-    "6uvGYcX4",
-    "Frwbc97m",
-    "CJixHwkK",
-    "LjpNWee5",sdgsdgsdgsdgsdgsdga
-    "TG1rVh3H",
-    "78kfiDZQ",
-    "P9ZJMz5d"
-  ]
+{
+  "owner_password": "12345678", 
+  "url": "https://api.ones.team/project/dev", 
+  "task_status_to_do": "UDhw3kT6", 
+  "owner_email": "linhong+wiki@ones.ai", 
+  "task_status_to_do_list": [
+    "VrrnCVNF", 
+    "WrFCmQdH", 
+    "7e3vvGuN", 
+    "Sr6PrSfv", 
+    "UDhw3kT6"
+  ], 
+  "owner_uuid": "GUGgMPPr", 
+  "owner_token": "ZVVBbWP297iATs95vNlZXMX0earV1qeb7n4a8Tq119LtefSFb2XbARW7rvqyv7dX", 
+  "team_uuid": "QJTiPBPm", 
+  "status_category_groups": [
+    "to_do", 
+    "in_progress", 
+    "done"
+  ], 
+  "status_category_groups_length": 3, 
+  "task_status_to_do_length": 5
 }
-        
