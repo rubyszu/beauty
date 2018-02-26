@@ -6,15 +6,15 @@ pipeline {
                 sh 'echo "Hello World"'
             }
         }
-        stage('Lint & xxx') {
-            steps {
-            	sh 'cd pmd-example && ./run.sh'
-            	sh 'cd ..'
-            }
-        }
         stage('Test') {
             steps {
                 sh './a.sh'
+            }
+        }
+        stage('Lint & xxx') {
+            steps {
+                sh 'cd pmd-example && ./run.sh'
+                sh 'cd ..'
             }
         }
         
