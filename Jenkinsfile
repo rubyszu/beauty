@@ -11,12 +11,7 @@ pipeline {
                 sh './a.sh'
             }
         }
-        stage('Lint & xxx') {
-            steps {
-                sh 'cd pmd-example && ./run.sh'
-                sh 'cd ..'
-            }
-        }
+
         
 
     }
