@@ -42,7 +42,7 @@ class TestGroupSort(unittest.TestCase):
 		self.status_code = self.request.status_code
 		self.response_json = self.request.json()
 
-	def test_result(self):
+	def test_result_200(self):
 		
 		'''test login 200'''
 		#status code

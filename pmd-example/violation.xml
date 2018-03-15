@@ -2,8 +2,8 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.0.0" timestamp="2018-01-24T12:08:48.670">
-<file name="/Users/ruby/beauty/pmd-example/src/HelloWorld.java">
+    version="6.0.0" timestamp="2018-03-13T17:36:34.615">
+<file name="/Users/ruby/beauty/lucky/pmd-example/src/HelloWorld.java">
 <violation beginline="2" endline="2" begincolumn="35" endcolumn="45" rule="UnusedPrivateField" ruleset="Best Practices" class="HelloWorld" variable="PRINT_DELAY" externalInfoUrl="https://pmd.github.io/pmd-6.0.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="5">
 Avoid unused private fields such as 'PRINT_DELAY'.
 </violation>
