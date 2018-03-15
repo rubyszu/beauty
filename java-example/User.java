@@ -1,5 +1,6 @@
 package com.example.hello;
 
+
 public class User {
 
 	private String name;
