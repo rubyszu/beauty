@@ -1,4 +1,5 @@
 {
-  "tests.py::SimpleTest::test_fail": true, 
+  "module/task/test_add_one_task_200.py": true, 
+  "module/task_status/test_add_task_status_to_do_200.py": true, 
   "tests.py::test_fail": true
 }
