@@ -2,20 +2,24 @@
 import os, sys
 
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
+try:
+	import importlib
+	importlib.reload(sys)
+except Exception:
+	reload(sys)
 from config import GlobalVariable
 import time
 import requests
 import json
 import unittest
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 def request(variable):
 	url = variable["url"]
+	team_uuid = variable["team_uuid"]
 	owner_email = variable["owner_email"]
 	owner_password = variable["owner_password"]
 
-	api_url = "%s/auth/login" %(url)
+	api_url = "%s/team/%s/permission_rules" %(url,team_uuid)
 	headers = {
 		"Content-Type": "application/json"
 	}
@@ -34,7 +38,7 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../config/variable_F1059.json")
+		self.global_variable = GlobalVariable("../../config/variable.json")
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
