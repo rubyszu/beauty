@@ -61,10 +61,9 @@ class TestResponse(unittest.TestCase):
 	def test_result(self):
 
 		with open('response.json','w') as f:
-			# f.write(json.dumps(self.response_json))
-			f.write(json.dumps(self.response_json,ensure_ascii=False))
+			f.write(self.request.text)
 		print(self.status_code)
-		print(self.response_json)
+		print(self.request.text)
 		
 	def tearDown(self):
 		pass

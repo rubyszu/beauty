@@ -2,43 +2,30 @@
 import os, sys
 
 sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-try:
-	import importlib
-	importlib.reload(sys)
-except Exception:
-	reload(sys)
 from config import GlobalVariable
 import time
 import requests
 import json
 import unittest
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	owner_email = variable["owner_email"]
-	owner_password = variable["owner_password"]
+	headers = {
+		"Ones-Auth-Token": "%s" %(owner_token),
+		"Ones-User-Id": "%s" %(owner_uuid)
+	}
 
 	api_url = "%s/team/%s/permission_rules" %(url,team_uuid)
-	headers = {
-		"Content-Type": "application/json"
-	}
-	body = {
-	  "email":"%s" %(owner_email),
-	  "password":"%s" %(owner_password)
-	}
 
-	print("------------headers------------")
-	print(headers)
-	print("------------body--------------")
-	print(body)
-
-	r = requests.post(api_url, headers=headers, data=json.dumps(body))
+	r = requests.get(api_url, headers=headers)
 	return r
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../config/variable.json")
+		self.global_variable = GlobalVariable("../../config/variable_F1059.json")
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -55,7 +42,8 @@ class TestGroupSort(unittest.TestCase):
 			return self.status_code
 		#response body
 		print("------------response--------------")
-		print(self.response_json)
+		print(self.request.text)
+
 		self.assertIn("user", self.response_json)
 		self.assertIn("teams",self.response_json)
 
@@ -76,6 +64,8 @@ class TestGroupSort(unittest.TestCase):
 		self.global_variable.store("owner_token",token)
 		# write to json file
 		self.global_variable.write()
+		with open('response.json','w') as f:
+			f.write(self.request.text)
 
 	def teardown(self):
 		pass

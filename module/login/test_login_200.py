@@ -51,7 +51,8 @@ class TestGroupSort(unittest.TestCase):
 			return self.status_code
 		#response body
 		print("------------response--------------")
-		print(self.response_json)
+		print(self.request.text)
+
 		self.assertIn("user", self.response_json)
 		self.assertIn("teams",self.response_json)
 
@@ -72,6 +73,8 @@ class TestGroupSort(unittest.TestCase):
 		self.global_variable.store("owner_token",token)
 		# write to json file
 		self.global_variable.write()
+		with open('response.json','w') as f:
+			f.write(self.request.text)
 
 	def teardown(self):
 		pass
