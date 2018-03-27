@@ -15,20 +15,17 @@ def request(variable):
 	team_uuid = variable["team_uuid"]
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
-	pipeline_uuid = "VtzqKwq6"
+	project_uuid = "T2a2bqpZc3bjwxU4"
+	sprint_uuid = "F2ogSA8S"
 
-	api_url = "%s/team/%s/pipeline/%s/update" %(url,team_uuid,pipeline_uuid)
+	api_url = "%s/team/%s/project/%s/sprint/%s/lint_report" %(url,team_uuid,project_uuid,sprint_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
 	}
-	body = {
-		"pipeline":{
-			"sprint_binding_rule":"string.sub(branch,-5,-1) == string.sub(sprint_name,1,5)"
-		}			
-	}
+	
 	print(headers)
-	r = requests.post(api_url,headers = headers,data = json.dumps(body))
+	r = requests.get(api_url,headers = headers)
 	return r
 
 class TestGroupSort(unittest.TestCase):
