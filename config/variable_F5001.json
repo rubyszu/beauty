@@ -1,0 +1,16 @@
+{
+  "owner_password": "12345678", 
+  "url": "https://api.ones.team/project/F5001", 
+  "owner_email": "chenliangyu@ones.ai", 
+  "owner_uuid": "T2a2bqpZ", 
+  "owner_token": "1qJgPu99ip9lqrX9D7BoqBxIybBrTdnt2494i4f6NyHZ57mkGL1fDWTCTBNPjLGV", 
+  "team_uuid": "VnfMZEQS", 
+  "pipeline_uuids": [
+    "DQ3qFfJN", 
+    "9aNrBbbD", 
+    "Ed8zQF65", 
+    "TB266UZz", 
+    "SNbpqYGX", 
+    "VtzqKwq6"
+  ]
+}

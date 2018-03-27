@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os, sys
 
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
+sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../../')))
 from config import GlobalVariable
 import time
 import requests
@@ -13,54 +13,55 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
+	owner_uuid = variable["owner_uuid"]
+	owner_token = variable["owner_token"]
+	pipeline_uuid = variable["pipeline_uuids"][0]
+
+	api_url = "%s/team/%s/pipeline/%s/callback" %(url,team_uuid,pipeline_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
 	}
-
-	api_url = "%s/team/%s/permission_rules" %(url,team_uuid)
-
-	r = requests.get(api_url, headers=headers)
+	print(headers)
+	r = requests.get(api_url,headers = headers)
 	return r
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../config/variable_F1059.json")
+		self.global_variable = GlobalVariable("../../../config/variable_F5001.json")
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
 		self.response_json = self.request.json()
 
 	def test_result_200(self):
-		
 		#status code
 		print("----------status_code----------")
 		print(self.status_code)
-		self.assertEqual(200,self.status_code)
-		if(self.status_code != 200):
-			return self.status_code
+		# self.assertEqual(200,self.status_code)
+		# if(self.status_code != 200):
+		# 	return self.status_code
 		#response body
 		print("------------response--------------")
 		print(self.request.text)
 
-		self.assertIn("user", self.response_json)
-		self.assertIn("teams",self.response_json)
+		pipelines = self.response_json.get("pipelines")
+		uuids = []
+		print(len(pipelines))
+		print(pipelines[0].get("uuid"))
+		for i in range(len(pipelines)):
+			uuids.append(pipelines[i].get("uuid"))
+		print(uuids)
 
-		user = self.response_json.get("user")
-		print("-----------type(user)------------")
-		print(type(user))
-		print("-------------user-----------")
-		print(user)
-		token = user.get("token")
-		print("-----------token-----------")
-		print(token)
 
-		if(self.variable.__contains__("owner_token")):
-			owner_token = self.variable["owner_token"]
-			owner_token = token
+		if(self.variable.__contains__("pipeline_uuids")):
+			pipeline_uuids = self.variable["owner_uuid"]
+			pipeline_uuids = uuids
 		else:
-			owner_token = token
-		self.global_variable.store("owner_token",token)
+			pipeline_uuids = uuids
+		self.global_variable.store("pipeline_uuids",uuids)
+
+		
 		# write to json file
 		self.global_variable.write()
 		with open('response.json','w') as f:

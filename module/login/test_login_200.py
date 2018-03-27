@@ -34,7 +34,7 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../config/variable_F1059.json")
+		self.global_variable = GlobalVariable("../../config/variable_F5001.json")
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -61,9 +61,21 @@ class TestGroupSort(unittest.TestCase):
 		print(type(user))
 		print("-------------user-----------")
 		print(user)
+		useruuid = user.get("uuid")
 		token = user.get("token")
 		print("-----------token-----------")
 		print(token)
+		teams = self.response_json.get("teams")
+		teamuuid = teams[0].get("uuid")
+		print("-----------teamuuid-----------")
+		print(teamuuid)
+
+		if(self.variable.__contains__("owner_uuid")):
+			owner_uuid = self.variable["owner_uuid"]
+			owner_uuid = useruuid
+		else:
+			owner_uuid = useruuid
+		self.global_variable.store("owner_uuid",useruuid)
 
 		if(self.variable.__contains__("owner_token")):
 			owner_token = self.variable["owner_token"]
@@ -71,6 +83,13 @@ class TestGroupSort(unittest.TestCase):
 		else:
 			owner_token = token
 		self.global_variable.store("owner_token",token)
+
+		if(self.variable.__contains__("team_uuid")):
+			team_uuid = self.variable["team_uuid"]
+			team_uuid = teamuuid
+		else:
+			team_uuid = teamuuid
+		self.global_variable.store("team_uuid",teamuuid)
 		# write to json file
 		self.global_variable.write()
 		with open('response.json','w') as f:
