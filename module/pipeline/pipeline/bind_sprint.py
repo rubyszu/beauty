@@ -32,6 +32,7 @@ def request(variable):
 	r = requests.post(api_url,headers = headers,data = json.dumps(body))
 	return r
 
+# TestGroupSort("test_result_200")
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
 		self.global_variable = GlobalVariable("../../../config/variable_F5001.json")
