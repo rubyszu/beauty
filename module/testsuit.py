@@ -19,9 +19,9 @@ class TestMathFunc(unittest.TestCase):
         """Test method multi(a, b)"""
         self.assertEqual(6, 2 * 3)
 
-    @unittest.skip("demonstrating skipping")
-    def test_skipped(self):
-        self.fail("shouldn't happen")
+    # @unittest.skip("demonstrating skipping")
+    # def test_skipped(self):
+    #     self.fail("shouldn't happen")
 
     def test_divide(self):
         """Test method divide(a, b)"""
@@ -31,7 +31,7 @@ class TestMathFunc(unittest.TestCase):
 if __name__ == '__main__':
     suite = unittest.TestSuite()
 
-    tests = [TestMathFunc("test_skipped")]
+    tests = [TestMathFunc("test_add"),TestMathFunc("test_minus"),TestMathFunc("test_multi"),TestMathFunc("test_divide")]
     suite.addTests(tests)
     
     url = "https://api.ones.team/project/F5001/team/VnfMZEQS/pipeline/VtzqKwq6/callback?token=9QSZPPJ2TfNgE46QkyBGWg"
