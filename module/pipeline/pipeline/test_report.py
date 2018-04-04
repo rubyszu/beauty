@@ -15,8 +15,8 @@ def request(variable):
 	team_uuid = variable["team_uuid"]
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
-	project_uuid = "T2a2bqpZc3bjwxU4"
-	sprint_uuid = "F2ogSA8S"
+	project_uuid = "T2a2bqpZogOTfsvH"
+	sprint_uuid = "KvWmVCcm"
 
 	api_url = "%s/team/%s/project/%s/sprint/%s/test_report" %(url,team_uuid,project_uuid,sprint_uuid)
 	headers = {
