@@ -26,7 +26,7 @@ class TestMathFunc(unittest.TestCase):
     def test_divide(self):
         """Test method divide(a, b)"""
         self.assertEqual(2, 6 / 3)
-        self.assertEqual(2.5, 5 / 2)
+        self.assertEqual(2, 5 / 2)
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
