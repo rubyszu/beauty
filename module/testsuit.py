@@ -34,6 +34,6 @@ if __name__ == '__main__':
     tests = [TestMathFunc("test_add"),TestMathFunc("test_minus"),TestMathFunc("test_multi"),TestMathFunc("test_divide")]
     suite.addTests(tests)
     
-    url = "https://api.ones.team/project/F5001/team/VnfMZEQS/pipeline/VtzqKwq6/callback?token=9QSZPPJ2TfNgE46QkyBGWg"
-    runner = ones.OnesTestRunner(url)
+    # url = "https://api.ones.team/project/F5001/team/VnfMZEQS/pipeline/EEbASw86/callback?token=RJtj95uknZhU8FqPzHMY1x"
+    runner = ones.OnesTestRunner()
     runner.run(suite)
