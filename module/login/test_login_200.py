@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import os, sys
 
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable
 import time
 import requests
@@ -9,6 +10,7 @@ import json
 import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 
 def request(variable):
 	url = variable["url"]
@@ -34,8 +36,8 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("../../config/setting.json").json
-		self.global_variable = GlobalVariable("../../config/variable_%s.json" %(self.setting["branch"]))
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
