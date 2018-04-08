@@ -31,6 +31,5 @@ if __name__ == '__main__':
     test = CompletelySkippedTest("test_not_run_at_all")
     suite.addTests(tests)
     
-    url = "https://api.ones.team/project/F5001/team/VnfMZEQS/pipeline/VtzqKwq6/callback?token=9QSZPPJ2TfNgE46QkyBGWg"
-    runner = ones.OnesTestRunner(url)
+    runner = ones.OnesTestRunner()
     runner.run(suite)

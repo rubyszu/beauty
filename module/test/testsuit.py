@@ -8,6 +8,7 @@ class TestMathFunc(unittest.TestCase):
 
     def test_add(self):
         """Test method add(a, b)"""
+        self.AssertEqual(3,1 + 2)
         self.assertEqual(3, 1 + 2)
         self.assertNotEqual(3, 2 + 2)
 
@@ -19,9 +20,17 @@ class TestMathFunc(unittest.TestCase):
         """Test method multi(a, b)"""
         self.assertEqual(6, 2 * 3)
 
-    # @unittest.skip("demonstrating skipping")
-    # def test_skipped(self):
-    #     self.fail("shouldn't happen")
+    @unittest.skip("demonstrating skipping")
+    def test_skipped(self):
+        self.fail("shouldn't happen")
+
+    @unittest.expectedFailure
+    def testExpectedFail(self):
+        raise TypeError
+
+    @unittest.expectedFailure
+    def testUnexpectedSuccess(self):
+        pass
 
     def test_divide(self):
         """Test method divide(a, b)"""
@@ -31,9 +40,8 @@ class TestMathFunc(unittest.TestCase):
 if __name__ == '__main__':
     suite = unittest.TestSuite()
 
-    tests = [TestMathFunc("test_add"),TestMathFunc("test_minus"),TestMathFunc("test_multi"),TestMathFunc("test_divide")]
+    tests = [TestMathFunc("test_add"),TestMathFunc("test_minus"),TestMathFunc("test_multi"),TestMathFunc("test_skipped"),TestMathFunc("testExpectedFail"),TestMathFunc("testUnexpectedSuccess"),TestMathFunc("test_divide")]
     suite.addTests(tests)
     
-    # url = "https://api.ones.team/project/F5001/team/VnfMZEQS/pipeline/EEbASw86/callback?token=RJtj95uknZhU8FqPzHMY1x"
     runner = ones.OnesTestRunner()
     runner.run(suite)
