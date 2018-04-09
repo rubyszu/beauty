@@ -65,6 +65,21 @@ class TestResponse(unittest.TestCase):
 			f.write(self.request.text)
 		print(self.status_code)
 		print(self.request.text)
+
+		sprints = self.response_json.get("sprint").get("sprints")
+		uuids = []
+		for i in range(len(sprints)):
+			uuids.append(sprints[i].get("uuid"))
+
+
+		if(self.variable.__contains__("sprints")):
+			sprints = self.variable["sprints"]
+			sprints = uuids
+		else:
+			sprints = uuids
+		self.global_variable.store("sprints",uuids)
+
+		self.global_variable.write()
 		
 	def tearDown(self):
 		pass
