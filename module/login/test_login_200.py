@@ -47,31 +47,18 @@ class TestGroupSort(unittest.TestCase):
 		
 		'''test login 200'''
 		#status code
-		print("----------status_code----------")
-		print(self.status_code)
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return self.status_code
 		#response body
-		print("------------response--------------")
-		print(self.request.text)
-
 		self.assertIn("user", self.response_json)
 		self.assertIn("teams",self.response_json)
 
 		user = self.response_json.get("user")
-		print("-----------type(user)------------")
-		print(type(user))
-		print("-------------user-----------")
-		print(user)
 		useruuid = user.get("uuid")
 		token = user.get("token")
-		print("-----------token-----------")
-		print(token)
 		teams = self.response_json.get("teams")
 		teamuuid = teams[0].get("uuid")
-		print("-----------teamuuid-----------")
-		print(teamuuid)
 
 		if(self.variable.__contains__("owner_uuid")):
 			owner_uuid = self.variable["owner_uuid"]

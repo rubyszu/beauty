@@ -28,7 +28,8 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../../config/variable_F5001.json")
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -36,22 +37,15 @@ class TestGroupSort(unittest.TestCase):
 
 	def test_result_200(self):
 		#status code
-		print("----------status_code----------")
-		print(self.status_code)
-		# self.assertEqual(200,self.status_code)
-		# if(self.status_code != 200):
-		# 	return self.status_code
+		self.assertEqual(200,self.status_code)
+		if(self.status_code != 200):
+			return self.status_code
 		#response body
-		print("------------response--------------")
-		print(self.request.text)
 
 		pipelines = self.response_json.get("pipelines")
 		uuids = []
-		print(len(pipelines))
-		print(pipelines[0].get("uuid"))
 		for i in range(len(pipelines)):
 			uuids.append(pipelines[i].get("uuid"))
-		print(uuids)
 
 
 		if(self.variable.__contains__("pipeline_uuids")):

@@ -27,17 +27,13 @@ def request(variable):
 	  "password":"%s" %(owner_password)
 	}
 
-	print("------------headers------------")
-	print(headers)
-	print("------------body--------------")
-	print(body)
-
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../config/variable.json")
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -47,25 +43,15 @@ class TestGroupSort(unittest.TestCase):
 		
 		'''test login 200'''
 		#status code
-		print("----------status_code----------")
-		print(self.status_code)
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return self.status_code
 		#response body
-		print("------------response--------------")
-		print(self.response_json)
 		self.assertIn("user", self.response_json)
 		self.assertIn("teams",self.response_json)
 
 		user = self.response_json.get("user")
-		print("-----------type(user)------------")
-		print(type(user))
-		print("-------------user-----------")
-		print(user)
 		token = user.get("token")
-		print("-----------token-----------")
-		print(token)
 
 		if(self.variable.__contains__("owner_token")):
 			owner_token = self.variable["owner_token"]

@@ -39,7 +39,8 @@ def request(vaasfafasfasriable):
 
 class TestResponse(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../data/variable.json")
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -49,8 +50,6 @@ class TestResponse(unittest.TestCase):
 		
 		'''test add_task_status(to_do) 200'''
 		#status code
-		print(self.status_code)
-		print(self.response_json)
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return
