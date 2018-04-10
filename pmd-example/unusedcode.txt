@@ -1,4 +1,8 @@
-/Users/ruby/beauty/pmd-example/src/HelloWorld.java:2:	Avoid unused private fields such as 'PRINT_DELAY'.
-/Users/ruby/beauty/pmd-example/src/HelloWorld.java:3:	Avoid unused private fields such as 'name'.
-/Users/ruby/beauty/pmd-example/src/HelloWorld.java:4:	Avoid unused method parameters such as 'howdy'.
-/Users/ruby/beauty/pmd-example/src/HelloWorld.java:4:	Avoid unused private methods such as 'bar(String)'.
+/Users/ruby/beauty/lucky/java-example/helloword.java:2:	Avoid unused private fields such as 'PRINT_DELAY'.
+/Users/ruby/beauty/lucky/java-example/helloword.java:3:	Avoid unused private fields such as 'name'.
+/Users/ruby/beauty/lucky/java-example/helloword.java:4:	Avoid unused method parameters such as 'howdy'.
+/Users/ruby/beauty/lucky/java-example/helloword.java:4:	Avoid unused private methods such as 'bar(String)'.
+/Users/ruby/beauty/lucky/pmd-example/src/HelloWorld.java:2:	Avoid unused private fields such as 'PRINT_DELAY'.
+/Users/ruby/beauty/lucky/pmd-example/src/HelloWorld.java:3:	Avoid unused private fields such as 'name'.
+/Users/ruby/beauty/lucky/pmd-example/src/HelloWorld.java:4:	Avoid unused method parameters such as 'howdy'.
+/Users/ruby/beauty/lucky/pmd-example/src/HelloWorld.java:4:	Avoid unused private methods such as 'bar(String)'.
