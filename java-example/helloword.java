@@ -8,13 +8,13 @@ public class HelloWorld {
         // Prints "Hello, World" to the terminal window.
         System.out.println("Hello, World");
     }
-    // unusual use of branching statement in a loop
-	for (int i = 0; i < 10; i++) {
-	    if (i*i <= 25) {
-	        continue;
-	    }
-	    break;
-	}
+ //    // unusual use of branching statement in a loop
+	// for (int i = 0; i < 10; i++) {
+	//     if (i*i <= 25) {
+	//         continue;
+	//     }
+	//     break;
+	// }
 
 	// // this makes more sense...
 	// for (int i = 0; i < 10; i++) {
