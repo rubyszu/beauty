@@ -23,9 +23,9 @@ class TestMathFunc(unittest.TestCase):
     # def test_skipped(self):
     #     self.fail("shouldn't happen")
 
-    # @unittest.expectedFailure
-    # def testExpectedFail(self):
-    #     raise TypeError
+    @unittest.expectedFailure
+    def testExpectedFail(self):
+        raise TypeError
 
     # @unittest.expectedFailure
     # def testUnexpectedSuccess(self):
