@@ -14,10 +14,11 @@ def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
 	project_uuid = "9CD1ULg7CDKR7N38"
+	sprint_uuid = "57Kka6UW"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
-	api_url = "%s/team/%s/project/%s/sprints" %(url,team_uuid,project_uuid)
+	api_url = "%s/team/%s/project/%s/sprint/%s/burndown" %(url,team_uuid,project_uuid,sprint_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
@@ -32,7 +33,7 @@ class TestGroupSort(unittest.TestCase):
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
-		self.response_json = self.request.json()
+		# self.response_json = self.request.json()
 
 	def test_result_200(self):
 		#status code

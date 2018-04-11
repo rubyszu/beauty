@@ -17,7 +17,7 @@ def request(variable):
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
-	api_url = "%s/team/%s/project/%s/sprints" %(url,team_uuid,project_uuid)
+	api_url = "%s/team/%s/project/%s/sprint_statuses" %(url,team_uuid,project_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
@@ -40,8 +40,21 @@ class TestGroupSort(unittest.TestCase):
 		if(self.status_code != 200):
 			return self.status_code
 
-		# write to json file
-		self.global_variable.write()
+		# fields = self.response_json.get("fields")
+		# uuids = []
+		# for i in range(len(fields)):
+		# 	uuids.append(fields[i].get("uuid"))
+
+
+		# if(self.variable.__contains__("sprint_fields")):
+		# 	sprint_fields = self.variable["sprint_fields"]
+		# 	sprint_fields = uuids
+		# else:
+		# 	sprint_fields = uuids
+		# self.global_variable.store("sprint_fields",uuids)
+
+		# # write to json file
+		# self.global_variable.write()
 		with open('response.json','w') as f:
 			f.write(self.request.text)
 

@@ -13,16 +13,31 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = "9CD1ULg7CDKR7N38"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
+	project_uuid = 
 
-	api_url = "%s/team/%s/project/%s/sprints" %(url,team_uuid,project_uuid)
+
+	api_url = "%s/team/%s/projects/add" %(url,team_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
 	}
-	r = requests.get(api_url,headers = headers)
+	body = {
+		"project":{
+			"copy_from":{},
+			"issue_types":["","",""],
+			"members":[""],
+			"project":{
+				"members":[],
+				"name":"新建项目",
+				"owner":"%s" %(owner_uuid)
+				"status":1,
+				"uuid":"%s" 
+			}
+		}
+	}
+	r = requests.post(api_url,headers = headers)
 	return r
 
 class TestGroupSort(unittest.TestCase):

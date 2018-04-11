@@ -14,13 +14,14 @@ import unittest
 
 task_status_name = "ruby %s" %(time.time()) 
 
-def request(vaasfafasfasriable):
+def request(variable):
 	url = variable["url"]
-	team_uuid = variable["safasgasgteam_uuid"]
+	team_uuid = variable["team_uuid"]
+	project_uuid = "9CD1ULg7CDKR7N38"
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 
-	api_url = "%s/team/%s/task_statuses/add" %(url, team_uuid)
+	api_url = "%s/team/%s/tasks/add2" %(url, team_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid),
@@ -28,8 +29,11 @@ def request(vaasfafasfasriable):
 	}
 	body = {
 	  "task_status":{
-	    "name": "%s" %(task_status_name),
-	    "category":"to_do"
+	    "summary": "任务01",
+	    "owner":"%s" %(owner_uuid),
+	    "parent_uuid":"",
+	    "priority":"PRIOPTno",
+	    "project_uuid":"%s" %(project_uuid)
 	  }
 	}
 	# print(headers)

@@ -13,6 +13,9 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
+	owner_token = variable["owner_token"]
+	owner_uuid = variable["owner_uuid"]
+
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
@@ -37,31 +40,14 @@ class TestGroupSort(unittest.TestCase):
 		#status code
 		print("----------status_code----------")
 		print(self.status_code)
-		self.assertEqual(200,self.status_code)
-		if(self.status_code != 200):
-			return self.status_code
+		# self.assertEqual(200,self.status_code)
+		# if(self.status_code != 200):
+		# 	return self.status_code
 		#response body
 		print("------------response--------------")
-		print(self.request.text)
+		# print(self.request.text)
 
-		self.assertIn("user", self.response_json)
-		self.assertIn("teams",self.response_json)
-
-		user = self.response_json.get("user")
-		print("-----------type(user)------------")
-		print(type(user))
-		print("-------------user-----------")
-		print(user)
-		token = user.get("token")
-		print("-----------token-----------")
-		print(token)
-
-		if(self.variable.__contains__("owner_token")):
-			owner_token = self.variable["owner_token"]
-			owner_token = token
-		else:
-			owner_token = token
-		self.global_variable.store("owner_token",token)
+		
 		# write to json file
 		self.global_variable.write()
 		with open('response.json','w') as f:

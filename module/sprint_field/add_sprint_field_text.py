@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = "9CD1ULg7geEn5qit"
+	project_uuid = "9CD1ULg7CDKR7N38"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
@@ -24,18 +24,8 @@ def request(variable):
 	}
 	body = {
 		"field":{
-		"name": "单选菜单test",
-			"type": "option",
-			"options": [
-			{
-				"value": "选项1"
-			},
-			{
-				"value": "选项2"
-			},
-			{
-				"value": "选项3"
-			}]
+		"name": "单行文本test",
+			"type": "text"
 		}			
 	}
 	print(headers)

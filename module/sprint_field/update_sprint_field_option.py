@@ -14,7 +14,7 @@ def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
 	project_uuid = "9CD1ULg7geEn5qit"
-	field_uuid = "98ojBWsz"
+	field_uuid = "EhkeSR2w"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
@@ -25,15 +25,8 @@ def request(variable):
 	}
 	body = {
 		"field":{
-		"name": "单选菜单option",
-			"type": "option",
-			"options": [
-			{
-				"value": "单选菜单选项2"
-			},
-			{
-				"value": "单选菜单选项3"
-			}]
+		"name": "EhkeSR2w",
+			"type": "date"
 		}			
 	}
 	print(headers)
@@ -57,7 +50,7 @@ class TestGroupSort(unittest.TestCase):
 
 		# write to json file
 		self.global_variable.write()
-		with open('response.json','w') as f:
+		with open('response1.json','w') as f:
 			f.write(self.request.text)
 
 	def teardown(self):
