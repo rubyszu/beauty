@@ -11,9 +11,6 @@ import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-branch = sys.argv[-1]
-print branch
-
 
 def request(variable):
 	url = variable["url"]
@@ -43,9 +40,9 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		# self.setting = GlobalVariable("./config/setting.json").json
-		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code

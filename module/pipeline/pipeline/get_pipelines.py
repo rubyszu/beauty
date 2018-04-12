@@ -38,9 +38,9 @@ class TestGroupSort(unittest.TestCase):
 		#status code
 		print("----------status_code----------")
 		print(self.status_code)
-		# self.assertEqual(200,self.status_code)
-		# if(self.status_code != 200):
-		# 	return self.status_code
+		self.assertEqual(200,self.status_code)
+		if(self.status_code != 200):
+			return self.status_code
 		#response body
 		print("------------response--------------")
 		print(self.request.text)
