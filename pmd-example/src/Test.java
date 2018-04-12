@@ -1,6 +1,5 @@
-public class FooTest extends TestCase {
-    void testCode() {
-        Object a, b;
-        assertTrue(a.equals(b));                    // bad usage
-    }
+public void doSomething() {
+    System.out.println("Hello world!");
+    System.out.println("Hello world!");
+    // 98 copies omitted for brevity.
 }
