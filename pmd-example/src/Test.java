@@ -1,5 +1,4 @@
-public class TestAdd{
-    Logger log = Logger.getLogger(Foo.class.getName());                 // not recommended
+public class MyClass {
 
-    static final Logger log = Logger.getLogger(Foo.class.getName());    // preferred approach
+    public void MyClass() {}    // this is bad because it is a method
 }
