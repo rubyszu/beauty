@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = "9CD1ULg7CDKR7N38"
+	project_uuid = variable["project_uuid"]
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
@@ -24,7 +24,7 @@ def request(variable):
 	}
 	body = {
   		"status": {
-  			"name": "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二"
+  			"name": "产品研发"
   		}	
 	}
 	print(headers)

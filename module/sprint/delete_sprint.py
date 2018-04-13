@@ -18,38 +18,12 @@ def request(variable):
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
-	api_url = "%s/team/%s/project/%s/sprint/%s/sprint_statuses/update" %(url,team_uuid,project_uuid,sprint_uuid)
+	api_url = "%s/team/%s/project/%s/sprint/%s/delete" %(url,team_uuid,project_uuid,sprint_uuid)
 	headers = {
 		"Ones-Auth-Token": "%s" %(owner_token),
 		"Ones-User-Id": "%s" %(owner_uuid)
 	}
-	body = {
-		"sprint_statuses":[{
-			"status_uuid": "8nb78Std",
-			"plan_start_time": 1523318400,
-			"plan_end_time": 1522540800,
-			"actual_start_time": 1514764800,
-			"actual_end_time": 1485907200,
-			"is_current_status": True
-		}, {
-			"status_uuid": "DWAjjESu",
-			"plan_start_time": 1485993600,
-			"plan_end_time": 1523376000,
-			"actual_start_time": 1486166400,
-			"actual_end_time": 1483488000,
-			"is_current_status": False
-
-		},{
-			"status_uuid": "Pobqp6Cv",
-			"plan_start_time": 1485993600,
-			"plan_end_time": 1523376000,
-			"actual_start_time": 1486166400,
-			"actual_end_time": 1483488000,
-			"is_current_status": False
-		}]
-	}
-	print(headers)
-	r = requests.post(api_url,headers = headers,data = json.dumps(body))
+	r = requests.post(api_url,headers = headers)
 	return r
 
 class TestGroupSort(unittest.TestCase):

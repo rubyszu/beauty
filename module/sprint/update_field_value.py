@@ -13,9 +13,9 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = "9CD1ULg7CDKR7N38"
-	sprint_uuid = "Cc9v3UGk"
-	field_uuid = "RBs2Ffob"
+	project_uuid = variable["project_uuid"]
+	sprint_uuid = variable["sprint_uuid"]
+	field_uuid = "Vz5HYStX"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
@@ -26,7 +26,7 @@ def request(variable):
 	}
 	body = {
 		"field_value":{
-			"value": 314000
+			"value": "PW8S9arv"
 		}
 	}
 	print(headers)

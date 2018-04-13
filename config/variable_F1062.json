@@ -1,21 +1,23 @@
 {
   "sprints": [
-    "HLngQD7u", 
-    "DWDXFgWM", 
-    "6LCb5UQ5", 
-    "6Wtr9kzT", 
-    "Cc9v3UGk", 
-    "57Kka6UW"
+    "C6N4J2e6", 
+    "Y6aDyVuF", 
+    "YFyccMiD", 
+    "9XBUHdtk", 
+    "6GmGVUvz", 
+    "2a6MwneS"
   ], 
   "owner_password": "12345678", 
+  "project_uuid": "A5GHW6saTvTJjKJY", 
   "url": "https://api.ones.team/project/F1062", 
-  "owner_email": "linhong+issue01@ones.ai", 
-  "owner_uuid": "9CD1ULg7", 
-  "owner_token": "IK6NDRIVyST1KKEiglii1J9YUPeEgQ0n0DIbrTV3tQEnms7DYgR1fmt824VvUeJ6", 
+  "owner_email": "linhong+1062s@ones.ai", 
+  "owner_uuid": "A5GHW6sa", 
+  "owner_token": "eg5P4GTpZVDjjErlfkbhKGcVaRDGzK0SH4BiMnqFRq9YxfBN9LOdWfGoG4MiBrgj", 
   "sprint_fields": [
     "88Xhyb4w"
   ], 
-  "team_uuid": "6z78fwfE", 
+  "team_uuid": "AsVKxFb7", 
+  "sprint_uuid": "Y6aDyVuF", 
   "pipeline_uuids": [
     "DQ3qFfJN", 
     "9aNrBbbD", 

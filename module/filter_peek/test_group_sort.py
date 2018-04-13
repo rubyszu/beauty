@@ -12,11 +12,12 @@ import json
 import unittest
 
 def request(variable):
-	url ="https://dev.ones.team/project/F1005/api/project"
+	url =variable["url"]
 	team_uuid = variable["team_uuid"]
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
-	project_uuid = "GUGgMPPryVpocaVx"
+	project_uuid = variable["project_uuid"]
+	sprint_uuid = variable["sprint_uuid"]
 
 	api_url = "%s/team/%s/project/%s/filters/peek" %(url, team_uuid,project_uuid)
 	headers = {
@@ -27,7 +28,8 @@ def request(variable):
 	body = {
 	  "query":{
 	    "must":[
-	        {"equal":{"field_values.field006":"%s" %(project_uuid)}}
+	        {"equal":{"field_values.field006":"%s" %(project_uuid)}},
+	        {"equal":{"field_values.field011":"%s" %(sprint_uuid)}}
 	    ]
 	  },
 	  "sort":[
@@ -37,7 +39,8 @@ def request(variable):
 	            }
 	    }
 	  ],
-	  "group_by":"field_values.R6erSBdT"
+	  "group_by":"status_category",
+	  "include_subtasks":True
 	}
 	print(headers)
 	print(body)
@@ -46,7 +49,8 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.global_variable = GlobalVariable("../../data/dev_F1005_variable.json")
+		self.setting = GlobalVariable("./config/setting.json").json
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -54,12 +58,19 @@ class TestGroupSort(unittest.TestCase):
 
 	def test_result(self):
 		
-		'''test group_by_milestone_sort_by_create_time_desc 200'''
+		'''test group_sort'''
 		#status code
 		print(self.status_code)
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
-			return
+			return self.statue_code
+
+		# with open('response.json','w') as f:
+		# 	f.write(self.request.text)
+		# with open('response1.json','w') as f:
+		# 	f.write(self.request.text)
+		print(self.status_code)
+		print(self.request.text)
 
 	def tearDown(self):
 

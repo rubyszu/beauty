@@ -42,7 +42,6 @@ def request(variable):
 		"task_status_config": 0,
 		"team": 0,
 		"team_member": 0,
-		"testcase_library": 0,
 		"transition": 0
 }
 	print(headers)

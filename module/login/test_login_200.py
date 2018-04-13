@@ -26,7 +26,7 @@ def request(variable):
 	  "password":"%s" %(owner_password)
 	}
 	# body = {
-	# 	"email":"linhong+issue10@ones.ai",
+	# 	"email":"linhong+1062s1@ones.ai",
 	# 	"password":"12345678"
 	# }
 
