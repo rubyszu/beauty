@@ -13,7 +13,8 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = variable["project_uuid"]
+	# project_uuid = variable["project_uuid"]
+	project_uuid = "A5GHW6saWIES266F"
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 
@@ -55,7 +56,7 @@ class TestGroupSort(unittest.TestCase):
 
 		# write to json file
 		# self.global_variable.write()
-		with open('response.json','w') as f:
+		with open('response2.json','w') as f:
 			f.write(self.request.text)
 
 	def teardown(self):

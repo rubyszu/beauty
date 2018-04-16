@@ -25,27 +25,14 @@ def request(variable):
 	}
 	body = {
 		"sprint_statuses":[{
-			"status_uuid": "8nb78Std",
-			"plan_start_time": 1523318400,
-			"plan_end_time": 1522540800,
-			"actual_start_time": 1514764800,
-			"actual_end_time": 1485907200,
-			"is_current_status": True
-		}, {
-			"status_uuid": "DWAjjESu",
-			"plan_start_time": 1485993600,
-			"plan_end_time": 1523376000,
-			"actual_start_time": 1486166400,
-			"actual_end_time": 1483488000,
-			"is_current_status": False
-
-		},{
 			"status_uuid": "Pobqp6Cv",
-			"plan_start_time": 1485993600,
-			"plan_end_time": 1523376000,
-			"actual_start_time": 1486166400,
-			"actual_end_time": 1483488000,
+			"plan_start_time": 1523232000,
 			"is_current_status": False
+		},{
+			"status_uuid": "8nb78Std",
+			"plan_end_time": 1523577600,
+			"actual_end_time": 1523462400,
+			"is_current_status": True
 		}]
 	}
 	print(headers)
