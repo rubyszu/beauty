@@ -3,16 +3,17 @@ import os, sys
 
 current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
-from config import GlobalVariable
+from config import GlobalVariable, branch
 import time
 import requests
 import json
 import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
+args = branch.get_args()
 
 def request(variable):
+	print(args[0])
 	url = variable["url"]
 	owner_email = variable["owner_email"]
 	owner_password = variable["owner_password"]
@@ -49,7 +50,7 @@ class TestGroupSort(unittest.TestCase):
 		self.response_json = self.request.json()
 
 	def test_result_200(self):
-		
+
 		'''test login 200'''
 		#status code
 		self.assertEqual(200,self.status_code)
@@ -92,10 +93,10 @@ class TestGroupSort(unittest.TestCase):
 
 	def teardown(self):
 		pass
-		
+
 
 def main():
-	unittest.main(verbosity = 2)
-	
+	unittest.main(argv=args[1])
+
 if __name__ == '__main__':
 	main()
