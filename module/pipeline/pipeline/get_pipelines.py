@@ -64,7 +64,7 @@ class TestGroupSort(unittest.TestCase):
 		
 		# write to json file
 		self.global_variable.write()
-		with open('response.json','w') as f:
+		with open('response1.json','w') as f:
 			f.write(self.request.text)
 
 	def teardown(self):

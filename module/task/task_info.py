@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	task_uuid = "9CD1ULg7BXKF3E59"
+	task_uuid = variable["task_uuid"]
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
 

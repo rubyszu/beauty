@@ -15,7 +15,7 @@ def request(variable):
 	team_uuid = variable["team_uuid"]
 	owner_uuid = variable["owner_uuid"]
 	owner_token = variable["owner_token"]
-	pipeline_uuid = "VtzqKwq6"
+	pipeline_uuid = variable["pipeline_uuid"]
 
 	api_url = "%s/team/%s/pipeline/%s/configure_help" %(url,team_uuid,pipeline_uuid)
 	headers = {

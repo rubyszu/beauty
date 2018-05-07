@@ -11,6 +11,8 @@ import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
+branch = args[0]
+# print(branch)
 
 def request(variable):
 	print(args[0])
@@ -31,19 +33,14 @@ def request(variable):
 	# 	"password":"12345678"
 	# }
 
-	print("------------headers------------")
-	print(headers)
-	print("------------body--------------")
-	print(body)
-
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
-		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
