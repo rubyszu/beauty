@@ -1,6 +1,6 @@
 # 文档结构
-```sh
-asuna
+
+lucky
     - config		// 配置
     	- setting.json     //配置分支
     	- variable_F5001.json      //F5001分支的环境变量
@@ -16,5 +16,3 @@ asuna
 
 python testcase.py --branch=XXXX
 
-
-```
