@@ -11,10 +11,9 @@ asuna
     	- ...
     - run
     	- run_test_case.py    //运行测试用例
-```
 
 #运行测试用例
-```sh
+
 python testcase.py --branch=XXXX
 
 
