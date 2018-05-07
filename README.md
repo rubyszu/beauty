@@ -1,4 +1,5 @@
-# 文档结构
+
+```sh
 
 lucky
     - config		// 配置
@@ -13,6 +14,7 @@ lucky
     	- run_test_case.py    //运行测试用例
 
 #运行测试用例
-
 python testcase.py --branch=XXXX
 
+
+```
