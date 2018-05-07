@@ -1,12 +1,13 @@
-# -*- coding: utf-8 -*-
+from jsonschema import validate
 
-import sys
+# A sample schema, like what we'd get from json.load()
+schema = {
+	"type" : "object",
+	"properties" : {
+	"price" : {"type" : "number"},
+	"name" : {"type" : "string"},
+	},
+}
 
-print 'Number of arguments:', len(sys.argv)
-
-print 'They are:', str(sys.argv)
-
-print type(sys.argv)
-
-branch = sys.argv[-1]
-print branch
+# If no exception is raised by validate(), the instance is valid.
+validate({"name" : "Eggs", "price" : "Invalid"}, schema)
