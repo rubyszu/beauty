@@ -12,7 +12,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
-# print(branch)
 
 def request(variable):
 	print(args[0])
@@ -49,11 +48,11 @@ class TestGroupSort(unittest.TestCase):
 	def test_result_200(self):
 
 		'''test login 200'''
-		#status code
+		#validate status code
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return self.status_code
-		#response body
+		#validate response body
 		self.assertIn("user", self.response_json)
 		self.assertIn("teams",self.response_json)
 
@@ -63,6 +62,7 @@ class TestGroupSort(unittest.TestCase):
 		teams = self.response_json.get("teams")
 		teamuuid = teams[0].get("uuid")
 
+		#store data
 		if(self.variable.__contains__("owner_uuid")):
 			owner_uuid = self.variable["owner_uuid"]
 			owner_uuid = useruuid
@@ -83,6 +83,7 @@ class TestGroupSort(unittest.TestCase):
 		else:
 			team_uuid = teamuuid
 		self.global_variable.store("team_uuid",teamuuid)
+
 		# write to json file
 		self.global_variable.write()
 		with open('response.json','w') as f:
