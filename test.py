@@ -7,7 +7,8 @@ schema = {
 	"price" : {"type" : "number"},
 	"name" : {"type" : "string"},
 	},
+	'required': ['price']
 }
 
 # If no exception is raised by validate(), the instance is valid.
-validate({"name" : "Eggs", "price" : "Invalid"}, schema)
+validate({"name" : "Eggs", "priceeeeeeqw" : 11}, schema)

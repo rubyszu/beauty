@@ -4,6 +4,7 @@ import os, sys
 current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
+from jsonschema import validate
 import time
 import requests
 import json
@@ -37,7 +38,7 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		# self.setting = GlobalVariable("./config/setting.json").json
+		self.setting = GlobalVariable("./config/setting.json").json
 		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
@@ -53,14 +54,17 @@ class TestGroupSort(unittest.TestCase):
 		if(self.status_code != 200):
 			return self.status_code
 		#validate response body
-		self.assertIn("user", self.response_json)
-		self.assertIn("teams",self.response_json)
+		# self.assertIn("user", self.response_json)
+		# self.assertIn("teams",self.response_json)
+		api_schema = GlobalVariable("./api_schema/login/login_200.json").json
+		validate(self.response_json, api_schema)
 
 		user = self.response_json.get("user")
 		useruuid = user.get("uuid")
 		token = user.get("token")
 		teams = self.response_json.get("teams")
 		teamuuid = teams[0].get("uuid")
+
 
 		#store data
 		if(self.variable.__contains__("owner_uuid")):

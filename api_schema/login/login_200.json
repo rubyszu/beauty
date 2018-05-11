@@ -1,0 +1,285 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "user": {
+      "$id": "/properties/user",
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "$id": "/properties/user/properties/uuid",
+          "type": "string",
+          "title": "The Uuid Schema ",
+          "default": "",
+          "examples": [
+            "DL1n838a"
+          ]
+        },
+        "email": {
+          "$id": "/properties/user/properties/email",
+          "type": "string",
+          "title": "The Email Schema ",
+          "default": "",
+          "examples": [
+            "chenliangyu@ones.ai"
+          ]
+        },
+        "name": {
+          "$id": "/properties/user/properties/name",
+          "type": "string",
+          "title": "The Name Schema ",
+          "default": "",
+          "examples": [
+            "binavids"
+          ]
+        },
+        "name_pinyin": {
+          "$id": "/properties/user/properties/name_pinyin",
+          "type": "string",
+          "title": "The Name_pinyin Schema ",
+          "default": "",
+          "examples": [
+            "binavids"
+          ]
+        },
+        "title": {
+          "$id": "/properties/user/properties/title",
+          "type": "string",
+          "title": "The Title Schema ",
+          "default": "",
+          "examples": [
+            "s"
+          ]
+        },
+        "avatar": {
+          "$id": "/properties/user/properties/avatar",
+          "type": "string",
+          "title": "The Avatar Schema ",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        },
+        "phone": {
+          "$id": "/properties/user/properties/phone",
+          "type": "string",
+          "title": "The Phone Schema ",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        },
+        "create_time": {
+          "$id": "/properties/user/properties/create_time",
+          "type": "integer",
+          "title": "The Create_time Schema ",
+          "default": 0,
+          "examples": [
+            1504784200488768
+          ]
+        },
+        "status": {
+          "$id": "/properties/user/properties/status",
+          "type": "integer",
+          "title": "The Status Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "channel": {
+          "$id": "/properties/user/properties/channel",
+          "type": "string",
+          "title": "The Channel Schema ",
+          "default": "",
+          "examples": [
+            "uDL1n838aVXOhGxI2rKUfOppWcNeK0MI"
+          ]
+        },
+        "token": {
+          "$id": "/properties/user/properties/token",
+          "type": "string",
+          "title": "The Token Schema ",
+          "default": "",
+          "examples": [
+            "9RLVAnfLMoB2JECJ2eDgQIpLiXhLXqrGhBFy5G14XiflIzSbofyVNjsh1xoA4DkL"
+          ]
+        }
+      }
+    },
+    "teams": {
+      "$id": "/properties/teams",
+      "type": "array",
+      "items": {
+        "$id": "/properties/teams/items",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "$id": "/properties/teams/items/properties/uuid",
+            "type": "string",
+            "title": "The Uuid Schema ",
+            "default": "",
+            "examples": [
+              "KuAVLypP"
+            ]
+          },
+          "status": {
+            "$id": "/properties/teams/items/properties/status",
+            "type": "integer",
+            "title": "The Status Schema ",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "name": {
+            "$id": "/properties/teams/items/properties/name",
+            "type": "string",
+            "title": "The Name Schema ",
+            "default": "",
+            "examples": [
+              "万事 ONES"
+            ]
+          },
+          "owner": {
+            "$id": "/properties/teams/items/properties/owner",
+            "type": "string",
+            "title": "The Owner Schema ",
+            "default": "",
+            "examples": [
+              "DL1n838a"
+            ]
+          },
+          "logo": {
+            "$id": "/properties/teams/items/properties/logo",
+            "type": "string",
+            "title": "The Logo Schema ",
+            "default": "",
+            "examples": [
+              ""
+            ]
+          },
+          "cover_url": {
+            "$id": "/properties/teams/items/properties/cover_url",
+            "type": "string",
+            "title": "The Cover_url Schema ",
+            "default": "",
+            "examples": [
+              ""
+            ]
+          },
+          "domain": {
+            "$id": "/properties/teams/items/properties/domain",
+            "type": "string",
+            "title": "The Domain Schema ",
+            "default": "",
+            "examples": [
+              ""
+            ]
+          },
+          "create_time": {
+            "$id": "/properties/teams/items/properties/create_time",
+            "type": "integer",
+            "title": "The Create_time Schema ",
+            "default": 0,
+            "examples": [
+              1504784200489424
+            ]
+          },
+          "expire_time": {
+            "$id": "/properties/teams/items/properties/expire_time",
+            "type": "integer",
+            "title": "The Expire_time Schema ",
+            "default": 0,
+            "examples": [
+              -1
+            ]
+          },
+          "type": {
+            "$id": "/properties/teams/items/properties/type",
+            "type": "string",
+            "title": "The Type Schema ",
+            "default": "",
+            "examples": [
+              "free"
+            ]
+          },
+          "scale": {
+            "$id": "/properties/teams/items/properties/scale",
+            "type": "integer",
+            "title": "The Scale Schema ",
+            "default": 0,
+            "examples": [
+              15
+            ]
+          },
+          "config": {
+            "$id": "/properties/teams/items/properties/config",
+            "type": "object",
+            "properties": {
+              "sprint": {
+                "$id": "/properties/teams/items/properties/config/properties/sprint",
+                "type": "object",
+                "properties": {
+                  "alias": {
+                    "$id": "/properties/teams/items/properties/config/properties/sprint/properties/alias",
+                    "type": "string",
+                    "title": "The Alias Schema ",
+                    "default": "",
+                    "examples": [
+                      ""
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "member_count": {
+            "$id": "/properties/teams/items/properties/member_count",
+            "type": "integer",
+            "title": "The Member_count Schema ",
+            "default": 0,
+            "examples": [
+              3
+            ]
+          },
+          "org_uuid": {
+            "$id": "/properties/teams/items/properties/org_uuid",
+            "type": "string",
+            "title": "The Org_uuid Schema ",
+            "default": "",
+            "examples": [
+              "GoRxMcaZ"
+            ]
+          }
+        }
+      }
+    },
+    "org": {
+      "$id": "/properties/org",
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "$id": "/properties/org/properties/uuid",
+          "type": "string",
+          "title": "The Uuid Schema ",
+          "default": "",
+          "examples": [
+            "GoRxMcaZ"
+          ]
+        },
+        "name": {
+          "$id": "/properties/org/properties/name",
+          "type": "string",
+          "title": "The Name Schema ",
+          "default": "",
+          "examples": [
+            "万事 ONES"
+          ]
+        }
+      }
+    }
+  }
+}
