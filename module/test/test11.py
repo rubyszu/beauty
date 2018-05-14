@@ -19,6 +19,19 @@ class TestMathFunc(unittest.TestCase):
         """Test method multi(a, b)"""
         self.assertEqual(6, 2 * 3)
 
+    def test_add1(self):
+        """Test method add(a, b)"""
+        self.assertEqual(3, 1 + 2)
+        self.assertNotEqual(3, 2 + 2)
+
+    def test_minus1(self):
+        """Test method minus(a, b)"""
+        self.assertEqual(1, 3 - 2)
+
+    def test_multi1(self):
+        """Test method multi(a, b)"""
+        self.assertEqual(6, 2 * 3)
+
     @unittest.skip("demonstrating skipping")
     def test_skipped(self):
         self.fail("shouldn't happen")
@@ -27,9 +40,6 @@ class TestMathFunc(unittest.TestCase):
     def testExpectedFail(self):
         raise TypeError
 
-    @unittest.expectedFailure
-    def testUnexpectedSuccess(self):
-        pass
 
     def test_divide(self):
         """Test method divide(a, b)"""
