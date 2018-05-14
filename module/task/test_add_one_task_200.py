@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 import os, sys
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-try:
-	import importlib
-	importlib.reload(sys)
-except Exception:
-	reload(sys)
-from config import GlobalVariable
+
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+from config import GlobalVariable, branch
+from jsonschema import validate
 import time
 import requests
 import json
 import unittest
+reload(sys)
+sys.setdefaultencoding('utf-8')
+args = branch.get_args()
+branch = args[0]
 
 task_status_name = "ruby %s" %(time.time()) 
 
@@ -43,8 +45,9 @@ def request(variable):
 
 class TestResponse(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -57,27 +60,10 @@ class TestResponse(unittest.TestCase):
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return
-		#task status uuid
-		self.assertIn("uuid", self.response_json)
-		self.assertEqual(len(self.response_json["uuid"]), 8)
-		#task status name
-		self.assertIn("name", self.response_json)
-		self.assertIsInstance(self.response_json["name"],str)
-		self.assertEqual(task_status_name,self.response_json["name"])
-		#task status category
-		self.assertIn("category", self.response_json)
-		self.assertIsInstance(self.response_json["category"],str)
-		self.assertEqual("to_do",self.response_json["category"])
-		#task status built_in
-		self.assertIn("built_in",self.response_json)
-		self.assertIsInstance(self.response_json["built_in"],bool)
-		self.assertFalse(self.response_json["built_in"])
-		#create_time
-		self.assertIn("create_time",self.response_json)
-		self.assertEqual(type(self.response_json["create_time"]),int)
-		# server_update_stamp
-		self.assertIn("server_update_stamp",self.response_json)
-		self.assertIsInstance(self.response_json["server_update_stamp"],int)
+
+		#response body
+		api_schema = GlobalVariable("./api_schema/task/task_add_one_task_200.json").json
+		validate(self.response_json, api_schema)
 
 	def tearDown(self):
 		#store task_status_to_do 
@@ -102,7 +88,7 @@ class TestResponse(unittest.TestCase):
 
 
 def main():
-	unittest.main(verbosity = 2)
+	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
 	main()

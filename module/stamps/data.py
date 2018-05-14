@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import os, sys
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-from config import GlobalVariable
+
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+from config import GlobalVariable, branch
+from jsonschema import validate
 import time
 import requests
 import json
 import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
+args = branch.get_args()
+branch = args[0]
 
 def request(variable):
 	url = variable["url"]
@@ -51,8 +55,9 @@ def request(variable):
 
 class TestResponse(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -60,10 +65,12 @@ class TestResponse(unittest.TestCase):
 
 	def test_result(self):
 
+		#response body
+		api_schema = GlobalVariable("./api_schema/stamps/data_200.json").json
+		validate(self.response_json, api_schema)
+
 		with open('response.json','w') as f:
 			f.write(self.request.text)
-		print(self.status_code)
-		print(self.request.text)
 
 		sprints = self.response_json.get("sprint").get("sprints")
 		uuids = []
@@ -84,7 +91,7 @@ class TestResponse(unittest.TestCase):
 		pass
 
 def main():
-	unittest.main(verbosity = 2)
+	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
 	main()
