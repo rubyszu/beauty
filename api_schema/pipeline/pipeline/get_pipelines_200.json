@@ -1,0 +1,221 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "pipelines": {
+      "$id": "/properties/pipelines",
+      "type": "array",
+      "items": {
+        "$id": "/properties/pipelines/items",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "$id": "/properties/pipelines/items/properties/uuid",
+            "type": "string",
+            "title": "The Uuid Schema ",
+            "default": "",
+            "examples": [
+              "PwL6D3oP"
+            ]
+          },
+          "name": {
+            "$id": "/properties/pipelines/items/properties/name",
+            "type": "string",
+            "title": "The Name Schema ",
+            "default": "",
+            "examples": [
+              "111"
+            ]
+          },
+          "owner": {
+            "$id": "/properties/pipelines/items/properties/owner",
+            "type": "string",
+            "title": "The Owner Schema ",
+            "default": "",
+            "examples": [
+              "DL1n838a"
+            ]
+          },
+          "project": {
+            "$id": "/properties/pipelines/items/properties/project",
+            "type": "object",
+            "properties": {
+              "uuid": {
+                "$id": "/properties/pipelines/items/properties/project/properties/uuid",
+                "type": "string",
+                "title": "The Uuid Schema ",
+                "default": "",
+                "examples": [
+                  "DL1n838aSrcciyrv"
+                ]
+              },
+              "name": {
+                "$id": "/properties/pipelines/items/properties/project/properties/name",
+                "type": "string",
+                "title": "The Name Schema ",
+                "default": "",
+                "examples": [
+                  "ONES Pipeline"
+                ]
+              }
+            }
+          },
+          "configure_statuses": {
+            "$id": "/properties/pipelines/items/properties/configure_statuses",
+            "type": "object",
+            "properties": {
+              "artifact": {
+                "$id": "/properties/pipelines/items/properties/configure_statuses/properties/artifact",
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/artifact/properties/status",
+                    "type": "string",
+                    "title": "The Status Schema ",
+                    "default": "",
+                    "examples": [
+                      "unknown"
+                    ]
+                  },
+                  "last_success_time": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/artifact/properties/last_success_time",
+                    "type": "integer",
+                    "title": "The Last_success_time Schema ",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              },
+              "ci": {
+                "$id": "/properties/pipelines/items/properties/configure_statuses/properties/ci",
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/ci/properties/status",
+                    "type": "string",
+                    "title": "The Status Schema ",
+                    "default": "",
+                    "examples": [
+                      "unknown"
+                    ]
+                  },
+                  "last_success_time": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/ci/properties/last_success_time",
+                    "type": "integer",
+                    "title": "The Last_success_time Schema ",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              },
+              "lint": {
+                "$id": "/properties/pipelines/items/properties/configure_statuses/properties/lint",
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/lint/properties/status",
+                    "type": "string",
+                    "title": "The Status Schema ",
+                    "default": "",
+                    "examples": [
+                      "unknown"
+                    ]
+                  },
+                  "last_success_time": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/lint/properties/last_success_time",
+                    "type": "integer",
+                    "title": "The Last_success_time Schema ",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              },
+              "scm": {
+                "$id": "/properties/pipelines/items/properties/configure_statuses/properties/scm",
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/scm/properties/status",
+                    "type": "string",
+                    "title": "The Status Schema ",
+                    "default": "",
+                    "examples": [
+                      "success"
+                    ]
+                  },
+                  "last_success_time": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/scm/properties/last_success_time",
+                    "type": "integer",
+                    "title": "The Last_success_time Schema ",
+                    "default": 0,
+                    "examples": [
+                      1523687973
+                    ]
+                  }
+                }
+              },
+              "test": {
+                "$id": "/properties/pipelines/items/properties/configure_statuses/properties/test",
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/test/properties/status",
+                    "type": "string",
+                    "title": "The Status Schema ",
+                    "default": "",
+                    "examples": [
+                      "unknown"
+                    ]
+                  },
+                  "last_success_time": {
+                    "$id": "/properties/pipelines/items/properties/configure_statuses/properties/test/properties/last_success_time",
+                    "type": "integer",
+                    "title": "The Last_success_time Schema ",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "branches": {
+            "$id": "/properties/pipelines/items/properties/branches",
+            "type": "array"
+          },
+          "branch_sprint_bindings": {
+            "$id": "/properties/pipelines/items/properties/branch_sprint_bindings",
+            "type": "array"
+          },
+          "sprint_binding_rule": {
+            "$id": "/properties/pipelines/items/properties/sprint_binding_rule",
+            "type": "string",
+            "title": "The Sprint_binding_rule Schema ",
+            "default": "",
+            "examples": [
+              "string.len(branch) > 0 and string.find(sprint_name, branch, 1, true)"
+            ]
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "$id": "/properties/server_update_stamp",
+      "type": "integer",
+      "title": "The Server_update_stamp Schema ",
+      "default": 0,
+      "examples": [
+        1526271474611456
+      ]
+    }
+  }
+}
