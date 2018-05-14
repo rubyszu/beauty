@@ -1,0 +1,123 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "permission_rules": {
+      "$id": "/properties/permission_rules",
+      "type": "array",
+      "items": {
+        "$id": "/properties/permission_rules/items",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "$id": "/properties/permission_rules/items/properties/uuid",
+            "type": "string",
+            "title": "The Uuid Schema ",
+            "default": "",
+            "examples": [
+              "JB9k9ALk"
+            ]
+          },
+          "context_type": {
+            "$id": "/properties/permission_rules/items/properties/context_type",
+            "type": "string",
+            "title": "The Context_type Schema ",
+            "default": "",
+            "examples": [
+              "issue_type"
+            ]
+          },
+          "context_param": {
+            "$id": "/properties/permission_rules/items/properties/context_param",
+            "type": "object",
+            "properties": {
+              "issue_type_uuid": {
+                "$id": "/properties/permission_rules/items/properties/context_param/properties/issue_type_uuid",
+                "type": "string",
+                "title": "The Issue_type_uuid Schema ",
+                "default": "",
+                "examples": [
+                  "QK43qsCJ"
+                ]
+              },
+              "project_uuid": {
+                "$id": "/properties/permission_rules/items/properties/context_param/properties/project_uuid",
+                "type": "string",
+                "title": "The Project_uuid Schema ",
+                "default": "",
+                "examples": [
+                  "DL1n838abCFFpWyN"
+                ]
+              }
+            }
+          },
+          "user_domain_type": {
+            "$id": "/properties/permission_rules/items/properties/user_domain_type",
+            "type": "string",
+            "title": "The User_domain_type Schema ",
+            "default": "",
+            "examples": [
+              "role"
+            ]
+          },
+          "user_domain_param": {
+            "$id": "/properties/permission_rules/items/properties/user_domain_param",
+            "type": "string",
+            "title": "The User_domain_param Schema ",
+            "default": "",
+            "examples": [
+              "SX7J1JTV"
+            ]
+          },
+          "permission": {
+            "$id": "/properties/permission_rules/items/properties/permission",
+            "type": "string",
+            "title": "The Permission Schema ",
+            "default": "",
+            "examples": [
+              "be_assigned"
+            ]
+          },
+          "read_only": {
+            "$id": "/properties/permission_rules/items/properties/read_only",
+            "type": "boolean",
+            "title": "The Read_only Schema ",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "create_time": {
+            "$id": "/properties/permission_rules/items/properties/create_time",
+            "type": "integer",
+            "title": "The Create_time Schema ",
+            "default": 0,
+            "examples": [
+              1521604858
+            ]
+          },
+          "position": {
+            "$id": "/properties/permission_rules/items/properties/position",
+            "type": "integer",
+            "title": "The Position Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "$id": "/properties/server_update_stamp",
+      "type": "integer",
+      "title": "The Server_update_stamp Schema ",
+      "default": 0,
+      "examples": [
+        1525947406566400
+      ]
+    }
+  }
+}
