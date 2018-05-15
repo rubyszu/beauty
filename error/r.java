@@ -1,11 +1,8 @@
-public class parent {
-    int value ; 
-}
-
-public class child extends parent {
-    int childValue;
-    public child(){}
-    public child (int value){
-          this.childValue = value ; // this line cause ConstructorCallsOverridableMethod warning during object construction
-    }
+public class SeniorClass {
+  public SeniorClass(){
+      toString(); //may throw NullPointerException if overridden
+  }
+  public String toString(){
+    return "IAmSeniorClass";
+  }
 }
