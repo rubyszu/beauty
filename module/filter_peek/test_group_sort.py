@@ -65,12 +65,8 @@ class TestGroupSort(unittest.TestCase):
 		if(self.status_code != 200):
 			return self.statue_code
 
-		# with open('response.json','w') as f:
-		# 	f.write(self.request.text)
-		# with open('response1.json','w') as f:
-		# 	f.write(self.request.text)
-		print(self.status_code)
-		print(self.request.text)
+		with open('response.json','w') as f:
+			f.write(self.request.text)
 
 	def tearDown(self):
 
