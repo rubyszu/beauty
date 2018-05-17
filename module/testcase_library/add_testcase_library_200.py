@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 import os, sys
 
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-try:
-	import importlib
-	importlib.reload(sys)
-except Exception:
-	reload(sys)
-from config import GlobalVariable
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+from config import GlobalVariable, branch
+from jsonschema import validate
 import time
 import requests
 import json
 import unittest
+reload(sys)
+sys.setdefaultencoding('utf-8')
+args = branch.get_args()
+branch = args[0]
 
 def request(variable):
 	url = variable["url"]
@@ -32,8 +33,9 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -46,9 +48,10 @@ class TestGroupSort(unittest.TestCase):
 		self.assertEqual(200,self.status_code)
 		if(self.status_code != 200):
 			return self.status_code
+
 		#response body
-		self.assertIn("user", self.response_json)
-		self.assertIn("teams",self.response_json)
+		api_schema = GlobalVariable("./api_schema/testcase_library/add_testcase_library_200.json").json
+		validate(self.response_json, api_schema)
 
 		user = self.response_json.get("user")
 		token = user.get("token")
@@ -67,7 +70,7 @@ class TestGroupSort(unittest.TestCase):
 		
 
 def main():
-	unittest.main(verbosity = 2)
+	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
 	main()

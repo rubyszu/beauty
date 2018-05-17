@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 import os, sys
 
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-from config import GlobalVariable
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+from config import GlobalVariable, branch
+from jsonschema import validate
 import time
 import requests
 import json
 import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
+args = branch.get_args()
+branch = args[0]
 
 def request(variable):
 	url = variable["url"]
@@ -28,8 +32,9 @@ def request(variable):
 
 class TestGroupSort(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -37,9 +42,13 @@ class TestGroupSort(unittest.TestCase):
 
 	def test_result_200(self):
 		#status code
-		# self.assertEqual(200,self.status_code)
-		# if(self.status_code != 200):
-		# 	return self.status_code
+		self.assertEqual(200,self.status_code)
+		if(self.status_code != 200):
+			return self.status_code
+
+		#reponse body
+		api_schema = GlobalVariable("./api_schema/sprint/delete_sprint_200.json").json
+		validate(self.response_json, api_schema)
 
 		# write to json file
 		self.global_variable.write()
@@ -51,7 +60,7 @@ class TestGroupSort(unittest.TestCase):
 		
 
 def main():
-	unittest.main(verbosity = 2)
+	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
 	main()

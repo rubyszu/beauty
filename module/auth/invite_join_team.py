@@ -52,7 +52,8 @@ class TestInviteJoinTeam(unittest.TestCase):
 		if(self.status_code != 200):
 			return self.status_code
 		#response body
-		
+		api_schema = GlobalVariable("./api_schema/auth/invite_join_team_200.json").json
+		validate(self.response_json, api_schema)
 
 		# write to json file
 		self.global_variable.write()

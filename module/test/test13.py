@@ -27,9 +27,6 @@ class TestMathFunc(unittest.TestCase):
     def testExpectedFail(self):
         raise TypeError
 
-    @unittest.expectedFailure
-    def testUnexpectedSuccess(self):
-        pass
 
     def test_divide(self):
         """Test method divide(a, b)"""

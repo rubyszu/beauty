@@ -18,11 +18,16 @@
   "pipeline_uuid": "NKnx4RUQ", 
   "task_uuid": "DL1n838a1VWLOSGG", 
   "owner_uuid": "DL1n838a", 
+<<<<<<< HEAD
   "owner_token": "9Ole40Rdj8LEDhLNxUtGSJ5XGst8vtfYRdzXDuZfqda5Yhot4BXMA0PDHSNvImY4", 
+=======
+  "owner_token": "OCBC01lRYnSftrsaPO0Y47sbyqa9eS0YHKRUfUbOHGuc8Cn8zACYJ65snPRMyThn", 
+>>>>>>> F1006
   "team_uuid": "KuAVLypP", 
   "sprint_uuid": "UcWoSiW6", 
   "pipeline_uuids": [
     "PwL6D3oP", 
+<<<<<<< HEAD
     "KJcb2cyd", 
     "3ueK5eJC", 
     "9GyxmqQj", 
@@ -35,6 +40,14 @@
     "N1vJDNDe", 
     "NKnx4RUQ", 
     "PEexV6wA", 
+=======
+    "36u3NFhH", 
+    "9dVSqFrh", 
+    "JkinD96w", 
+    "KJcb2cyd", 
+    "N1vJDNDe", 
+    "NKnx4RUQ", 
+>>>>>>> F1006
     "QN1xTVBg", 
     "SeTzSBmA", 
     "TSvkqpi8", 

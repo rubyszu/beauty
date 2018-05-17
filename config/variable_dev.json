@@ -77,13 +77,14 @@
   "owner_password": "12345678", 
   "project_uuid": "A5GHW6saTvTJjKJY", 
   "url": "https://api.ones.team/project/dev", 
-  "owner_email": "linhong+wiki@ones.ai", 
-  "owner_uuid": "GUGgMPPr", 
-  "owner_token": "t4atwltRn8r9vXjVctI5fCQblywXU7H8cdVmnYm72QqMHExnv2nbrd5yfGv2oInq", 
+  "owner_email": "linhong+issue01@ones.ai", 
+  "pipeline_uuid": "zricc21q", 
+  "owner_uuid": "9CD1ULg7", 
+  "owner_token": "IKPGlECsFxT7GA8PE2IX7ogE7EOxQQXPuWSU82lYcbBmSCREg43IEF6JFze28E4T", 
   "sprint_fields": [
     "88Xhyb4w"
   ], 
-  "team_uuid": "QJTiPBPm", 
+  "team_uuid": "6z78fwfE", 
   "sprint_uuid": "Y6aDyVuF", 
   "pipeline_uuids": [
     "DQ3qFfJN", 
