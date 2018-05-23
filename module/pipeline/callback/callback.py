@@ -29,7 +29,7 @@ def request(variable):
 	r = requests.post(api_url,headers = headers)
 	return r
 
-class TestGroupSort(unittest.TestCase):
+class TestCallBack(unittest.TestCase):
 	def setUp(self):
 		# self.setting = GlobalVariable("./config/setting.json").json
 		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))

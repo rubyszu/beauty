@@ -29,7 +29,7 @@ def request(variable):
 	r = requests.get(api_url,headers = headers)
 	return r
 
-class TestGroupSort(unittest.TestCase):
+class TestGetPipelines(unittest.TestCase):
 	def setUp(self):
 		# self.setting = GlobalVariable("./config/setting.json").json
 		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
@@ -51,12 +51,8 @@ class TestGroupSort(unittest.TestCase):
 		#store data
 		pipelines = self.response_json.get("pipelines")
 		uuids = []
-		print(len(pipelines))
-		print(pipelines[0].get("uuid"))
 		for i in range(len(pipelines)):
 			uuids.append(pipelines[i].get("uuid"))
-		print(uuids)
-
 
 		if(self.variable.__contains__("pipeline_uuids")):
 			pipeline_uuids = self.variable["owner_uuid"]

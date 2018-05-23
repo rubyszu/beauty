@@ -36,7 +36,7 @@ def request(variable):
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
-class TestGroupSort(unittest.TestCase):
+class TestLogin(unittest.TestCase):
 	def setUp(self):
 		# self.setting = GlobalVariable("./config/setting.json").json
 		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))

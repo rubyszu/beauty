@@ -5,7 +5,7 @@ import ones
 
 def all_cases():
 	#cases
-	case_dir = "./module/test/"
+	case_dir = "./module/"
 	testcase = unittest.TestSuite()
 	discover = unittest.defaultTestLoader.discover(case_dir,pattern='*.py',top_level_dir=None)
 
