@@ -5,6 +5,7 @@ current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
 from jsonschema import validate
+from common import *
 import time
 import requests
 import json

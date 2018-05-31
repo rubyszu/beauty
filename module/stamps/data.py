@@ -72,18 +72,46 @@ class TestResponse(unittest.TestCase):
 		with open('response.json','w') as f:
 			f.write(self.request.text)
 
+		#spinrt uuids
 		sprints = self.response_json.get("sprint").get("sprints")
-		uuids = []
+		sprint_uuids = []
 		for i in range(len(sprints)):
-			uuids.append(sprints[i].get("uuid"))
+			sprint_uuids.append(sprints[i].get("uuid"))
 
+		#issue types
+		issue_types = self.response_json.get("issue_type").get("issue_types")
+		issue_type = []
+		for i in range(len(issue_types)):
+			issue_type.append(issue_types[i].get("uuid"))
 
+		#team members
+		members = self.response_json.get("team_member").get("members")
+		team_members = []
+		for i in range(len(members)):
+			if members[i].get("status") == 1:
+				team_members.append(members[i].get("uuid"))
+
+		#store data
 		if(self.variable.__contains__("sprints")):
 			sprints = self.variable["sprints"]
-			sprints = uuids
+			sprints = sprint_uuids
 		else:
-			sprints = uuids
-		self.global_variable.store("sprints",uuids)
+			sprints = sprint_uuids
+		self.global_variable.store("sprints",sprint_uuids)
+
+		if(self.variable.__contains__("issue_types")):
+			issue_types = self.variable["issue_types"]
+			issue_types = issue_type
+		else:
+			issue_types = issue_type
+		self.global_variable.store("issue_types",issue_type)
+
+		if(self.variable.__contains__("members")):
+			members = self.variable["members"]
+			members = team_members
+		else:
+			members = team_members
+		self.global_variable.store("members",team_members)
 
 		self.global_variable.write()
 		
