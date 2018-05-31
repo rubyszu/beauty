@@ -4,7 +4,9 @@ import os, sys
 current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
+from common import *
 from jsonschema import validate
+from datetime import datetime
 import time
 import requests
 import json
@@ -13,13 +15,15 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
+random = Generate().generate_string()
 
 task_status_name = "ruby %s" %(time.time()) 
 
 def request(variable):
 	url = variable["url"]
 	team_uuid = variable["team_uuid"]
-	project_uuid = "9CD1ULg7CDKR7N38"
+	project_uuid = variable["project_uuids"][0]
+	issue_type_uuid = variable["issue_types"][0]
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 
@@ -30,14 +34,23 @@ def request(variable):
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "task_status":{
-	    "summary": "任务01",
-	    "owner":"%s" %(owner_uuid),
-	    "parent_uuid":"",
-	    "priority":"PRIOPTno",
-	    "project_uuid":"%s" %(project_uuid)
-	  }
-	}
+	  "tasks":[
+	  	{
+	  		"uuid":"%s" %(owner_uuid + random),
+	    	"summary": "任务" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+	    	"project_uuid":"%s" %(project_uuid),
+	    	"issue_type_uuid":"%s" %(issue_type_uuid),
+	    	"owner":"%s" %(owner_uuid),
+	    	"assign":"%s" %(),
+	    	"desc_rich":"",
+	    	"parent_uuid":"",
+	    	"priority":"PRIOPTno",
+	    	"field_values":[
+	    		{"field_uuid":"field018","type":4,"value":100000}
+	    	]
+	  	}
+	]
+
 	# print(headers)
 	# print(body)
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
@@ -91,4 +104,7 @@ def main():
 	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
-	main()
+
+
+	for i in range(10):
+		main()

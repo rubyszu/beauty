@@ -66,11 +66,17 @@ class TestResponse(unittest.TestCase):
 	def test_result(self):
 
 		#response body
-		api_schema = GlobalVariable("./api_schema/stamps/data_200.json").json
-		validate(self.response_json, api_schema)
+		# api_schema = GlobalVariable("./api_schema/stamps/data_200.json").json
+		# validate(self.response_json, api_schema)
 
 		with open('response.json','w') as f:
 			f.write(self.request.text)
+
+		#project uuids
+		projects = self.response_json.get("project").get("projects")
+		project_uuids = []
+		for i in range(len(projects)):
+			project_uuids.append(projects[i].get("uuid"))
 
 		#spinrt uuids
 		sprints = self.response_json.get("sprint").get("sprints")
@@ -92,6 +98,13 @@ class TestResponse(unittest.TestCase):
 				team_members.append(members[i].get("uuid"))
 
 		#store data
+		if(self.variable.__contains__("projects")):
+			projects = self.variable["projects"]
+			projects = project_uuids
+		else:
+			projects = project_uuids
+		self.global_variable.store("projects",project_uuids)
+
 		if(self.variable.__contains__("sprints")):
 			sprints = self.variable["sprints"]
 			sprints = sprint_uuids

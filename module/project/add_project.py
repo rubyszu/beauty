@@ -24,7 +24,6 @@ def request(variable):
 	owner_token = variable["owner_token"]
 	issue_types = variable["issue_types"]
 	members = variable["members"]
-	project_uuid = owner_uuid + random
 
 
 	api_url = "%s/team/%s/projects/add" %(url,team_uuid)
@@ -41,7 +40,7 @@ def request(variable):
 			"name":"项目名称" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
 			"owner":"%s" %(owner_uuid),
 			"status":1,
-			"uuid":"%s" %(project_uuid) 
+			"uuid":"%s" %(owner_uuid + random) 
 			}
 		}
 

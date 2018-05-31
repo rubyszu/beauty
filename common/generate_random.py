@@ -12,6 +12,5 @@ class Generate(object):
     salt = []
     for i in range(8):
       salt.append(random.choice(seed))
-    print ''.join(salt)
     return ''.join(salt)
     
