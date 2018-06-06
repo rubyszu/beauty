@@ -1,7 +1,9 @@
 {
-  "sprints": [], 
+  "sprints": [
+    "7x5KEVhM"
+  ], 
   "owner_password": "12345678", 
-  "project_uuid": "A5GHW6saTvTJjKJY", 
+  "project_uuid": "Am58rPixo6WYxaMA", 
   "url": "https://api.ones.team/project/dev", 
   "owner_email": "linhong+s@ones.ai", 
   "issue_types": [
@@ -12,14 +14,19 @@
     "Db9nbeHW", 
     "CbHZzAzB"
   ], 
-  "pipeline_uuid": "zricc21q", 
-  "owner_uuid": "Am58rPix", 
-  "owner_token": "pHlpzLkMEwsbFmLASI7nW1XEZeXZygoAS63o74xBRp6J8q3CjMMf5AlHOZFSDcje", 
+  "pipeline_uuid": "zricc21q",
+  "owner_uuid": "Am58rPix",
+  "owner_token": "QaFpagjBAGTVcCcsbryG74xN8Z9EbSE3YdpqatykHqYzjAV4YbX3X4hnLRQtU7av", 
   "sprint_fields": [
     "88Xhyb4w"
   ], 
   "members": [
-    "Am58rPix"
+    "Am58rPix", 
+    "CycDsPqy", 
+    "HQtrnL4u", 
+    "Mu5ukj2X", 
+    "WVYj3m2w", 
+    "A8wMA1i5"
   ], 
   "sprint_uuid": "Y6aDyVuF", 
   "team_uuid": "GyH52ott", 
@@ -37,5 +44,6 @@
     "Am58rPix3uWi1dhp", 
     "Am58rPixOJpHOi2M", 
     "Am58rPixWrvE2NtU"
-  ]
+  ],
+  "task_uuid": "Am58rPixLie6CltR"
 }

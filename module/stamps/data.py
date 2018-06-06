@@ -98,6 +98,8 @@ class TestResponse(unittest.TestCase):
 				team_members.append(members[i].get("uuid"))
 
 		#store data
+
+		#projects
 		if(self.variable.__contains__("projects")):
 			projects = self.variable["projects"]
 			projects = project_uuids
@@ -105,6 +107,15 @@ class TestResponse(unittest.TestCase):
 			projects = project_uuids
 		self.global_variable.store("projects",project_uuids)
 
+		#project uuid
+		if(self.variable.__contains__("project_uuid")):
+			project_uuid = self.variable["project_uuid"]
+			project_uuid = project_uuids[0]
+		else:
+			project_uuid = project_uuids[0]
+		self.global_variable.store("project_uuid",project_uuid)
+
+		#sprints
 		if(self.variable.__contains__("sprints")):
 			sprints = self.variable["sprints"]
 			sprints = sprint_uuids
@@ -112,6 +123,7 @@ class TestResponse(unittest.TestCase):
 			sprints = sprint_uuids
 		self.global_variable.store("sprints",sprint_uuids)
 
+		#issue_types
 		if(self.variable.__contains__("issue_types")):
 			issue_types = self.variable["issue_types"]
 			issue_types = issue_type
@@ -119,6 +131,7 @@ class TestResponse(unittest.TestCase):
 			issue_types = issue_type
 		self.global_variable.store("issue_types",issue_type)
 
+		#members
 		if(self.variable.__contains__("members")):
 			members = self.variable["members"]
 			members = team_members

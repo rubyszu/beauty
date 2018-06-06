@@ -6,96 +6,59 @@ sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
 from jsonschema import validate
 from common import *
-import time
-import requests
-import json
-import unittest
+import time,requests,json,unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	print(args[0])
-	url = variable["url"]
-	owner_email = variable["owner_email"]
-	owner_password = variable["owner_password"]
 
-	api_url = "%s/auth/login" %(url)
+	api_url = "%s/auth/login" %(variable["url"])
 	headers = {
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "email":"%s" %(owner_email),
-	  "password":"%s" %(owner_password)
+	  "email":"%s" %(variable["owner_email"]),
+	  "password":"%s" %(variable["owner_password"])
 	}
-	# body = {
-	# 	"email":"linhong+1062s1@ones.ai",
-	# 	"password":"12345678"
-	# }
 
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
 class TestLogin(unittest.TestCase):
 	def setUp(self):
-		# self.setting = GlobalVariable("./config/setting.json").json
-		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
-		self.variable = self.global_variable.json
-		self.request = request(self.variable)
+		self.request = request(self.global_variable.json)
 		self.status_code = self.request.status_code
 		self.response_json = self.request.json()
 
 	def test_result_200(self):
 
-		'''test login 200'''
-		#validate status code
-		self.assertEqual(200,self.status_code)
-		if(self.status_code != 200):
-			return self.status_code
-		#validate response body
-		# self.assertIn("user", self.response_json)
-		# self.assertIn("teams",self.response_json)
+		#validate status code and response body
 		api_schema = GlobalVariable("./api_schema/login/login_200.json").json
-		validate(self.response_json, api_schema)
+		response_schema = {
+			"status_code": self.status_code,
+			"response_json": self.response_json
+		}
+		validate(response_schema, api_schema)
 
+	def tearDown(self):
+		#get response data
 		user = self.response_json.get("user")
 		useruuid = user.get("uuid")
 		token = user.get("token")
-		teams = self.response_json.get("teams")
-		teamuuid = teams[0].get("uuid")
-
+		teamuuid = self.response_json.get("teams")[0].get("uuid")
 
 		#store data
-		if(self.variable.__contains__("owner_uuid")):
-			owner_uuid = self.variable["owner_uuid"]
-			owner_uuid = useruuid
-		else:
-			owner_uuid = useruuid
 		self.global_variable.store("owner_uuid",useruuid)
-
-		if(self.variable.__contains__("owner_token")):
-			owner_token = self.variable["owner_token"]
-			owner_token = token
-		else:
-			owner_token = token
 		self.global_variable.store("owner_token",token)
-
-		if(self.variable.__contains__("team_uuid")):
-			team_uuid = self.variable["team_uuid"]
-			team_uuid = teamuuid
-		else:
-			team_uuid = teamuuid
 		self.global_variable.store("team_uuid",teamuuid)
-
 		# write to json file
 		self.global_variable.write()
+
 		with open('response.json','w') as f:
 			f.write(self.request.text)
-
-	def teardown(self):
-		pass
 
 
 def main():

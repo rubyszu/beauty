@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "status_code": {
+      "type": "integer",
+      "enum": [
+        200
+      ]
+    },
+    "response_json": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "object",
+          "properties": {
+            "uuid": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "Am58rPixmgWdsXCF"
+              ]
+            },
+            "name": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                "项目名称2018-06-06 11:48:14"
+              ]
+            },
+            "status": {
+              "type": "integer",
+              "default": 0,
+              "examples": [
+                1
+              ]
+            },
+            "announcement": {
+              "type": "string",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "deadline": {
+              "type": "integer",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "is_pin": {
+              "type": "boolean",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "is_open_email_notify": {
+              "type": "boolean",
+              "default": false,
+              "examples": [
+                false
+              ]
+            },
+            "admins": {
+              "type": "null",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "task_update_time": {
+              "type": "integer",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            }
+          }
+        },
+        "server_update_stamp": {
+          "type": "integer",
+          "default": 0,
+          "examples": [
+            1528256891872672
+          ]
+        }
+      }
+    }
+  }
+}

@@ -27,8 +27,8 @@ def request(variable):
 	}
 	body = {
 		"pipeline":{
-			"name":"gerrit test",
-			"project_uuid":"DL1n838aWUO852XD"
+			"name":"Gerrit Test",
+			"project_uuid":"YEL8b4LVY9gqMCDU"
 		}			
 	}
 	print(headers)

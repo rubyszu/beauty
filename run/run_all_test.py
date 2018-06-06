@@ -2,19 +2,21 @@
 
 import unittest
 import ones
+from tomorrow import threads
 
-def all_cases():
-	#cases
-	case_dir = "./module/"
-	testcase = unittest.TestSuite()
-	discover = unittest.defaultTestLoader.discover(case_dir,pattern='*.py',top_level_dir=None)
+case_path = "./module/login/"
+rule = "test*.py"
 
-	for test_suit in discover:
-		for test_case in test_suit:
-			testcase.addTest(test_case)
-	print testcase
-	return testcase
+def add_case(case_path,rule):
+	discover = unittest.defaultTestLoader.discover(case_path,pattern=rule,top_level_dir=None)
+	return discover
+
+def run_case(all_case):
+	runner = ones.OnesTestRunner()
+	runner.run(all_case)
+
 
 if __name__ == '__main__':
-	runner = ones.OnesTestRunner()
-	runner.run(all_cases())
+
+	cases = add_case(case_path,rule)
+	run_case(cases)
