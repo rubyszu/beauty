@@ -1,138 +1,79 @@
 {
-  "$id": "http://example.com/example.json",
   "type": "object",
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "install": {
-      "$id": "/properties/install",
-      "type": "object",
-      "properties": {
-        "command": {
-          "$id": "/properties/install/properties/command",
-          "type": "string",
-          "title": "The Command Schema ",
-          "default": "",
-          "examples": [
-            "sudo -E python -c \"$(curl -fsSL https://api.ones.team/project/F5002/team/KuAVLypP/pipeline/NKnx4RUQ/install.py?token=73cyBpuXgMqhgd9FbKjAK7)\""
-          ]
-        }
-      }
+    "status_code": {
+      "type": "integer",
+      "enum": [
+        200
+      ]
     },
-    "scm": {
-      "$id": "/properties/scm",
+    "response_json": {
       "type": "object",
       "properties": {
-        "webhook_url": {
-          "$id": "/properties/scm/properties/webhook_url",
-          "type": "string",
-          "title": "The Webhook_url Schema ",
-          "default": "",
-          "examples": [
-            "https://api.ones.team/project/F5002/team/KuAVLypP/project/DL1n838aWUO852XD/scm_webhook"
-          ]
-        },
-        "secret_key": {
-          "$id": "/properties/scm/properties/secret_key",
-          "type": "string",
-          "title": "The Secret_key Schema ",
-          "default": "",
-          "examples": [
-            "PqPDstqNxEkBP4PPuc1RKj"
-          ]
-        },
-        "gerrit": {
-          "$id": "/properties/scm/properties/gerrit",
+        "install": {
           "type": "object",
           "properties": {
-            "hook_url": {
-              "$id": "/properties/scm/properties/gerrit/properties/hook_url",
-              "type": "string",
-              "title": "The Hook_url Schema ",
-              "default": "",
-              "examples": [
-                "https://api.ones.team/project/F5002/team/KuAVLypP/pipeline/NKnx4RUQ/hooks/gerrit/commit-received?token=73cyBpuXgMqhgd9FbKjAK7"
-              ]
-            },
             "command": {
-              "$id": "/properties/scm/properties/gerrit/properties/command",
-              "type": "string",
-              "title": "The Command Schema ",
-              "default": "",
-              "examples": [
-                "cd ${GERRIT_BASE_PATH}\nmkdir -p hooks\ncurl -fsSL https://api.ones.team/project/F5002/team/KuAVLypP/pipeline/NKnx4RUQ/hooks/gerrit/commit-received?token=73cyBpuXgMqhgd9FbKjAK7 -o hooks/commit-received\nchmod +x hooks/commit-received"
-              ]
+              "type": "string"
             }
           }
-        }
-      }
-    },
-    "ci": {
-      "$id": "/properties/ci",
-      "type": "object",
-      "properties": {
-        "environment": {
-          "$id": "/properties/ci/properties/environment",
-          "type": "string",
-          "title": "The Environment Schema ",
-          "default": "",
-          "examples": [
-            "ONES_PIPELINE_URL=https://api.ones.team/project/F5002/team/KuAVLypP/pipeline/NKnx4RUQ/callback?token=73cyBpuXgMqhgd9FbKjAK7"
-          ]
         },
-        "start_command": {
-          "$id": "/properties/ci/properties/start_command",
-          "type": "string",
-          "title": "The Start_command Schema ",
-          "default": "",
-          "examples": [
-            "onespl start"
-          ]
+        "scm": {
+          "type": "object",
+          "properties": {
+            "webhook_url": {
+              "type": "string"
+            },
+            "secret_key": {
+              "type": "string"
+            },
+            "gerrit": {
+              "type": "object",
+              "properties": {
+                "hook_url": {
+                  "type": "string"
+                },
+                "command": {
+                  "type": "string"
+                }
+              }
+            }
+          }
         },
-        "finish_command": {
-          "$id": "/properties/ci/properties/finish_command",
-          "type": "string",
-          "title": "The Finish_command Schema ",
-          "default": "",
-          "examples": [
-            "def command = [\"onespl\", \"finish\"]\ndef env = manager.envVars.collect { k, v -> \"$k=$v\" }\nenv.add(\"BUILD_RESULT=\" + manager.getResult())\ndef workspace = new File(manager.envVars[\"WORKSPACE\"])\ncommand.execute(env, workspace).waitFor()"
-          ]
+        "ci": {
+          "type": "object",
+          "properties": {
+            "environment": {
+              "type": "string"
+            },
+            "start_command": {
+              "type": "string"
+            },
+            "finish_command": {
+              "type": "string"
+            }
+          }
+        },
+        "lint": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string"
+            }
+          }
+        },
+        "test": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string"
+            }
+          }
+        },
+        "artifact": {
+          "type": "object"
         }
       }
-    },
-    "lint": {
-      "$id": "/properties/lint",
-      "type": "object",
-      "properties": {
-        "command": {
-          "$id": "/properties/lint/properties/command",
-          "type": "string",
-          "title": "The Command Schema ",
-          "default": "",
-          "examples": [
-            "onespl lint --lang java"
-          ]
-        }
-      }
-    },
-    "test": {
-      "$id": "/properties/test",
-      "type": "object",
-      "properties": {
-        "command": {
-          "$id": "/properties/test/properties/command",
-          "type": "string",
-          "title": "The Command Schema ",
-          "default": "",
-          "examples": [
-            "pip install ones"
-          ]
-        }
-      }
-    },
-    "artifact": {
-      "$id": "/properties/artifact",
-      "type": "object"
     }
   }
 }

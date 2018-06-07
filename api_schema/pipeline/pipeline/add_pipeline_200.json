@@ -1,217 +1,114 @@
 {
-  "$id": "http://example.com/example.json",
   "type": "object",
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "pipeline": {
-      "$id": "/properties/pipeline",
+    "status_code": {
+      "type": "integer",
+      "enum": [
+        200
+      ]
+    },
+    "response_json": {
       "type": "object",
       "properties": {
-        "uuid": {
-          "$id": "/properties/pipeline/properties/uuid",
-          "type": "string",
-          "title": "The Uuid Schema ",
-          "default": "",
-          "examples": [
-            "U8hkK6Ka"
-          ]
-        },
-        "name": {
-          "$id": "/properties/pipeline/properties/name",
-          "type": "string",
-          "title": "The Name Schema ",
-          "default": "",
-          "examples": [
-            "gerrit test"
-          ]
-        },
-        "owner": {
-          "$id": "/properties/pipeline/properties/owner",
-          "type": "string",
-          "title": "The Owner Schema ",
-          "default": "",
-          "examples": [
-            "DL1n838a"
-          ]
-        },
-        "project": {
-          "$id": "/properties/pipeline/properties/project",
+        "pipeline": {
           "type": "object",
           "properties": {
             "uuid": {
-              "$id": "/properties/pipeline/properties/project/properties/uuid",
-              "type": "string",
-              "title": "The Uuid Schema ",
-              "default": "",
-              "examples": [
-                "DL1n838aWUO852XD"
-              ]
+              "type": "string"
             },
             "name": {
-              "$id": "/properties/pipeline/properties/project/properties/name",
+              "type": "string"
+            },
+            "owner": {
+              "type": "string"
+            },
+            "project": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "configure_statuses": {
+              "type": "object",
+              "properties": {
+                "artifact": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "last_success_time": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "ci": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "last_success_time": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "lint": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "last_success_time": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "scm": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "last_success_time": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "test": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "last_success_time": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "branches": {
+              "type": "array"
+            },
+            "branch_sprint_bindings": {
+              "type": "array"
+            },
+            "sprint_binding_rule": {
               "type": "string",
-              "title": "The Name Schema ",
-              "default": "",
-              "examples": [
-                "gerrit"
-              ]
+              "default": ""
             }
           }
         },
-        "configure_statuses": {
-          "$id": "/properties/pipeline/properties/configure_statuses",
-          "type": "object",
-          "properties": {
-            "artifact": {
-              "$id": "/properties/pipeline/properties/configure_statuses/properties/artifact",
-              "type": "object",
-              "properties": {
-                "status": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/artifact/properties/status",
-                  "type": "string",
-                  "title": "The Status Schema ",
-                  "default": "",
-                  "examples": [
-                    "unknown"
-                  ]
-                },
-                "last_success_time": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/artifact/properties/last_success_time",
-                  "type": "integer",
-                  "title": "The Last_success_time Schema ",
-                  "default": 0,
-                  "examples": [
-                    0
-                  ]
-                }
-              }
-            },
-            "ci": {
-              "$id": "/properties/pipeline/properties/configure_statuses/properties/ci",
-              "type": "object",
-              "properties": {
-                "status": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/ci/properties/status",
-                  "type": "string",
-                  "title": "The Status Schema ",
-                  "default": "",
-                  "examples": [
-                    "unknown"
-                  ]
-                },
-                "last_success_time": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/ci/properties/last_success_time",
-                  "type": "integer",
-                  "title": "The Last_success_time Schema ",
-                  "default": 0,
-                  "examples": [
-                    0
-                  ]
-                }
-              }
-            },
-            "lint": {
-              "$id": "/properties/pipeline/properties/configure_statuses/properties/lint",
-              "type": "object",
-              "properties": {
-                "status": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/lint/properties/status",
-                  "type": "string",
-                  "title": "The Status Schema ",
-                  "default": "",
-                  "examples": [
-                    "unknown"
-                  ]
-                },
-                "last_success_time": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/lint/properties/last_success_time",
-                  "type": "integer",
-                  "title": "The Last_success_time Schema ",
-                  "default": 0,
-                  "examples": [
-                    0
-                  ]
-                }
-              }
-            },
-            "scm": {
-              "$id": "/properties/pipeline/properties/configure_statuses/properties/scm",
-              "type": "object",
-              "properties": {
-                "status": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/scm/properties/status",
-                  "type": "string",
-                  "title": "The Status Schema ",
-                  "default": "",
-                  "examples": [
-                    "unknown"
-                  ]
-                },
-                "last_success_time": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/scm/properties/last_success_time",
-                  "type": "integer",
-                  "title": "The Last_success_time Schema ",
-                  "default": 0,
-                  "examples": [
-                    0
-                  ]
-                }
-              }
-            },
-            "test": {
-              "$id": "/properties/pipeline/properties/configure_statuses/properties/test",
-              "type": "object",
-              "properties": {
-                "status": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/test/properties/status",
-                  "type": "string",
-                  "title": "The Status Schema ",
-                  "default": "",
-                  "examples": [
-                    "unknown"
-                  ]
-                },
-                "last_success_time": {
-                  "$id": "/properties/pipeline/properties/configure_statuses/properties/test/properties/last_success_time",
-                  "type": "integer",
-                  "title": "The Last_success_time Schema ",
-                  "default": 0,
-                  "examples": [
-                    0
-                  ]
-                }
-              }
-            }
-          }
-        },
-        "branches": {
-          "$id": "/properties/pipeline/properties/branches",
-          "type": "array"
-        },
-        "branch_sprint_bindings": {
-          "$id": "/properties/pipeline/properties/branch_sprint_bindings",
-          "type": "array"
-        },
-        "sprint_binding_rule": {
-          "$id": "/properties/pipeline/properties/sprint_binding_rule",
-          "type": "string",
-          "title": "The Sprint_binding_rule Schema ",
-          "default": "",
-          "examples": [
-            "string.len(branch) > 0 and string.find(sprint_name, branch, 1, true)"
-          ]
+        "server_update_stamp": {
+          "type": "integer"
         }
       }
-    },
-    "server_update_stamp": {
-      "$id": "/properties/server_update_stamp",
-      "type": "integer",
-      "title": "The Server_update_stamp Schema ",
-      "default": 0,
-      "examples": [
-        1526271474611456
-      ]
     }
   }
 }

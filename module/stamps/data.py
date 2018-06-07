@@ -5,25 +5,17 @@ current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
 from jsonschema import validate
-import time
-import requests
-import json
-import unittest
+import time,requests,json,unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	url = variable["url"]
-	team_uuid = variable["team_uuid"]
-	owner_token = variable["owner_token"]
-	owner_uuid = variable["owner_uuid"]
-
-	api_url = "%s/team/%s/stamps/data" %(url, team_uuid)
+	api_url = "%s/team/%s/stamps/data" %(variable["url"], variable["team_uuid"])
 	headers = {
-		"Ones-Auth-Token": "%s" %(owner_token),
-		"Ones-User-Id": "%s" %(owner_uuid),
+		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
+		"Ones-User-Id": "%s" %(variable["owner_uuid"]),
 		"Content-Type": "application/json"
 	}
 	body = {
@@ -47,31 +39,31 @@ def request(variable):
 		"team": 0,
 		"team_member": 0,
 		"transition": 0
-}
-	print(headers)
-	print(body)
+	}
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
 class TestResponse(unittest.TestCase):
 	def setUp(self):
-		# self.setting = GlobalVariable("./config/setting.json").json
-		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
 		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
-		self.variable = self.global_variable.json
-		self.request = request(self.variable)
+		self.request = request(self.global_variable.json)
 		self.status_code = self.request.status_code
 		self.response_json = self.request.json()
 
 	def test_result(self):
 
-		#response body
-		# api_schema = GlobalVariable("./api_schema/stamps/data_200.json").json
-		# validate(self.response_json, api_schema)
-
+		#validate status code and response body
+		api_schema = GlobalVariable("./api_schema/stamps/data_200.json").json
+		response_schema = {
+			"status_code": self.status_code,
+			"response_json": self.response_json
+		}
+		validate(response_schema, api_schema)
+		
+	def tearDown(self):
+		#write to json file
 		with open('response.json','w') as f:
 			f.write(self.request.text)
-
 		#project uuids
 		projects = self.response_json.get("project").get("projects")
 		project_uuids = []
@@ -98,51 +90,13 @@ class TestResponse(unittest.TestCase):
 				team_members.append(members[i].get("uuid"))
 
 		#store data
-
-		#projects
-		if(self.variable.__contains__("projects")):
-			projects = self.variable["projects"]
-			projects = project_uuids
-		else:
-			projects = project_uuids
 		self.global_variable.store("projects",project_uuids)
-
-		#project uuid
-		if(self.variable.__contains__("project_uuid")):
-			project_uuid = self.variable["project_uuid"]
-			project_uuid = project_uuids[0]
-		else:
-			project_uuid = project_uuids[0]
-		self.global_variable.store("project_uuid",project_uuid)
-
-		#sprints
-		if(self.variable.__contains__("sprints")):
-			sprints = self.variable["sprints"]
-			sprints = sprint_uuids
-		else:
-			sprints = sprint_uuids
+		self.global_variable.store("project_uuid",project_uuids[0])
 		self.global_variable.store("sprints",sprint_uuids)
-
-		#issue_types
-		if(self.variable.__contains__("issue_types")):
-			issue_types = self.variable["issue_types"]
-			issue_types = issue_type
-		else:
-			issue_types = issue_type
 		self.global_variable.store("issue_types",issue_type)
-
-		#members
-		if(self.variable.__contains__("members")):
-			members = self.variable["members"]
-			members = team_members
-		else:
-			members = team_members
 		self.global_variable.store("members",team_members)
 
 		self.global_variable.write()
-		
-	def tearDown(self):
-		pass
 
 def main():
 	unittest.main(argv=args[1])

@@ -14,83 +14,37 @@
           "type": "object",
           "properties": {
             "uuid": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "DL1n838a"
-              ]
+              "type": "string"
             },
             "email": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "chenliangyu@ones.ai"
-              ]
+              "type": "string"
             },
             "name": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "binavids"
-              ]
+              "type": "string"
             },
             "name_pinyin": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "binavids"
-              ]
+              "type": "string"
             },
             "title": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "s"
-              ]
+              "type": "string"
             },
             "avatar": {
-              "$id": "/properties/user/properties/avatar",
-              "type": "string",
-              "default": "",
-              "examples": [
-                ""
-              ]
+              "type": "string"
             },
             "phone": {
-              "$id": "/properties/user/properties/phone",
-              "type": "string",
-              "default": "",
-              "examples": [
-                ""
-              ]
+              "type": "string"
             },
             "create_time": {
-              "type": "integer",
-              "default": 0,
-              "examples": [
-                1504784200488768
-              ]
+              "type": "integer"
             },
             "status": {
-              "type": "integer",
-              "default": 0,
-              "examples": [
-                1
-              ]
+              "type": "integer"
             },
             "channel": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "uDL1n838aVXOhGxI2rKUfOppWcNeK0MI"
-              ]
+              "type": "string"
             },
             "token": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "9RLVAnfLMoB2JECJ2eDgQIpLiXhLXqrGhBFy5G14XiflIzSbofyVNjsh1xoA4DkL"
-              ]
+              "type": "string"
             }
           }
         },
@@ -100,81 +54,37 @@
             "type": "object",
             "properties": {
               "uuid": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "KuAVLypP"
-                ]
+                "type": "string"
               },
               "status": {
-                "type": "integer",
-                "default": 0,
-                "examples": [
-                  1
-                ]
+                "type": "integer"
               },
               "name": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "万事 ONES"
-                ]
+                "type": "string"
               },
               "owner": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "DL1n838a"
-                ]
+                "type": "string"
               },
               "logo": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  ""
-                ]
+                "type": "string"
               },
               "cover_url": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  ""
-                ]
+                "type": "string"
               },
               "domain": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  ""
-                ]
+                "type": "string"
               },
               "create_time": {
-                "type": "integer",
-                "default": 0,
-                "examples": [
-                  1504784200489424
-                ]
+                "type": "integer"
               },
               "expire_time": {
-                "type": "integer",
-                "default": 0,
-                "examples": [
-                  -1
-                ]
+                "type": "integer"
               },
               "type": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "free"
-                ]
+                "type": "string"
               },
               "scale": {
-                "type": "integer",
-                "default": 0,
-                "examples": [
-                  15
-                ]
+                "type": "integer"
               },
               "config": {
                 "type": "object",
@@ -183,29 +93,17 @@
                     "type": "object",
                     "properties": {
                       "alias": {
-                        "type": "string",
-                        "default": "",
-                        "examples": [
-                          ""
-                        ]
+                        "type": "string"
                       }
                     }
                   }
                 }
               },
               "member_count": {
-                "type": "integer",
-                "default": 0,
-                "examples": [
-                  3
-                ]
+                "type": "integer"
               },
               "org_uuid": {
-                "type": "string",
-                "default": "",
-                "examples": [
-                  "GoRxMcaZ"
-                ]
+                "type": "string"
               }
             }
           }
@@ -214,18 +112,10 @@
           "type": "object",
           "properties": {
             "uuid": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "GoRxMcaZ"
-              ]
+              "type": "string"
             },
             "name": {
-              "type": "string",
-              "default": "",
-              "examples": [
-                "万事 ONES"
-              ]
+              "type": "string"
             }
           }
         }

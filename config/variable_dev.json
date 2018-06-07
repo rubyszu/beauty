@@ -14,8 +14,9 @@
     "Db9nbeHW", 
     "CbHZzAzB"
   ], 
-  "pipeline_uuid": "zricc21q",
-  "owner_uuid": "Am58rPix",
+  "pipeline_uuid": "zricc21q", 
+  "task_uuid": "Am58rPixLie6CltR", 
+  "owner_uuid": "Am58rPix", 
   "owner_token": "QaFpagjBAGTVcCcsbryG74xN8Z9EbSE3YdpqatykHqYzjAV4YbX3X4hnLRQtU7av", 
   "sprint_fields": [
     "88Xhyb4w"
@@ -43,7 +44,11 @@
     "Am58rPixdRJWmjhv", 
     "Am58rPix3uWi1dhp", 
     "Am58rPixOJpHOi2M", 
-    "Am58rPixWrvE2NtU"
-  ],
-  "task_uuid": "Am58rPixLie6CltR"
+    "Am58rPixWrvE2NtU", 
+    "Am58rPixmgWdsXCF", 
+    "Am58rPixFt0r2APx", 
+    "Am58rPixJU2rxW6q", 
+    "Am58rPixfUdJOavF", 
+    "Am58rPixZEeE9gIu"
+  ]
 }

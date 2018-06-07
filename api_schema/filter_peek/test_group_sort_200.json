@@ -1,109 +1,59 @@
 {
-  "$id": "http://example.com/example.json",
   "type": "object",
-  "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
-    "groups": {
-      "$id": "/properties/groups",
-      "type": "array",
-      "items": {
-        "$id": "/properties/groups/items",
-        "type": "object",
-        "properties": {
-          "key": {
-            "$id": "/properties/groups/items/properties/key",
-            "type": "string",
-            "title": "The Key Schema ",
-            "default": "",
-            "examples": [
-              "to_do"
-            ]
-          },
-          "name": {
-            "$id": "/properties/groups/items/properties/name",
-            "type": "string",
-            "title": "The Name Schema ",
-            "default": "",
-            "examples": [
-              "未开始"
-            ]
-          },
-          "total": {
-            "$id": "/properties/groups/items/properties/total",
-            "type": "integer",
-            "title": "The Total Schema ",
-            "default": 0,
-            "examples": [
-              2
-            ]
-          },
-          "count": {
-            "$id": "/properties/groups/items/properties/count",
-            "type": "integer",
-            "title": "The Count Schema ",
-            "default": 0,
-            "examples": [
-              2
-            ]
-          },
-          "entries": {
-            "$id": "/properties/groups/items/properties/entries",
-            "type": "array",
-            "items": {
-              "$id": "/properties/groups/items/properties/entries/items",
-              "type": "object",
-              "properties": {
-                "uuid": {
-                  "$id": "/properties/groups/items/properties/entries/items/properties/uuid",
-                  "type": "string",
-                  "title": "The Uuid Schema ",
-                  "default": "",
-                  "examples": [
-                    "DL1n838aNvx1niAB"
-                  ]
-                },
-                "path": {
-                  "$id": "/properties/groups/items/properties/entries/items/properties/path",
-                  "type": "string",
-                  "title": "The Path Schema ",
-                  "default": "",
-                  "examples": [
-                    "DL1n838aNvx1niAB"
-                  ]
-                },
-                "server_update_stamp": {
-                  "$id": "/properties/groups/items/properties/entries/items/properties/server_update_stamp",
-                  "type": "integer",
-                  "title": "The Server_update_stamp Schema ",
-                  "default": 0,
-                  "examples": [
-                    1525937206205088
-                  ]
+    "status_code": {
+      "type": "integer",
+      "enum": [
+        200
+      ]
+    },
+    "response_json": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "total": {
+                "type": "integer"
+              },
+              "count": {
+                "type": "integer"
+              },
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "server_update_stamp": {
+                      "type": "integer"
+                    }
+                  }
                 }
               }
             }
           }
+        },
+        "total": {
+          "type": "integer"
+        },
+        "count": {
+          "type": "integer"
         }
       }
-    },
-    "total": {
-      "$id": "/properties/total",
-      "type": "integer",
-      "title": "The Total Schema ",
-      "default": 0,
-      "examples": [
-        null
-      ]
-    },
-    "count": {
-      "$id": "/properties/count",
-      "type": "integer",
-      "title": "The Count Schema ",
-      "default": 0,
-      "examples": [
-        null
-      ]
     }
   }
 }
