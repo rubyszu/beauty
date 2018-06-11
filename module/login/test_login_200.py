@@ -36,7 +36,13 @@ class TestLogin(unittest.TestCase):
 	def test_result_200(self):
 
 		#validate status code and response body
-		api_schema = GlobalVariable("./api_schema/login/login_200.json").json
+		# api_schema = GlobalVariable("./api_schema/login/login_200.json").json
+		# api_schema = GlobalVariable("./api_schema/login.json").json
+
+		api_schema = load_json_schema("./api_schema/login/login_user.json")
+
+		print api_schema
+
 		response_schema = {
 			"status_code": self.status_code,
 			"response_json": self.response_json

@@ -1,0 +1,64 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "uuid": {
+        "type": "string",
+        "minLength": 8,
+        "maxLength": 8
+      },
+      "status": {
+        "type": "integer",
+        "enum":[1,3]
+      },
+      "name": {
+        "type": "string"
+      },
+      "owner": {
+        "type": "string"
+      },
+      "logo": {
+        "type": "string"
+      },
+      "cover_url": {
+        "type": "string"
+      },
+      "domain": {
+        "type": "string"
+      },
+      "create_time": {
+        "type": "integer"
+      },
+      "expire_time": {
+        "type": "integer"
+      },
+      "type": {
+        "type": "string"
+      },
+      "scale": {
+        "type": "integer"
+      },
+      "config": {
+        "type": "object",
+        "properties": {
+          "sprint": {
+            "type": "object",
+            "properties": {
+              "alias": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "member_count": {
+        "type": "integer"
+      },
+      "org_uuid": {
+        "type": "string"
+      }
+    },
+    "required":["uuid","status","name","owner","logo","cover_url","domain","create_time","expire_time","type","scale","config"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 8
+    },
+    "name": {
+      "type": "string"
+    },
+    "org_type": {
+      "type": "integer"
+    }
+  }
+}

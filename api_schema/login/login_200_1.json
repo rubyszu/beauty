@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "status_code": {
+      "type": "integer",
+      "enum": [
+        200
+      ]
+    },
+    "response_json": {
+      "type": "object",
+      "properties": {
+        "user": {"$ref": "user.json"},
+        "teams": {"$ref": "team.json"},
+        "org": {"$ref": "org.json"}
+      }
+    }
+  }
+}
