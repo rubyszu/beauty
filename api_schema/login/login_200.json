@@ -10,9 +10,9 @@
     "response_json": {
       "type": "object",
       "properties": {
-        "user": {"$ref": "file:/Users/ruby/beauty/lucky/api_schema/user.json"},
-        "teams": {"$ref": "file:/Users/ruby/beauty/lucky/api_schema/team.json"},
-        "org": {"$ref": "file:/Users/ruby/beauty/lucky/api_schema/org.json"}
+        "user": {"$ref": "api_schema/user.json"},
+        "teams": {"$ref": "api_schema/team.json"},
+        "org": {"$ref": "api_schema/org.json"}
       }
     }
   }

@@ -1,6 +1,7 @@
 {
   "sprints": [
-    "7x5KEVhM"
+    "7x5KEVhM", 
+    "W2n3tkQb"
   ], 
   "owner_password": "12345678", 
   "project_uuid": "Am58rPixo6WYxaMA", 
@@ -17,7 +18,7 @@
   "pipeline_uuid": "zricc21q", 
   "task_uuid": "Am58rPixLie6CltR", 
   "owner_uuid": "Am58rPix", 
-  "owner_token": "WpPZqwU0GXNJPFGwb8dN153t9itKktCwYYO6iCRXpSwsPLSLIx9d7Lzh5RQQ3N3E", 
+  "owner_token": "xXzEh0a6aTfgVANffpGCo4TrBgkuNr76V6WwQ7uYJsLe5rxxnLAjo3SwwmQiIKx6", 
   "sprint_fields": [
     "88Xhyb4w"
   ], 
@@ -32,12 +33,11 @@
   "sprint_uuid": "Y6aDyVuF", 
   "team_uuid": "GyH52ott", 
   "pipeline_uuids": [
-    "DQ3qFfJN", 
-    "9aNrBbbD", 
-    "Ed8zQF65", 
-    "TB266UZz", 
-    "SNbpqYGX", 
-    "VtzqKwq6"
+    "182ctTrz", 
+    "3NdQr9sG", 
+    "C82thCVr", 
+    "R74r11Qs", 
+    "LsSjV9kw"
   ], 
   "projects": [
     "Am58rPixo6WYxaMA", 
@@ -49,6 +49,7 @@
     "Am58rPixFt0r2APx", 
     "Am58rPixJU2rxW6q", 
     "Am58rPixfUdJOavF", 
-    "Am58rPixZEeE9gIu"
+    "Am58rPixZEeE9gIu", 
+    "Am58rPixQiBxEcsi"
   ]
 }

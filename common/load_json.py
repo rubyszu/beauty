@@ -12,3 +12,4 @@ def load_json_schema(filename):
 
     with open(absolute_path) as schema_file:
         return jsonref.loads(schema_file.read(), base_uri=base_uri, jsonschema=True)
+        
