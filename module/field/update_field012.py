@@ -12,31 +12,37 @@ args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	# project_uuid = variable["project_uuid"]
-	project_uuid = "GUGgMPPrq54BHVF1"
 
-	api_url = "%s/team/%s/project/%s/filters/peek" %(variable["url"], variable["team_uuid"],project_uuid)
+	api_url = "%s/team/%s/field/field012/update" %(variable["url"], variable["team_uuid"])
 	headers = {
 		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
 		"Ones-User-Id": "%s" %(variable["owner_uuid"]),
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "query":{
-	    "must":[
-	        {"in":{"field_values.field006":["GUGgMPPrq54BHVF1"]}}
-	    ]
-	  },
-	  "sort":[
-	    {
-	      "create_time": {
-	                "order": "desc"
-	            }
-	    }
-	  ],
-	  "group_by":"status_category",
-	  "include_subtasks":True
+		"field": {
+		"uuid": "field012",
+		"name": "优先级",
+		"name_pinyin": "you1xian1ji2",
+		"desc": "",
+		"type": 1,
+		"default_value": "X9czPcVb",
+		"renderer": 0,
+		"filter_option": 0,
+		"search_option": 0,
+		"create_time": 1529929057,
+		"built_in": true,
+		"fixed": false,
+		"options": [{
+			"uuid": "KuGkbsRb",
+			"value": "较高",
+			"selected": false,
+			"background_color": "#ffe9e2",
+			"color": "#ff6a39",
+			"desc": "可能会阻碍进程的严重问题。"
+		}]
 	}
+}
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 

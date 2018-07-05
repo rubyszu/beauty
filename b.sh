@@ -6,11 +6,7 @@
 
 # cd module/test && python testsuit.py
 # cd ...
-
 # python run/run_all_test.py --branch=$1
-for i in $( seq 1 20 )
-do
-   python run/run_all_test.py --branch=$1
-done
 
 # cd module/login && py.test --junitxml results.xml test_login_200.py
+python run/run_all_test.py --branch=$1

@@ -21,6 +21,7 @@ def request(variable):
 	random_assign = random.random_arg(variable["members"])
 	random_priority = random.random_priority()
 	random_assess_hour = random.random_num(100000,500000)
+	# random_parent_uuid = random.random_arg(variable["task_uuids"])
 
 	api_url = "%s/team/%s/tasks/add2" %(variable["url"], variable["team_uuid"])
 	headers = {
@@ -28,18 +29,35 @@ def request(variable):
 		"Ones-User-Id": "%s" %(owner_uuid),
 		"Content-Type": "application/json"
 	}
+	# body = {
+	#   "tasks":[
+	#   	{
+	#   		"uuid":"%s" %(random_uuid),
+	#     	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+	#     	"project_uuid":"%s" %(variable["project_uuid"]),
+	#     	"issue_type_uuid":"%s" %(random_issue_type),
+	#     	"owner":"%s" %(owner_uuid),
+	#     	"assign":"%s" %(random_assign),
+	#     	"desc_rich":"",
+	#     	"parent_uuid":"%s" %(random_parent_uuid),
+	#     	"priority":"%s" %(random_priority),
+	#     	"field_values":[
+	#     		{"field_uuid":"field018","type":4,"value":random_assess_hour}
+	#     	]
+	#   	}
+	# ]}
 	body = {
 	  "tasks":[
 	  	{
 	  		"uuid":"%s" %(random_uuid),
-	    	"summary": "任务" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-	    	"project_uuid":"%s" %(variable["project_uuid"]),
-	    	"issue_type_uuid":"%s" %(random_issue_type),
+	    	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+	    	"project_uuid":"8yhRWBazCkmxNeyF",
+	    	"issue_type_uuid":"MsBUqLt8",
 	    	"owner":"%s" %(owner_uuid),
 	    	"assign":"%s" %(random_assign),
 	    	"desc_rich":"",
 	    	"parent_uuid":"",
-	    	"priority":"%s" %(random_priority),
+	    	"priority":"WpwmoAP3",
 	    	"field_values":[
 	    		{"field_uuid":"field018","type":4,"value":random_assess_hour}
 	    	]
@@ -66,6 +84,7 @@ class TestAddOneTask(unittest.TestCase):
 		validate(response_schema, api_schema)	
 
 	def tearDown(self):
+		print self.response_json
 		# write to json file
 		with open('response.json','w') as f:
 			f.write(self.request.text)

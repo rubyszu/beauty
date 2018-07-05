@@ -1,1 +1,59 @@
-{"pipelines":[{"uuid":"182ctTrz","name":"Gerrit Test","owner":"Am58rPix","project":{"uuid":"Am58rPixo6WYxaMA","name":"1"},"configure_statuses":{"artifact":{"status":"unknown","last_success_time":0},"ci":{"status":"unknown","last_success_time":0},"lint":{"status":"unknown","last_success_time":0},"scm":{"status":"unknown","last_success_time":0},"test":{"status":"unknown","last_success_time":0}},"branches":[],"branch_sprint_bindings":[],"sprint_binding_rule":"string.len(branch) \u003e 0 and string.find(sprint_name, branch, 1, true)"},{"uuid":"3NdQr9sG","name":"Gerrit Test","owner":"Am58rPix","project":{"uuid":"Am58rPixo6WYxaMA","name":"1"},"configure_statuses":{"artifact":{"status":"unknown","last_success_time":0},"ci":{"status":"unknown","last_success_time":0},"lint":{"status":"unknown","last_success_time":0},"scm":{"status":"unknown","last_success_time":0},"test":{"status":"unknown","last_success_time":0}},"branches":[],"branch_sprint_bindings":[],"sprint_binding_rule":"string.len(branch) \u003e 0 and string.find(sprint_name, branch, 1, true)"},{"uuid":"C82thCVr","name":"Gerrit Test","owner":"Am58rPix","project":{"uuid":"Am58rPixo6WYxaMA","name":"1"},"configure_statuses":{"artifact":{"status":"unknown","last_success_time":0},"ci":{"status":"unknown","last_success_time":0},"lint":{"status":"unknown","last_success_time":0},"scm":{"status":"unknown","last_success_time":0},"test":{"status":"unknown","last_success_time":0}},"branches":[],"branch_sprint_bindings":[],"sprint_binding_rule":"string.len(branch) \u003e 0 and string.find(sprint_name, branch, 1, true)"},{"uuid":"R74r11Qs","name":"Gerrit Test","owner":"Am58rPix","project":{"uuid":"Am58rPixo6WYxaMA","name":"1"},"configure_statuses":{"artifact":{"status":"unknown","last_success_time":0},"ci":{"status":"unknown","last_success_time":0},"lint":{"status":"unknown","last_success_time":0},"scm":{"status":"unknown","last_success_time":0},"test":{"status":"unknown","last_success_time":0}},"branches":[],"branch_sprint_bindings":[],"sprint_binding_rule":"string.len(branch) \u003e 0 and string.find(sprint_name, branch, 1, true)"},{"uuid":"LsSjV9kw","name":"( ⊙ o ⊙ )","owner":"Am58rPix","project":{"uuid":"Am58rPixo6WYxaMA","name":"1"},"configure_statuses":{"artifact":{"status":"unknown","last_success_time":0},"ci":{"status":"unknown","last_success_time":0},"lint":{"status":"unknown","last_success_time":0},"scm":{"status":"unknown","last_success_time":0},"test":{"status":"unknown","last_success_time":0}},"branches":[],"branch_sprint_bindings":[],"sprint_binding_rule":"string.len(branch) \u003e 0 and string.find(sprint_name, branch, 1, true)"}],"server_update_stamp":1528687958993936}
+{
+	"field": {
+		"uuid": "field012",
+		"name": "优先级",
+		"name_pinyin": "you1xian1ji2",
+		"desc": "",
+		"type": 1,
+		"default_value": "X9czPcVb",
+		"renderer": 0,
+		"filter_option": 0,
+		"search_option": 0,
+		"create_time": 1529929057,
+		"built_in": true,
+		"fixed": false,
+		"options": [{
+			"uuid": "X9czPcVb",
+			"value": "最高最高1",
+			"selected": false,
+			"background_color": "#e63422",
+			"color": "#FFFFFF",
+			"desc": "将会直接阻碍进程的问题\n赛诺菲你说的发你市东南方；收到你说；你；撒浪费廿三里发生男方辣酸奶法兰纱礼服哪里是能否两三年分类考试的能力防守打法你了水电费辽宁省\n嗷嗷发你撒开发哪里是\n\n收到收到"
+		}, {
+			"uuid": "KuGkbsRb",
+			"value": "较高",
+			"selected": false,
+			"background_color": "#ffe9e2",
+			"color": "#ff6a39",
+			"desc": "可能会阻碍进程的严重问题。"
+		}, {
+			"uuid": "WpwmoAP3",
+			"value": "普通",
+			"selected": true,
+			"background_color": "#e0ecfb",
+			"color": "#307fe2",
+			"desc": "有可能影响进程的潜在问题。"
+		}, {
+			"uuid": "FQsn7qvy",
+			"value": "较低",
+			"selected": false,
+			"background_color": "#d9f4ed",
+			"color": "#00b388",
+			"desc": "容易解决的小问题。"
+		}, {
+			"uuid": "NT1rCncf",
+			"value": "最低",
+			"selected": false,
+			"background_color": "#EFEFEF",
+			"color": "#909090",
+			"desc": "对进展影响甚微，微不足道的问题。"
+		}, {
+			"uuid": "CmHPmbyP",
+			"value": "p0",
+			"selected": false,
+			"background_color": "#fdf4d9",
+			"color": "#f1b300",
+			"desc": "cetona"
+		}]
+	}
+}

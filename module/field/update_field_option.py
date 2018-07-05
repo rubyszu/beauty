@@ -12,31 +12,71 @@ args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	# project_uuid = variable["project_uuid"]
-	project_uuid = "GUGgMPPrq54BHVF1"
 
-	api_url = "%s/team/%s/project/%s/filters/peek" %(variable["url"], variable["team_uuid"],project_uuid)
+	api_url = "%s/team/%s/field/Kg8AWzK3/update" %(variable["url"], variable["team_uuid"])
 	headers = {
 		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
 		"Ones-User-Id": "%s" %(variable["owner_uuid"]),
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "query":{
-	    "must":[
-	        {"in":{"field_values.field006":["GUGgMPPrq54BHVF1"]}}
-	    ]
-	  },
-	  "sort":[
-	    {
-	      "create_time": {
-	                "order": "desc"
-	            }
-	    }
-	  ],
-	  "group_by":"status_category",
-	  "include_subtasks":True
-	}
+		"field": {
+			"name": "Android系统版本",
+			"type": 2,
+			"uuid": "Kg8AWzK3",
+			"options": [{
+				"uuid": "GDM55VNE",
+				"value": "V5.1",
+				"selected": False,
+				"background_color": "#ff6a39",
+				"color": "#fff",
+				"desc": ""
+			}, {
+				"uuid": "SpdJDCrL",
+				"value": "V4.2",
+				"selected": False,
+				"background_color": "#e0ecfb",
+				"color": "#307fe2",
+				"desc": ""
+			}, {
+				"uuid": "TMi2NkU8",
+				"value": "V4.4",
+				"selected": False,
+				"background_color": "#aa8066",
+				"color": "#fff",
+				"desc": ""
+			}, {
+				"uuid": "RKFC31QP",
+				"value": "V4.1",
+				"selected": False,
+				"background_color": "#d9f4ed",
+				"color": "#00b388",
+				"desc": ""
+			}, {
+				"uuid": "9ENcXoDX",
+				"value": "V4.0",
+				"selected": False,
+				"background_color": "#fdf4d9",
+				"color": "#f1b300",
+				"desc": ""
+			}, {
+				"uuid": "LaRRpuz3",
+				"value": "v6.0",
+				"selected": False,
+				"background_color": "#d9f4ed",
+				"color": "#00b388",
+				"desc": ""
+			}, {
+				"uuid": "3UVSZhnH",
+				"value": "V5.0",
+				"selected": False,
+				"background_color": "#e63422",
+				"color": "#fff",
+				"desc": ""
+			}]
+		}
+}
+
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 

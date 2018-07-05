@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "api_schema/user.json"
+    },
+    "teams": {
+      "$ref": "api_schema/team.json"
+    },
+    "org": {
+      "$ref": "api_schema/org.json"
+    }
+  }
+}

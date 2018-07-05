@@ -2,7 +2,7 @@
 import os, sys
 
 current_file_path = os.path.dirname(__file__)
-sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../../')))
 from config import GlobalVariable, branch
 from jsonschema import validate
 import time,requests,json,unittest
@@ -12,30 +12,16 @@ args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	# project_uuid = variable["project_uuid"]
-	project_uuid = "GUGgMPPrq54BHVF1"
 
-	api_url = "%s/team/%s/project/%s/filters/peek" %(variable["url"], variable["team_uuid"],project_uuid)
+	api_url = "%s/team/%s/field/field012/update_field_value" %(variable["url"], variable["team_uuid"])
 	headers = {
 		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
 		"Ones-User-Id": "%s" %(variable["owner_uuid"]),
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "query":{
-	    "must":[
-	        {"in":{"field_values.field006":["GUGgMPPrq54BHVF1"]}}
-	    ]
-	  },
-	  "sort":[
-	    {
-	      "create_time": {
-	                "order": "desc"
-	            }
-	    }
-	  ],
-	  "group_by":"status_category",
-	  "include_subtasks":True
+		"old_value": "8Vp8D9qt",
+		"new_value": "EmxTkM2m"
 	}
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r

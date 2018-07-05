@@ -2,7 +2,7 @@
 import os, sys
 
 current_file_path = os.path.dirname(__file__)
-sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../../')))
 from config import GlobalVariable, branch
 from jsonschema import validate
 import time,requests,json,unittest
@@ -12,7 +12,7 @@ args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	api_url = "%s/team/%s/task/GUGgMPPrrCLEeLEf/info" %(variable["url"],variable["team_uuid"])
+	api_url = "%s/team/%s/field/field012/field_option/UUsdWyqJ/task_count" %(variable["url"],variable["team_uuid"])
 	headers = {
 		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
 		"Ones-User-Id": "%s" %(variable["owner_uuid"])

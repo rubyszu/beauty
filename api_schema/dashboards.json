@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "name_pinyin": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "shared": {
+      "type": "boolean"
+    },
+    "shared_to": {
+      "type": "null"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "dashboard_uuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "integer"
+              },
+              "y": {
+                "type": "integer",
+              },
+              "w": {
+                "type": "integer"
+              },
+              "h": {
+                "type": "integer"
+              }
+            }
+          },
+          "type": {
+            "type": "string"
+          },
+          "config": {
+            "type": "object",
+            "properties": {
+              "project_uuid": {
+                "type": "string"
+              },
+              "report_uuid": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "pinned": {
+      "type": "boolean"
+    },
+    "default": {
+      "type": "boolean"
+    }
+  }
+}

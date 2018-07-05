@@ -12,31 +12,32 @@ args = branch.get_args()
 branch = args[0]
 
 def request(variable):
-	# project_uuid = variable["project_uuid"]
-	project_uuid = "GUGgMPPrq54BHVF1"
 
-	api_url = "%s/team/%s/project/%s/filters/peek" %(variable["url"], variable["team_uuid"],project_uuid)
+	api_url = "%s/team/%s/fields/add" %(variable["url"], variable["team_uuid"])
 	headers = {
 		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
 		"Ones-User-Id": "%s" %(variable["owner_uuid"]),
 		"Content-Type": "application/json"
 	}
 	body = {
-	  "query":{
-	    "must":[
-	        {"in":{"field_values.field006":["GUGgMPPrq54BHVF1"]}}
-	    ]
-	  },
-	  "sort":[
-	    {
-	      "create_time": {
-	                "order": "desc"
-	            }
-	    }
-	  ],
-	  "group_by":"status_category",
-	  "include_subtasks":True
-	}
+		"field": {
+			"name": "服务客户商05",
+			"type": 16,
+			"options": [{
+				"value": "12345",
+				"background_color": "#307fe2",
+				"color": "#fff"
+			}, {
+				"value": "2345",
+				"background_color": "#00b388",
+				"color": "#fff"
+			}],
+			"renderer": 1,
+			"filter_option": 0,
+			"search_option": 1
+		}
+}
+
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 

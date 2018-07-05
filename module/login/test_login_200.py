@@ -44,7 +44,14 @@ class TestLogin(unittest.TestCase):
 		}
 		validate(response_schema, api_schema)
 
+		# #status code
+		# self.assertEqual(200,self.status_code)
+		# #response body
+		# validate(self.response_json,api_schema)
+
 	def tearDown(self):
+		with open('response.json','w') as f:
+			f.write(self.request.text)
 		#get response data
 		user = self.response_json.get("user")
 		useruuid = user.get("uuid")
@@ -58,8 +65,7 @@ class TestLogin(unittest.TestCase):
 		# write to json file
 		self.global_variable.write()
 
-		with open('response.json','w') as f:
-			f.write(self.request.text)
+
 
 
 def main():
