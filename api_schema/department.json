@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "departments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "parent_uuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "name_pinyin": {
+            "type": "string"
+          },
+          "next_uuid": {
+            "type": "string"
+          },
+          "team_uuid": {
+            "type": "string"
+          },
+          "SyncId": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}
