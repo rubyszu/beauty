@@ -1,0 +1,53 @@
+{
+  "type": "object",
+  "properties": {
+    "evaluated_permissions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "context_type": {
+            "type": "string",
+            "enum":["organization","team","project","issue_type","space","testcase"]
+          },
+          "context_param": {
+            "type": ["object","null"],
+            "properties":{
+              "project_uuid":{
+                "type": "string"
+              },
+              "issue_type_uuid":{
+                "type": "string"
+              },
+              "space_uuid":{
+                "type": "string"
+              },
+              "library_uuid":{
+                "type": "string"
+              },
+              "plan_uuid":{
+                "type": "string"
+              }
+            }
+          },
+          "permission": {
+            "type": "string",
+            "enum":["administer_organization","manage_organization_member","administer_team","invite_member","administer_do","administer_wiki","view_team_reports","administer_testcase","manage_version","manage_project","browse_project","manage_sprints","view_project_reports","manage_pipelines","export_tasks","create_tasks","view_tasks","update_tasks","delete_tasks","transit_tasks","be_assigned","view_page","create_page","manage_space","manage_plans","manage_library","manage_library_cases","manage_plan_cases"]
+          },
+          "additional_checks":{
+            "type":["array","null"],
+            "items":{
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}
