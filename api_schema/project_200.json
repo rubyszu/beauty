@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "definitions": {
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "enum":[1,3]
+          },
+          "announcement": {
+            "type": "string"
+          },
+          "deadline": {
+            "type": "integer"
+          },
+          "is_pin": {
+            "type": "boolean"
+          },
+          "is_open_email_notify": {
+            "type": "boolean"
+          },
+          "admins": {
+            "type": ["array","null"],
+            "items": {
+              "type": "string"
+            }
+          },
+          "task_update_time": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "projects": {"$ref": "#/definitions/projects"},
+    "archive_projects": {"$ref": "#/definitions/projects"},
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}

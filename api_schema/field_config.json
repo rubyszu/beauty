@@ -1,0 +1,81 @@
+{
+  "type": "object",
+  "properties": {
+    "field_configs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "project_uuid": {
+            "type": "string"
+          },
+          "issue_type_uuid": {
+            "type": "string"
+          },
+          "field_uuid": {
+            "type": ["string","null"]
+          },
+          "is_important_field": {
+            "type": ["boolean","null"]
+          },
+          "important_field_position": {
+            "type": ["integer","null"]
+          },
+          "default_value": {
+            "type": ["string","null"]
+          },
+          "renderer": {
+            "type": "integer"
+          },
+          "filter_option": {
+            "type": "integer"
+          },
+          "search_option": {
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "can_delete": {
+            "type": ["boolean","null"]
+          },
+          "can_modify_required": {
+            "type": ["boolean","null"]
+          },
+          "generated": {
+            "type": ["boolean","null"]
+          },
+          "position": {
+            "type": "integer"
+          },
+          "option_configs": {
+            "type": ["array","null"],
+            "items": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string"
+                },
+                "selected": {
+                  "type": ["boolean"]"null"}
+                },
+                "background_color": {
+                  "type": ["string","null"]
+                },
+                "color": {
+                  "type": ["string","null"]
+                },
+                "desc": {
+                  "type": ["string","null"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}

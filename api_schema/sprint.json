@@ -1,0 +1,110 @@
+{
+  "type": "object",
+  "properties": {
+    "sprints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "project_uuid": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "integer"
+          },
+          "end_time": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "integer",
+            "enum":[1,2,3]
+          },
+          "create_time": {
+            "type": "integer"
+          },
+          "is_pin": {
+            "type": "boolean"
+          },
+          "is_open_gantt": {
+            "type": "boolean"
+          },
+          "daily_hours": {
+            "type": "integer"
+          },
+          "assign": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field_uuid": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum":["option","text","integer","float","date","time","user"]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": ["string","integer","null"]
+                }
+              }
+            }
+          },
+          "statuses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "status_uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string",
+                  "enum":["to_do","in_progress","done"]
+                },
+                "plan_start_time": {
+                  "type": ["integer","null"]
+                },
+                "plan_end_time": {
+                  "type": ["integer","null"]
+                },
+                "actual_start_time": {
+                  "type": ["integer","null"]
+                },
+                "actual_end_time": {
+                  "type": ["integer","null"]
+                },
+                "is_current_status": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}

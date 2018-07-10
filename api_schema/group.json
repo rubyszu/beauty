@@ -1,49 +1,34 @@
 {
   "type": "object",
   "properties": {
-    "projects": {
+    "groups": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
           "uuid": {
-            "type": "string",
-            "minLength": 16,
-            "maxLength": 16
+            "type": "string"
           },
           "name": {
             "type": "string"
           },
-          "status": {
-            "type": "integer",
-            "enum": [1]
+          "name_pinyin": {
+            "type": "string"
           },
-          "announcement": {
+          "desc": {
             "type": ["string","null"]
           },
-          "deadline": {
+          "create_time": {
             "type": "integer"
           },
-          "is_pin": {
-            "type": "boolean"
-          },
-          "is_open_email_notify": {
-            "type": "boolean"
-          },
-          "admins": {
+          "members": {
             "type": ["array","null"],
             "items": {
               "type": "string"
             }
-          },
-          "task_update_time": {
-            "type": "integer"
           }
         }
       }
-    },
-    "archive_projects": {
-      "type": "array"
     },
     "server_update_stamp": {
       "type": "integer"

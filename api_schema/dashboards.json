@@ -1,25 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "uuid": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "name_pinyin": {
-      "type": "string"
-    },
-    "owner": {
-      "type": "string"
-    },
-    "shared": {
-      "type": "boolean"
-    },
-    "shared_to": {
-      "type": "null"
-    },
-    "cards": {
+    "dashboards": {
       "type": "array",
       "items": {
         "type": "object",
@@ -27,51 +9,91 @@
           "uuid": {
             "type": "string"
           },
-          "dashboard_uuid": {
-            "type": "string"
-          },
           "name": {
             "type": "string"
           },
-          "layout": {
-            "type": "object",
-            "properties": {
-              "x": {
-                "type": "integer"
-              },
-              "y": {
-                "type": "integer",
-              },
-              "w": {
-                "type": "integer"
-              },
-              "h": {
-                "type": "integer"
-              }
-            }
-          },
-          "type": {
+          "name_pinyin": {
             "type": "string"
           },
-          "config": {
-            "type": "object",
-            "properties": {
-              "project_uuid": {
-                "type": "string"
-              },
-              "report_uuid": {
-                "type": "string"
+          "owner": {
+            "type": "string"
+          },
+          "shared": {
+            "type": "boolean"
+          },
+          "shared_to": {
+            "type": ["array","null"],
+            "items": {
+              "type": "object",
+              "properties": {
+                "user_domain_type": {
+                  "type": "string"
+                },
+                "user_domain_param": {
+                  "type": "string"
+                }
               }
             }
+          },
+          "cards": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "uuid": {
+                  "type": "string"
+                },
+                "dashboard_uuid": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "layout": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "integer"
+                    },
+                    "y": {
+                      "type": "integer"
+                    },
+                    "w": {
+                      "type": "integer"
+                    },
+                    "h": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "type": {
+                  "type": "string"
+                },
+                "config": {
+                  "type": "object",
+                  "properties": {
+                    "project_uuid": {
+                      "type": "string"
+                    },
+                    "sprint_uuid": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "default": {
+            "type": "boolean"
           }
         }
       }
     },
-    "pinned": {
-      "type": "boolean"
-    },
-    "default": {
-      "type": "boolean"
+    "server_update_stamp": {
+      "type": "integer"
     }
   }
 }

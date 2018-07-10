@@ -24,17 +24,5 @@ class Generate(object):
 		return random.randint(a,b)
 
 
-# class Generate(object):
-
-#   def generate_string(self):
-#     seed = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
-#     return self.generate_array(seed)
-
-#   def generate_array(self, l):
-#     for i in range(8):
-#       salt.append(random.choice(l))
-#     return ''.join(salt)
-
-
 
     

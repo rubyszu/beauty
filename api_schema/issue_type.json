@@ -1,0 +1,179 @@
+{
+  "type": "object",
+  "properties": {
+    "issue_types": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "name_pinyin": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "integer"
+          },
+          "built_in": {
+            "type": ["boolean","null"]
+          },
+          "default_selected": {
+            "type": ["boolean","null"]
+          },
+          "create_time": {
+            "type": "integer"
+          },
+          "default_configs": {
+            "type": "object",
+            "properties": {
+              "default_field_configs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "field_uuid": {
+                      "type": "string"
+                    },
+                    "required": {
+                      "type": "boolean"
+                    },
+                    "can_delete": {
+                      "type": "boolean"
+                    },
+                    "can_modify_required": {
+                      "type": "boolean"
+                    },
+                    "is_important_field": {
+                      "type": "boolean"
+                    },
+                    "important_field_position": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "default_task_status_configs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "status_uuid": {
+                      "type": "string"
+                    },
+                    "default": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "default_transitions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "start_status_uuid": {
+                      "type": "string"
+                    },
+                    "end_status_uuid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "trigger": {
+                      "type": "null"
+                    },
+                    "condition": {
+                      "type": ["object","null"],
+                      "properties": {
+                        "must": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "in_user_domains": {
+                                "type": "object",
+                                "properties": {
+                                  "user_domains": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "user_domain_param": {
+                                          "type": "string"
+                                        },
+                                        "user_domain_type": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "post_function": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "update_field_value": {
+                            "type": "object",
+                            "properties": {
+                              "field_uuid": {
+                                "type": "string"
+                              },
+                              "type": {
+                                "type": "integer"
+                              },
+                              "value": {
+                                "type": ["string","array","integer"]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "default_permission": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "uuid": {
+                      "type": "string"
+                    },
+                    "user_domain_type": {
+                      "type": "string"
+                    },
+                    "user_domain_param": {
+                      "type": "string"
+                    },
+                    "permission": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}
