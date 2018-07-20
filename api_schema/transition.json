@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string"
+          },
+          "project_uuid": {
+            "type": "string"
+          },
+          "issue_type_uuid": {
+            "type": "string"
+          },
+          "start_status_uuid": {
+            "type": "string"
+          },
+          "end_status_uuid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "trigger": {
+            "type": "null"
+          },
+          "condition": {
+            "type": "object",
+            "properties": {
+              "must": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "in_user_domains": {
+                      "type": "object",
+                      "properties": {
+                        "user_domains": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "user_domain_param": {
+                                "type": "string"
+                              },
+                              "user_domain_type": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "post_function": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "update_field_value": {
+                  "type": "object",
+                  "properties": {
+                    "field_uuid": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "integer"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

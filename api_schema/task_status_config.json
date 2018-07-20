@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "task_status_configs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "project_uuid": {
+            "type": "string"
+          },
+          "issue_type_uuid": {
+            "type": "string"
+          },
+          "status_uuid": {
+            "type": "string"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "position": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}

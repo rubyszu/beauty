@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8
+          },
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "name_pinyin": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "create_time": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "integer",
+            "enum":[1,2,3]
+          },
+          "team_member_status": {
+            "type": "integer",
+            "enum":[1,2,3]
+          },
+          "verify_status": {
+            "type": "integer"
+          },
+          "department_uuids": {
+            "type": "array",
+            "items":{
+              "type":"string"
+            }
+          },
+          "inviter_uuid": {
+            "type": "string"
+          },
+          "inviter_name": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pending_members": {
+      "type": "array"
+    },
+    "server_update_stamp": {
+      "type": "integer"
+    }
+  }
+}
