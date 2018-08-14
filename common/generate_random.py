@@ -17,7 +17,7 @@ class Generate(object):
 		return random.choice(arr)
 
 	def random_priority(self):
-		priority = ["PRIOPThh","PRIOPThi","PRIOPTno","PRIOPTlo","PRIOPTll"]
+		priority = ["QUAy9Kh5","5P5WpB81","GpXnVsWe","BPRA6cQw","XpJ4xBFY"]
 		return random.choice(priority)
 
 	def random_num(self,a,b):

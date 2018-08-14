@@ -1,0 +1,44 @@
+{
+  "sprints": [
+    "KUq58cZH", 
+    "87oNJMrf", 
+    "QtofsJC5"
+  ], 
+  "owner_password": "12345678", 
+  "project_uuid": "Qnp9YAnGUnDT1MEZ", 
+  "url": "https://api.ones.team/project/F1101", 
+  "task_status_to_do": "UDhw3kT6", 
+  "owner_email": "linhong+1101@ones.ai", 
+  "issue_types": [
+    "QBk2GHBj", 
+    "QBXGi9Kd", 
+    "VfXcGp3U", 
+    "dTaGpAuk", 
+    "H2bVZXkk", 
+    "TPyWSGCD", 
+    "M5BmfsY7"
+  ], 
+  "task_status_to_do_list": [
+    "VrrnCVNF", 
+    "WrFCmQdH", 
+    "7e3vvGuN", 
+    "Sr6PrSfv", 
+    "UDhw3kT6"
+  ], 
+  "owner_uuid": "Qnp9YAnG", 
+  "owner_token": "ClOQOrjbNIeKDzoP0RORBe5hTCbNHwkiURv5qr37su4XPlQfdQnwM9qubY1bwU8r", 
+  "projects": [
+    "Qnp9YAnGUnDT1MEZ"
+  ], 
+  "members": [
+    "Qnp9YAnG"
+  ], 
+  "status_category_groups": [
+    "to_do", 
+    "in_progress", 
+    "done"
+  ], 
+  "team_uuid": "FSuerWCU", 
+  "status_category_groups_length": 3, 
+  "task_status_to_do_length": 5
+}

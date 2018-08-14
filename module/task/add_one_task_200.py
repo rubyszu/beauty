@@ -51,13 +51,13 @@ def request(variable):
 	  	{
 	  		"uuid":"%s" %(random_uuid),
 	    	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-	    	"project_uuid":"8yhRWBazCkmxNeyF",
-	    	"issue_type_uuid":"MsBUqLt8",
+	    	"project_uuid":"Qnp9YAnGUnDT1MEZ",
+	    	"issue_type_uuid":"TPyWSGCD",
 	    	"owner":"%s" %(owner_uuid),
 	    	"assign":"%s" %(random_assign),
 	    	"desc_rich":"",
 	    	"parent_uuid":"",
-	    	"priority":"WpwmoAP3",
+	    	"priority":"%s" %(random_priority),
 	    	"field_values":[
 	    		{"field_uuid":"field018","type":4,"value":random_assess_hour}
 	    	]

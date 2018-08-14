@@ -18,9 +18,13 @@ def request(variable):
 	headers = {
 		"Content-Type": "application/json"
 	}
+	# body = {
+	#   "email":"%s" %(variable["owner_email"]),
+	#   "password":"%s" %(variable["owner_password"])
+	# }
 	body = {
-	  "email":"%s" %(variable["owner_email"]),
-	  "password":"%s" %(variable["owner_password"])
+		"email":"linhong+1101@ones.ai",
+	  	"password":"12345678"
 	}
 
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
