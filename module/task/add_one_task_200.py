@@ -15,11 +15,12 @@ branch = args[0]
 
 def request(variable):
 	owner_uuid = variable["owner_uuid"]
+	prioritys = variable["prioritys"]
 	random = Generate()
 	random_uuid = owner_uuid + random.generate_string()
 	random_issue_type = random.random_arg(variable["issue_types"])
 	random_assign = random.random_arg(variable["members"])
-	random_priority = random.random_priority()
+	random_priority = random.random_arg(prioritys)
 	random_assess_hour = random.random_num(100000,500000)
 	# random_parent_uuid = random.random_arg(variable["task_uuids"])
 
@@ -51,8 +52,8 @@ def request(variable):
 	  	{
 	  		"uuid":"%s" %(random_uuid),
 	    	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-	    	"project_uuid":"Qnp9YAnGUnDT1MEZ",
-	    	"issue_type_uuid":"TPyWSGCD",
+	    	"project_uuid":"Qn32h4QJCYL5ojj5",
+	    	"issue_type_uuid":"5uiTy4gw",
 	    	"owner":"%s" %(owner_uuid),
 	    	"assign":"%s" %(random_assign),
 	    	"desc_rich":"",

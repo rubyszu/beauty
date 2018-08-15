@@ -65,6 +65,17 @@ class TestResponse(unittest.TestCase):
 		#write to json file
 		with open('response.json','w') as f:
 			f.write(self.request.text)
+
+		#field:priority
+		fields = self.response_json.get("field").get("fields")
+		prioritys = []
+		
+		for i in range(len(fields)):
+			if fields[i].get("uuid") == "field012":
+				options = fields[i].get("options")
+				for y in range(len(options)):
+					prioritys.append(options[y].get("uuid"))
+
 		#project uuids
 		projects = self.response_json.get("project").get("projects")
 		project_uuids = []
@@ -91,6 +102,7 @@ class TestResponse(unittest.TestCase):
 				team_members.append(members[i].get("uuid"))
 
 		#store data
+		self.global_variable.store("prioritys",prioritys)
 		self.global_variable.store("projects",project_uuids)
 		self.global_variable.store("project_uuid",project_uuids[0])
 		self.global_variable.store("sprints",sprint_uuids)

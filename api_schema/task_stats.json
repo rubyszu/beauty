@@ -1,48 +1,109 @@
 {
+  "$id": "http://example.com/example.json",
   "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "properties": {
     "task_count_by_project": {
+      "$id": "/properties/task_count_by_project",
       "type": "array",
       "items": {
+        "$id": "/properties/task_count_by_project/items",
         "type": "object",
         "properties": {
           "project_uuid": {
-            "type": "string"
+            "$id": "/properties/task_count_by_project/items/properties/project_uuid",
+            "type": "string",
+            "title": "The Project_uuid Schema ",
+            "default": "",
+            "examples": [
+              "GUGgMPPrdxskQ4EH"
+            ]
           },
           "to_do": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_project/items/properties/to_do",
+            "type": "integer",
+            "title": "The To_do Schema ",
+            "default": 0,
+            "examples": [
+              "GUGgMPPrdxskQ4EH"
+            ]
           },
           "in_progress": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_project/items/properties/in_progress",
+            "type": "integer",
+            "title": "The In_progress Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
           },
           "done": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_project/items/properties/done",
+            "type": "integer",
+            "title": "The Done Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
           }
         }
       }
     },
     "task_count_by_sprint": {
+      "$id": "/properties/task_count_by_sprint",
       "type": "array",
       "items": {
+        "$id": "/properties/task_count_by_sprint/items",
         "type": "object",
         "properties": {
           "sprint_uuid": {
-            "type": "string"
+            "$id": "/properties/task_count_by_sprint/items/properties/sprint_uuid",
+            "type": "string",
+            "title": "The Sprint_uuid Schema ",
+            "default": "",
+            "examples": [
+              "3LEK3URp"
+            ]
           },
           "to_do": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_sprint/items/properties/to_do",
+            "type": "integer",
+            "title": "The To_do Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
           },
           "in_progress": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_sprint/items/properties/in_progress",
+            "type": "integer",
+            "title": "The In_progress Schema ",
+            "default": 0,
+            "examples": [
+              1
+            ]
           },
           "done": {
-            "type": "integer"
+            "$id": "/properties/task_count_by_sprint/items/properties/done",
+            "type": "integer",
+            "title": "The Done Schema ",
+            "default": 0,
+            "examples": [
+              0
+            ]
           }
         }
       }
     },
     "server_update_stamp": {
-      "type": "integer"
+      "$id": "/properties/server_update_stamp",
+      "type": "integer",
+      "title": "The Server_update_stamp Schema ",
+      "default": 0,
+      "examples": [
+        1531109235479600
+      ]
     }
   }
 }

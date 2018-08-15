@@ -16,10 +16,6 @@ class Generate(object):
 	def random_arg(self,arr):
 		return random.choice(arr)
 
-	def random_priority(self):
-		priority = ["QUAy9Kh5","5P5WpB81","GpXnVsWe","BPRA6cQw","XpJ4xBFY"]
-		return random.choice(priority)
-
 	def random_num(self,a,b):
 		return random.randint(a,b)
 

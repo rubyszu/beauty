@@ -8,10 +8,10 @@
 # cd ...
 
 # python run/run_all_test.py --branch=$1
-for i in $( seq 1 558 )
+for i in $( seq 1 957 )
 do
    python run/run_all_test.py --branch=$1
 done
 
 
-# cd module/login && py.test --junitxml results.xml test_login_200.py
+# cd module/login && py.test --junitxml results.xml test_login_200.p7

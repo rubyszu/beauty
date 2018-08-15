@@ -1,39 +1,43 @@
 {
   "sprints": [
-    "Fu9W9ZSx", 
-    "Nkx8ziiT", 
-    "JbZQwgXB", 
-    "331Zt5T4", 
-    "5Ucj5cvs"
+    "SvqKBLpj", 
+    "7RDr6Ccu", 
+    "JNrKEZMj"
   ], 
   "owner_password": "12345678", 
-  "project_uuid": "8yhRWBazCkmxNeyF", 
+  "project_uuid": "Qn32h4QJCYL5ojj5", 
   "url": "https://api.ones.ai/project/v1", 
-  "owner_email": "linhong+1014@ones.ai", 
+  "owner_email": "linhong+mobile@ones.ai", 
   "issue_types": [
-    "MsBUqLt8", 
-    "W7tnu4k6", 
-    "PkLcqK56", 
-    "PVRsTwjE", 
-    "9sD4z68q", 
-    "52hNsC6o", 
-    "Cc3AK2XL"
+    "DYFBkVvW", 
+    "D426zYnw", 
+    "XTMZduhH", 
+    "5uiTy4gw", 
+    "QrnyhRNN", 
+    "7xBQfFoR", 
+    "XxpGeV2B"
   ], 
   "pipeline_uuid": "zricc21q", 
-  "owner_uuid": "8yhRWBaz", 
-  "owner_token": "XWBvawhDmQuVvSnIe7ZBMM1KlSjSXuQ5xi5IxbX3AqfYOujbVW9xROxL2PNufBto", 
+  "prioritys": [
+    "C7GGBoEr", 
+    "FLFM4AbU", 
+    "8XeiRpDw", 
+    "yeKhzx1h", 
+    "CYp7w1vJ"
+  ], 
+  "owner_uuid": "Qn32h4QJ", 
+  "owner_token": "WTvmY98SVUhZSq4F0MC1rQdRs6zGX9wuLEjoj0KBpKeaaq7wT5CYxvLjdukyT23m", 
   "sprint_fields": [
     "88Xhyb4w"
   ], 
   "members": [
     "MwSYD1rp", 
-    "8yhRWBaz", 
-    "AViwX7Tp", 
-    "R7mme4xa", 
-    "aH73DauK"
+    "Qn32h4QJ", 
+    "aH73DauK", 
+    "XWvgCTG6"
   ], 
   "sprint_uuid": "Y6aDyVuF", 
-  "team_uuid": "TKmSZnBP", 
+  "team_uuid": "Y9jdCJ32", 
   "pipeline_uuids": [
     "DQ3qFfJN", 
     "9aNrBbbD", 
@@ -43,9 +47,6 @@
     "VtzqKwq6"
   ], 
   "projects": [
-    "8yhRWBazCkmxNeyF", 
-    "8yhRWBaz87BmZUIP", 
-    "8yhRWBazSQ7mUK13", 
-    "8yhRWBazY1cdTQgS"
+    "Qn32h4QJCYL5ojj5"
   ]
 }
