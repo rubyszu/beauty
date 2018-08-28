@@ -5,7 +5,7 @@ import ones
 from tomorrow import threads
 
 case_path = "./module/task/"
-rule = "add*.py"
+rule = "add111*.py"
 
 def add_case(case_path,rule):
 	discover = unittest.defaultTestLoader.discover(case_path,pattern=rule,top_level_dir=None)
