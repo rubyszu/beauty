@@ -6,8 +6,8 @@
 
 # cd module/test && python testsuit.py
 # cd ...
-pip install -U tomorrow
-pip install ones
+# pip install -U tomorrow
+# pip install ones
 python run/run_all_test.py --branch=v1
 # for i in $( seq 1 957 )
 # do

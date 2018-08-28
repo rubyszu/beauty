@@ -2,7 +2,7 @@
 
 import unittest
 import ones
-from tomorrow import threads
+# from tomorrow import threads
 
 case_path = "./module/task/"
 rule = "add111*.py"
