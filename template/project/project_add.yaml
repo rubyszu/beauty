@@ -1,0 +1,35 @@
+dependent_model:
+- AuthLogin
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    uuid: "{{context.user.uuid + 8|randomString}}"
+    name: "{{special_params.name}}"
+    announcement: "{{special_params.announcement}}"
+    deadline: 0
+    members: "{{special_params.members}}"
+    template_id: "{{special_params.template_id}}"
+    issue_types: "{{special_params.issue_types}}"
+    copy_from: "{{special_params.copy_from}}"
+    
+'400InvalidParameter.Template.ID.InvalidFormat':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    uuid: "{{context.user.uuid + 8|randomString}}"
+    name: "64|randomString"
+    announcement: "256|randomString"
+    deadline: 0
+    members: 
+    - "{{context.user.uuid}}"
+    template_id: "4|randomString"
+    issue_types: null
+    copy_from: null

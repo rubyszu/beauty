@@ -1,0 +1,24 @@
+dependent_model:
+- projectAdd
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+    projectUUID: "{{context.project.uuid}}"
+  json:
+    components:
+    - uuid: "{{context.project.component_uuid}}"
+      template_uuid: ""
+      parent_uuid: ""
+      name: "{{64|randomString}}"
+      desc: "{{256|randomString}}"
+      type: 2
+      views: null
+      permission:
+      - user_domain_type: everyone
+        user_domain_param: ""
+      - user_domain_type: project_administrators
+        user_domain_param: ""

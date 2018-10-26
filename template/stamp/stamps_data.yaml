@@ -1,0 +1,36 @@
+dependent_model:
+- AuthLogin
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    all_project: 0
+    component: 0
+    component_template: 0
+    dashboard: 0
+    department: 0
+    evaluated_permission: 0
+    field: 0
+    field_config: 0
+    group: 0
+    issue_type: 0
+    issue_type_config: 0
+    permission_rule: 0
+    pipeline: 0
+    project: 0
+    role: 0
+    role_config: 0
+    sprint: 0
+    task_stats: 0
+    task_status: 0
+    task_status_config: 0
+    team: 0
+    team_members: 0
+    testcase_config: 0
+    testcase_library: 0
+    testcase_plan: 0
+    transition: 0

@@ -1,0 +1,24 @@
+dependent_model:
+- AuthLogin
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    issue_type:
+      name: "{{special_params.name}}"
+      icon: "{{special_params.icon}}"
+    copy_from: null
+'400MissingParameter.IssueType.Name':
+  headers:
+    Ones-User-Id: "{{context.Ones-User-Id}}"
+    Ones-Auth-Token: "{{context.Ones-Auth-Token}}"
+  path_params:
+    teamUUID: "{{context.teamUUID}}"
+  json:
+    issue_type:
+      icon: "{{special_params.icon}}"
+    copy_from: null

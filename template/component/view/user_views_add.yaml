@@ -1,0 +1,26 @@
+dependent_model:
+- UserViewsAdd
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+    projectUUID: "{{context.project.uuid}}"
+    componentUUID: "{{context.project.component.uuid}}"
+  json:
+    name: "{{64|randomString}}"
+    layout: "{{special_params.layout}}"
+    table_field_settings: "{{special_params.table_field_settings}}"
+    group_by: "{{special_params.group_by}}"
+    is_fild_all_groups: "{{special_params.is_fild_all_groups}}"
+    query: 
+      must:
+      - in:
+        field_values.field007: "{{context.project.uuid}}"
+      - in:
+        field_values.field017: 
+        - to_do
+        - in_progress
+

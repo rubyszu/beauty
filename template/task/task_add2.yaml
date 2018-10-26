@@ -1,0 +1,46 @@
+dependent_model:
+- ProjectAdd
+- StampsData
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    tasks:
+    - uuid: "{{context.user.uuid + 8|randomString}}"
+      summary: "{{special_params.summary}}"
+      project_uuid: "{{special_params.project_uuid}}"
+      issue_type_uuid: "{{special_params.issue_type_uuid}}"
+      owner: "{{special_params.user.uuid}}"
+      assign: "{{context.team_members|randomItem}}}}"
+      desc_rich: ''
+      parent_uuid: ''
+      priority: "{{context.prioritys|randomItem}}"
+      field_values:
+      - field_uuid: field018
+        type: 4
+        value: "{{10000|randomNum(90000)}}}}"
+        
+'400MissingParameter.Task.priority':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+  json:
+    tasks:
+    - uuid: "{{context.user.uuid + 8|randomString}}"
+      summary: "{{special_params.summary}}"
+      project_uuid: "{{special_params.project_uuid}}"
+      issue_type_uuid: "{{special_params.issue_type_uuid}}"
+      owner: "{{special_params.user.uuid}}"
+      assign: "{{context.team_members|randomItem}}}}"
+      desc_rich: ''
+      parent_uuid: ''
+      field_values:
+      - field_uuid: field018
+        type: 4
+        value: "{{10000|randomNum(90000)}}}}"

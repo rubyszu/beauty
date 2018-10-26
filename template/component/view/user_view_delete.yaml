@@ -1,0 +1,12 @@
+dependent_model:
+- UserViewsAdd
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+  path_params:
+    teamUUID: "{{context.team.uuid}}"
+    projectUUID: "{{context.project.uuid}}"
+    componentUUID: "{{context.project.component.uuid}}"
+    viewUUID: "{{context.project.component.view.uuid}}"
