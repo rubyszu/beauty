@@ -1,10 +1,10 @@
 '200':
-	- email: linhong+1119@ones.ai
+	- email: linhong+f1119@ones.ai
     password: '12345678'
-'401':
-	- email: linhong+1014@ones.ai
+'401AuthFailure.InvalidPassword':
+	- email: linhong+f1119@ones.ai
     password: '11111111'
-'630':
+'630NotFound.User':
 	- email: linhong+aaa@ones.ai
     password: '12345678'
 '400MissingParameter.User.Email':

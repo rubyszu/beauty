@@ -18,10 +18,10 @@ def randomNum(Min,Max):
 	random_num = random.randint(Min,Max)
 	return random_num
 
-def randomTimestamp(Min = '1970-01-01 00:00:00',Max = '2030-01-01 00:00:00'):
+# def randomTimestamp(Min = '1970-01-01 00:00:00',Max = '2030-01-01 00:00:00'):
 	
-	random_timestamp = random.randint(Min,Max)
-	return random_timestamp
+# 	random_timestamp = random.randint(Min,Max)
+# 	return random_timestamp
 
 def randomSetsOfNum(Min,Max,is_inside = True):
 	if Min == Max:
@@ -52,20 +52,20 @@ def randomSetsOfString(Min,Max,is_inside = True):
 				'field018': ['1', '2', '10']}
 			}
 	'''
-def randomSetsOfSpecialParams(special_params,errcode = 200):
-	if not special_params:
-		return None
-	keys,values = special_params.keys(),special_params.values()
-	sets_of_special_params = {}
-	for i in range(len(values)):
-		spec_item = values[i]
-		value = []
-		if spec_item["type"] == "string":
-			value.extend(randomSetsOfString(spec_item["minLength"],spec_item["maxLength"]))
-		elif spec_item["type"]  == "int":
-			value.extend(randomSetsOfNum(spec_item["minimum"], spec_item["maximum"]))
-		sets_of_special_params.update({keys[i]:value})
-	return sets_of_special_params
+# def randomSetsOfSpecialParams(special_params,errcode = 200):
+# 	if not special_params:
+# 		return None
+# 	keys,values = special_params.keys(),special_params.values()
+# 	sets_of_special_params = {}
+# 	for i in range(len(values)):
+# 		spec_item = values[i]
+# 		value = []
+# 		if spec_item["type"] == "string":
+# 			value.extend(randomSetsOfString(spec_item["minLength"],spec_item["maxLength"]))
+# 		elif spec_item["type"]  == "int":
+# 			value.extend(randomSetsOfNum(spec_item["minimum"], spec_item["maximum"]))
+# 		sets_of_special_params.update({keys[i]:value})
+# 	return sets_of_special_params
 
 
 

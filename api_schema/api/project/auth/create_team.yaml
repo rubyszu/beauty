@@ -20,63 +20,63 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/schemas.yaml#/LoginResponse'
+                $ref: './api_schema/api/project/auth/schemas.yaml#/LoginResponse'
         '400':
           description: 请求参数错误
           content:
             application/json:
               schema: 
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MalformedJSON'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MissingParameterUserEmail'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MissingParameterUserEmail'
         '401':
           description: 参数错误
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
         '404':
           description: 找不到组织
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundOrganization'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundOrganization'
         '605':
           description: 验证码不存在或者无效
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '606':
           description: 验证码过期（有效期为15分钟）
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
         '621':
           description: 邮箱已存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
         '630':
           description: 用户不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundUser'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
           description: 参数有误
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterEmailInvalidFormat'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterPasswordInvalidFormat'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterPhoneInvalidFormat'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserNameTooLong'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterEmailInvalidFormat'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterPasswordInvalidFormat'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterPhoneInvalidFormat'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserNameTooLong'
                   - description: 团队名称超长或者团队名称为空
                     type: object
                     properties:
@@ -112,24 +112,24 @@ paths:
                       - model
                       - field
                       - reason
-                  - $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '813':
           description: 登陆已过期
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureExpired'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureExpired'
         '814':
           description: 团队中找不到 status === 1 且 team_member_status === 1 的用户
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
@@ -152,11 +152,11 @@ paths:
                   description: 行业
                   type: string
                 email:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/email'
                 phone:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/phone'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/phone'
                 password:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/password'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/password'
                 need_support:
                   description: 是否需要支持
                   type: boolean

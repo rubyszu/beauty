@@ -1,0 +1,19 @@
+dependent_model: []
+
+'200':
+  json:
+    email: '{{context.email}}'
+    password: '{{context.password}}'
+'401AuthFailure.InvalidPassword':
+  json:
+    email: '{{context.email}}'
+    password: '{{context.password}}'
+'400MissingParameter.User.Email':
+  json:
+    email: '{{context.email}}'
+    password: '{{context.password}}'
+'630NotFound.User':
+  json:
+    email: '{{context.email}}'
+    password: '{{context.password}}'
+    

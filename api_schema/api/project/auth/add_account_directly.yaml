@@ -20,13 +20,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                $ref: './api_schema/api/project/auth/schemas.yaml#/email'
         '401':
           description: 登录凭证失效
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureInvalidToken'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureInvalidToken'
         '403':
           description: 邀请成员无权限访问
           content:
@@ -86,45 +86,45 @@ paths:
                       - code
                       - type
                       - model
-                  - $ref: '/spec/api/project/auth/errors.yaml#/NotFoundOrganization'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundOrganization'
         '621':
           description: 邮箱已存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
         '801':
           description: 邮箱格式不正确
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
+                $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
         '802':
           description: 登录凭证为空
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureMissingToken'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureMissingToken'
         '807':
           description: 找不到团队
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundTeam'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundTeam'
         '824':
           description: 成员超出限制
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/LimitExceededTeamMember'
+                $ref: './api_schema/api/project/auth/errors.yaml#/LimitExceededTeamMember'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '/spec/api/project/auth/schemas.yaml#/user'
+              $ref: './api_schema/api/project/auth/schemas.yaml#/user'
         description: 通过email直接创建账号（私有部署）

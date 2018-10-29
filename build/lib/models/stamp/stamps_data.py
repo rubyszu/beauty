@@ -5,9 +5,10 @@ import time,itertools,json
 from datetime import datetime
 from jinja2 import Template
 
-class ProjectAdd(Model):
+class StampsData(Model):
 	def __init__(self):
 		super(Model,self).__init__("stamp","/team/{teamUUID}/stamps/data","post")
+		self.dependent_models = self.model_config["stamp"]["StampsData"]
 
 	def getTemplate(self,code,errcode=""):
 		templates = loadFile("template/stamp/stamps_data.json")
@@ -18,7 +19,7 @@ class ProjectAdd(Model):
 	#构造请求参数
 	def getRequestParam(self,code,errcode="",context={}):
 		if not context:
-			api_list = [AuthLogin().sendSuccessRequestByRandomParam]
+			api_list = self.get_dependent_models()
 			runner = compose(api_list)
 			context = runner({})
 

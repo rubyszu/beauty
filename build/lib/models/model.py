@@ -3,60 +3,86 @@ from common.http_base import httpBase
 from common import *
 import time,itertools,json
 from datetime import datetime
-from jinja2 import Template
+from jinja2 import Environment
 
-class Model():
+class Model(object):
+	def __init__(self,module,operation,method,product="project"):
+		self.apiOperation = ApiOperation(module,operation,method,product)
+		self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
+		self.dependent_models = self.templates["dependent_model"]
 
-	def __init__(self,module,path,method,product="project"):
-		self.apiOperation = ApiOperation(module,path,method,product)
-		self.has_send_request = False
+	def str2Class(self):
+		new_arr = []
+		if not len(self.dependent_models):
+			return []
+		for i in range(len(self.dependent_models)):
+			new_arr.append(getattr(sys.modules[__name__], self.dependent_models[i]))
+		return new_arr
+
+	def get_dependent_models(self):
+		self.dependent_models = self.str2Class()
+		if not len(self.dependent_models):
+			return []
+
+		all_dependent_models = [];
+
+		for i in range(len(self.dependent_models)):
+			dependent_model = self.dependent_models[i]()
+			all_dependent_models.extend(dependent_model.get_dependent_models())
+
+		all_dependent_models.extend(self.dependent_models)
+		
+		return all_dependent_models
 
 	def sendRequest(self,param):
 		self.apiOperation.sendRequest(param)
 
-	def getTemplate(self,code,errcode=""):
-		pass
+	def getTemplate(self,code,errcode = ""):
+		template = self.templates[code+errcode]
 
-	def buildParam(self,code,errcode="",context):
-		template = Template(self.getTemplate(code,errcode))
-		# special_params = self.buildSetsOfSpecialParams()
+		return template
 
-		keys,values = special_params.keys(),special_params.values()
-		sets_params = list(itertools.product(*values))
+	def buildParam(self,context,code,errcode = ""):
+		#自定义函数加入到jinja2 filter中
+		env = Environment()
+		# env.filters['randomString'] = randomString
+		# env.filters['randomNum'] = randomNum
+		#获取构造请求参数模板
+		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
+		#构造有边界值的参数
+		# special_params = self.ApiOperation.getSpecialParam()
+		# sets_of_special_params = randomSetsOfSpecialParams(special_params)
 
-		sets_data_params = []
-		for i in range(len(sets_params)):
-			value = sets_params[i]
-			sets_data = {}
-			for j in range(len(value)):
-				sets_data[keys[j]] = value[j]
-			sets_data_params.append(sets_data)
+		# params = []
+		# for sets_param in sets_of_special_params:
+			# templates.append(template.render(context = context, special_params = sets_param))
+		params = template.render(context = context)
 
-		# templates = [template.render(context=context, special_params=special_param) for sets_param in sets_data_params]
-		params = []
-		for sets_param in sets_data_params:
-			templates.append(template.render(context=context, special_params=special_param))
-
-		return patams
+		return params
 
 	def getRequestParam(self,code,errcode="",context={}):
-		if not context and self.has_send_request:
+		if not context:
 			dependent_api_list = [AuthLogin().sendSuccessRequestByRandomParam]
 			runner = compose(dependent_api_list)
 			context = runner({})
 
 		params = self.buildParam(code,errcode,context)
 		return params
-    	
 
-    def sendSuccessRequestByRandomParam(self,context):
-    	params = self.getRequestParam(200,context);
-    	ramdom_request_param = Generate().randomArray(params)
-    	response = self.sendRequest(ramdom_request_param).json()
-    	context.update(response)
-    	self.has_send_request = True
-    	return context
+	def sendSuccessRequestByRandomParam(self,context):
+		params = self.getRequestParam(200,context)
+		ramdom_request_param = Generate().randomArray(params)
+		response = self.sendRequest(ramdom_request_param).json()
+		context.update(response)
+		return context
 
-    def sendRequestAndValidate(self,param,status_code,errcode):
-    	self.apiOperation.sendRequestAndValidate(param,status_code,errcode)
+	def sendRequest(self,param):
+		self.apiOperation.sendRequest(param)
+
+
+	def validateResponse(self,response,status_code,errcode):
+		self.apiOperation.sendRequestAndValidate(param,status_code,errcode)
+
+if __name__ == '__main__':
+	login = Model("auth","login","post")
     	

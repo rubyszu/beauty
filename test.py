@@ -4,13 +4,6 @@ import os,sys,json
 import random
 import requests
 
-jsonData = {
- "uuid": '{{randomString()}}',
- "name": '{{1|randomSetsOfString(128)}}',
- # "name": '{{name}}',
- "number": '{{1|randomNum(5)}}'
-}
-
 # print json.dumps(jsonData)
 def randomString(num=8):
   seed = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
@@ -49,6 +42,20 @@ def sendRequest():
 		response = requests.request(method,api_url+path,**params)
 		return response
 
+jsonData = {
+	"json":{
+		"uuid": '{{randomString()}}',
+ 		"name": '{{context.name}}',
+ 		# "name": '{{name}}',
+ 		"number": '{{1|randomNum(5)}}'
+	}
+ 
+}
+
+context = {
+	"name": "ruby"
+}
+
 env = Environment()
 env.globals['randomString'] = randomString
 env.filters['randomNum'] = randomNum
@@ -57,6 +64,6 @@ template = env.from_string(json.dumps(jsonData))
 # template = json.dumps(jsonData)
 
 # print(template.render(name='variables'))
-print(template.render())
-print sendRequest()
+print(template.render(context=context))
+# print sendRequest()
 

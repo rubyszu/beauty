@@ -23,48 +23,48 @@ paths:
                 type: object
                 properties:
                   email:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/email'
         '400':
           description: 请求参数错误
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/MalformedJSON'
+                $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
         '605':
           description: 验证码不存在或者无效
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '606':
           description: 验证码过期（有效期为15分钟）
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
         '615':
           description: 用户不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundUser'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
           description: 用户不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '804':
           description: 超过调用频率限制
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/Blocked'
+                $ref: './api_schema/api/project/auth/errors.yaml#/Blocked'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:

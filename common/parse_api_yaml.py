@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 from common import loadFile,findNode,findNodeByList
 from common.http_base import httpBase
-import json,jsonref
-import requests
-from jsonschema import validate
-import re
 
 class ParseApiYaml:
-	def __init__(self,module,path,method,product="project"):
-		schema = loadFile("./api_schema/api/%s/%s/index.yaml" %(product,module))
+	def __init__(self,module,operation,method,product="project"):
+		schema = loadFile("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation))
+		self.path = findNode(schema,"paths").keys()[0]
 		self.product = product
-		self.path = path
 		self.method = method
 		node = ["paths",self.path,self.method]
 		self.api_config = findNodeByList(schema,node)
@@ -55,7 +51,7 @@ class ParseApiYaml:
 		if request_body != None:
 			#oneOf情况，延后处理
 			if response_schema.has_key("oneOf"):
-				break
+				return
 			else:
 				request_params = request_body["properties"]
 				special_params.update(self.getSpecialParamConfig("body",request_params))
@@ -99,3 +95,6 @@ class ParseApiYaml:
 					response_schema = response_schema["oneOf"][i]
 					break
 		return response_schema
+
+if __name__ == '__main__':
+	auth_login = ParseApiYaml("auth","login","post")

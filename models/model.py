@@ -5,11 +5,11 @@ import time,itertools,json
 from datetime import datetime
 from jinja2 import Environment
 
-class Model():
-
-	def __init__(self,module,path,method,product="project"):
-		self.apiOperation = ApiOperation(module,path,method,product)
-		self.dependent_models = []
+class Model(object):
+	def __init__(self,module,operation,method,product="project"):
+		self.apiOperation = ApiOperation(module,operation,method,product)
+		self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
+		self.dependent_models = self.templates["dependent_model"]
 
 	def str2Class(self):
 		new_arr = []
@@ -37,23 +37,26 @@ class Model():
 	def sendRequest(self,param):
 		self.apiOperation.sendRequest(param)
 
-	def getTemplate(self,code,errcode=""):
-		pass
+	def getTemplate(self,code,errcode = ""):
+		template = self.templates[code+errcode]
 
-	def buildParam(self,code,errcode="",context):
-		#自定义jinja2 filter
+		return template
+
+	def buildParam(self,context,code,errcode = ""):
+		#自定义函数加入到jinja2 filter中
 		env = Environment()
-		env.filters['randomString'] = randomString
-		env.filters['randomNum'] = randomNum
+		# env.filters['randomString'] = randomString
+		# env.filters['randomNum'] = randomNum
 		#获取构造请求参数模板
-		template = env.from_string(self.getTemplate(code,errcode))
+		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
 		#构造有边界值的参数
-		special_params = self.ApiOperation.getSpecialParam()
-		sets_of_special_params = randomSetsOfSpecialParams(special_params)
+		# special_params = self.ApiOperation.getSpecialParam()
+		# sets_of_special_params = randomSetsOfSpecialParams(special_params)
 
-		params = []
-		for sets_param in sets_of_special_params:
-			templates.append(template.render(context=context, special_params=sets_param))
+		# params = []
+		# for sets_param in sets_of_special_params:
+			# templates.append(template.render(context = context, special_params = sets_param))
+		params = template.render(context = context)
 
 		return params
 
@@ -65,16 +68,21 @@ class Model():
 
 		params = self.buildParam(code,errcode,context)
 		return params
-    	
 
-    def sendSuccessRequestByRandomParam(self,context):
-    	params = self.getRequestParam(200,context);
-    	ramdom_request_param = Generate().randomArray(params)
-    	response = self.sendRequest(ramdom_request_param).json()
-    	context.update(response)
-    	
-    	return context
+	def sendSuccessRequestByRandomParam(self,context):
+		params = self.getRequestParam(200,context)
+		ramdom_request_param = Generate().randomArray(params)
+		response = self.sendRequest(ramdom_request_param).json()
+		context.update(response)
+		return context
 
-    def sendRequestAndValidate(self,param,status_code,errcode):
-    	self.apiOperation.sendRequestAndValidate(param,status_code,errcode)
+	def sendRequest(self,param):
+		self.apiOperation.sendRequest(param)
+
+
+	def validateResponse(self,response,status_code,errcode):
+		self.apiOperation.sendRequestAndValidate(param,status_code,errcode)
+
+if __name__ == '__main__':
+	login = Model("auth","login","post")
     	

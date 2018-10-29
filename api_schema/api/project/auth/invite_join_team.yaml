@@ -20,25 +20,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/schemas.yaml#/LoginResponse'
+                $ref: './api_schema/api/project/auth/schemas.yaml#/LoginResponse'
         '400':
           description: 请求参数错误
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/MalformedJSON'
+                $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
         '401':
           description: 已有用户被邀请加入时新密码和旧密码不同
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
         '404':
           description: 找不到组织
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundOrganization'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundOrganization'
         '410':
           description: 已加入另一个组织
           content:
@@ -75,33 +75,33 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '613':
           description: 邀请码过期
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureCodeExpired'
         '624':
           description: 没找到邀请码
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
+                $ref: './api_schema/api/project/auth/errors.yaml#/VerificationFailureInvalidCode'
         '630':
           description: 用户不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundUser'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
           description: 参数错误
           content:
             application/json:
               schema:
                 oneOf:
-                - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterEmailInvalidFormat'
-                - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterPasswordInvalidFormat'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterEmailInvalidFormat'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterPasswordInvalidFormat'
                 - description: 邀请码格式错误
                   type: object
                   properties:
@@ -132,24 +132,24 @@ paths:
                     - type
                     - field
                     - reason
-                - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserNameTooLong'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserNameTooLong'
         '807':
           description: 团队不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundTeam'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundTeam'
         '824':
           description: 成员数超出限制
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/LimitExceededTeamMember'
+                $ref: './api_schema/api/project/auth/errors.yaml#/LimitExceededTeamMember'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
@@ -157,11 +157,11 @@ paths:
               type: object
               properties:
                 email:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/email'
                 phone:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/phone'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/phone'
                 password:
-                  $ref: '/spec/api/project/auth/schemas.yaml#/password'
+                  $ref: './api_schema/api/project/auth/schemas.yaml#/password'
                 name:
                   description: 用户名称
                   type: string

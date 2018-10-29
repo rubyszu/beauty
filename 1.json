@@ -1,0 +1,70 @@
+{
+    "views": [{
+        "layout": "narrow",
+        "group_by": "",
+        "query": {
+            "must": [{
+                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]}
+            }]
+        },
+        "sort": [{
+            "field_values.field009": {"order": "desc"}
+        }],
+        "table_field_settings": [],
+        "uuid": "HppUgf56",
+        "team_uuid": "LmUgBPWU",
+        "project_uuid": "7AmuvvhRN51lGB51",
+        "component_uuid": "EymUjYLz",
+        "name": "全部任务",
+        "create_time": 1540620498,
+        "built_in": true,
+        "include_subtasks": true,
+        "is_fold_all_groups": false
+    }, {
+        "layout": "narrow",
+        "group_by": "",
+        "query": {
+            "must": [{
+                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]},
+                "in": {"field_values.field004": ["7AmuvvhRN"]}
+            }]
+        },
+        "sort": [{
+            "field_values.field009": {"order": "desc"}
+        }],
+        "table_field_settings": [],
+        "uuid": "XPYnvWRN",
+        "team_uuid": "LmUgBPWU",
+        "project_uuid": "7AmuvvhRN51lGB51",
+        "component_uuid": "EymUjYLz",
+        "name": "我负责的任务",
+        "create_time": 1540620498,
+        "built_in": false,
+        "owner":"7AmuvvhRN",
+        "include_subtasks": true,
+        "is_fold_all_groups": false
+    }, {
+        "layout": "narrow",
+        "group_by": "",
+        "query": {
+            "must": [{
+                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]},
+                "in": {"field_values.field008": ["7AmuvvhRN"]}
+            }]
+        },
+        "sort": [{
+            "field_values.field009": {"order": "desc"}
+        }],
+        "table_field_settings": [],
+        "uuid": "XPYnvWRN",
+        "team_uuid": "LmUgBPWU",
+        "project_uuid": "7AmuvvhRN51lGB51",
+        "component_uuid": "EymUjYLz",
+        "name": "我关注的任务",
+        "create_time": 1540620498,
+        "built_in": false,
+        "owner":"7AmuvvhRN",
+        "include_subtasks": true,
+        "is_fold_all_groups": false
+    }]
+}

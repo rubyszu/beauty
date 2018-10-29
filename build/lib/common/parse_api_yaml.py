@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 from common import loadFile,findNode,findNodeByList
 from common.http_base import httpBase
-import json,jsonref
-import requests
-from jsonschema import validate
-import re
 
 class ParseApiYaml:
-	def __init__(self,module,path,method,product="project"):
-		schema = loadFile("./api_schema/api/%s/%s.yaml" %(product,module))
+	def __init__(self,module,operation,method,product="project"):
+		schema = loadFile("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation))
+		self.path = findNode(schema,"paths").keys()[0]
 		self.product = product
-		self.path = path
 		self.method = method
 		node = ["paths",self.path,self.method]
 		self.api_config = findNodeByList(schema,node)
@@ -40,7 +36,7 @@ class ParseApiYaml:
 	'''
 	def getSpecialParam(self):
 		'''
-			path 和 header，目前暂不需要
+			path 和 header的参数，暂不需要处理
 		'''
 		#query
 		special_params = {}
@@ -55,7 +51,7 @@ class ParseApiYaml:
 		if request_body != None:
 			#oneOf情况，延后处理
 			if response_schema.has_key("oneOf"):
-				break
+				return
 			else:
 				request_params = request_body["properties"]
 				special_params.update(self.getSpecialParamConfig("body",request_params))
@@ -89,13 +85,16 @@ class ParseApiYaml:
 	'''
 		eg. status_code:"400",errcode:"MissingParameter.User.Email"
 	'''
-	def getResponseSchema(self,status_code,errcode=None):
+	def getResponseSchema(self,status_code,errcode=""):
 		node = ["responses",status_code,"schema"]
 		response_schema = findNodeByList(self.api_config,node)
 		if response_schema.has_key("oneOf"):
 			for i in range(len(response_schema["oneOf"])):
 				err = findNode(response_schema["oneOf"][i],"errcode")
-				if err != None and err.get("enum")[0] == errcode:
+				if not err and err.get("enum")[0] == errcode:
 					response_schema = response_schema["oneOf"][i]
 					break
 		return response_schema
+
+if __name__ == '__main__':
+	auth_login = ParseApiYaml("auth","login","post")

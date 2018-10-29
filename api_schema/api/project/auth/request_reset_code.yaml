@@ -20,34 +20,34 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/schemas.yaml#/SuccessResponse'
+                $ref: './api_schema/common/schemas.yaml#/SuccessResponse'
         '400':
           description: 请求参数错误
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MalformedJSON'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MissingParameterEmail'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MissingParameterEmail'
         '615':
           description: 团队中找不到 status === 1 且 team_member_status === 1 的用户
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundUser'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
           description: 参数格式不正确
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: "/spec/api/project/auth/errors.yaml#/InvalidParameterUserPhoneInvalidFormat"
-                  - $ref: "/spec/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat"
+                  - $ref: "./api_schema/api/project/auth/errors.yaml#/InvalidParameterUserPhoneInvalidFormat"
+                  - $ref: "./api_schema/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat"
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
@@ -57,14 +57,14 @@ paths:
                   type: string
                   properties:
                     email:
-                      $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                      $ref: './api_schema/api/project/auth/schemas.yaml#/email'
                   required:
                     - phone
                 - description: 重置密码请求发送至手机
                   type: string
                   properties:
                     phone:
-                      $ref: '/spec/api/project/auth/schemas.yaml#/phone'
+                      $ref: './api_schema/api/project/auth/schemas.yaml#/phone'
                   required:
                     - phone
         description: 请求发送重置密码验证码

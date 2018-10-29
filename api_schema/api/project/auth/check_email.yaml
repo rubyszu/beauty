@@ -20,27 +20,27 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/schemas.yaml#/SuccessResponse'
+                $ref: './api_schema/common/schemas.yaml#/SuccessResponse'
         '621':
           description: 邮箱已存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AlreadyExistsUserEmailExists'
         '801':
           description: 邮箱格式不正确
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
+                $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '/spec/api/project/auth/schemas.yaml#/email'
+              $ref: './api_schema/api/project/auth/schemas.yaml#/email'
         description: 验证邮箱请求

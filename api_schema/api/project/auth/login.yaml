@@ -24,41 +24,41 @@ paths:
                 type: object
                 properties:
                   user:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/user'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/user'
                   teams:
                     type: array
                     items:
-                      $ref: '/spec/api/project/auth/schemas.yaml#/team'
+                      $ref: './api_schema/api/project/auth/schemas.yaml#/team'
                   org:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/org'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/org'
         '400':
           description: 返回400时出现的错误
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MalformedJSON'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/MissingParameterUserEmail'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MissingParameterUserEmail'
         '401':
           description: 用户名或者密码不正确
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
-                  - $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
         '404':
           description: 找不到组织
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/NotFoundOrganization'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundOrganization'
         '630':
           description: 用户不存在
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml/#/NotFoundUser'
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
           description: 无效参数
           content:
@@ -100,25 +100,25 @@ paths:
                     - model
                     - field
                     - reason
-                - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
-                - $ref: '/spec/api/project/auth/errors.yaml#/InvalidParameterUserPhoneInvalidFormat'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserPhoneInvalidFormat'
         '813':
           description: 登陆已过期
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureExpired'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureExpired'
         '814':
           description: 团队中找不到 status === 1 且 team_member_status === 1 的用户
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
         default:
           content:
             application/json:
               schema:
-                $ref: '/spec/common/errors.yaml#/UnknownError'
+                $ref: './api_schema/common/errors.yaml#/UnknownError'
       requestBody:
         content:
           application/json:
@@ -127,18 +127,18 @@ paths:
               - type: object
                 properties:
                   email:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/email'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/email'
                   password:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/password'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/password'
                 required:
                   - email
                   - password              
               - type: object
                 properties:
                   phone:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/phone'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/phone'
                   password:
-                    $ref: '/spec/api/project/auth/schemas.yaml#/password'
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/password'
                 required:
                   - phone
                   - password
