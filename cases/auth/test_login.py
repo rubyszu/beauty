@@ -14,38 +14,32 @@ class TestLogin(unittest.TestCase):
 
 	@data(*login.getRequestParam("200"))
 	def test_login_200(self,param):
-		print param
 		response = login.sendRequest(param)
-		print response
 		# validate status code && response
 		self.assertEqual(200,response.status_code)
 		login.validateResponse(response,"200")
 
 	@data(*login.getRequestParam("400","MissingParameter.User.Email"))
 	def test_login_400_MissingParameter_User_Email(self,param):
-		response = auth_login.sendRequest(param)
-		print response
+		response = login.sendRequest(param)
 		# validate status code && response
 		self.assertEqual(400,response.status_code)
-		login.validateResponse(param,"400","MissingParameter.User.Email")
+		login.validateResponse(response,"400","MissingParameter.User.Email")
 
 	@data(*login.getRequestParam("401AuthFailure.InvalidPassword"))	
 	def test_login_401(self,param):
-		response = auth_login.sendRequest(param)
-		print response
+		response = login.sendRequest(param)
 		# validate status code && response
 		self.assertEqual(401,response.status_code)
-		login.validateResponse(param,"401","AuthFailure.InvalidPassword")
+		login.validateResponse(response,"401","AuthFailure.InvalidPassword")
 
 	@data(*login.getRequestParam("630NotFound.User"))	
 	def test_login_630(self,param):
-		response = auth_login.sendRequest(param)
-		print response
+		response = login.sendRequest(param)
 		# validate status code && response
 		self.assertEqual(630,response.status_code)
-		login.validateResponse(param,"630","NotFound.User")
+		login.validateResponse(response,"630","NotFound.User")
 
 	def tearDown(self):
 		pass
 		
-

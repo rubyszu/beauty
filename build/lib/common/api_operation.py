@@ -50,11 +50,13 @@ class ApiOperation:
 					del param["path_params"]
 	
 		response = requests.request(method,api_url,**param)
-		print response
+		# print response.status_code
+		# print response.json()
 		return response
 
-	def validateResponse(self,response,status_code,errcode=None):
-		reponse = response.json()
+	def validateResponse(self,response,status_code,errcode = ""):
+		print response
+		print response.json()
 		# response_schema = super(ParseApiYaml,self).getResponseSchema(status_code,errcode)
 		response_schema = self.ApiYaml.getResponseSchema(status_code,errcode)
 		validate(response.json(),response_schema)

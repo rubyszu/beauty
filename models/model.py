@@ -35,7 +35,7 @@ class Model(object):
 		return all_dependent_models
 
 	def sendRequest(self,param):
-		self.apiOperation.sendRequest(param)
+		return self.apiOperation.sendRequest(param)
 
 	def getTemplate(self,code,errcode = ""):
 		template = self.templates[code+errcode]
@@ -77,11 +77,11 @@ class Model(object):
 		return context
 
 	def sendRequest(self,param):
-		self.apiOperation.sendRequest(param)
+		return self.apiOperation.sendRequest(param)
 
 
-	def validateResponse(self,response,status_code,errcode):
-		self.apiOperation.sendRequestAndValidate(param,status_code,errcode)
+	def validateResponse(self,response,status_code,errcode = ""):
+		return self.apiOperation.validateResponse(response,status_code,errcode)
 
 if __name__ == '__main__':
 	login = Model("auth","login","post")

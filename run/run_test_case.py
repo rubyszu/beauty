@@ -14,7 +14,7 @@ class RunTestCase():
 		self.cases = unittest.defaultTestLoader.discover(self.case_path,pattern=self.rule,top_level_dir=None)
 		return self.cases
 
-	@threads(3)
+	# @threads(3)
 	def runCase(self,case):
 		runner = ones.OnesTestRunner()
 		runner.run(case)
