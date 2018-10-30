@@ -40,16 +40,21 @@ class ParseApiYaml:
 		'''
 			path 和 header的参数，暂不需要处理
 		'''
+		query_params = []
 		special_params = {}
 		if self.api_config.has_key("parameters"):
 			parameters = self.api_config["parameters"]
+		
+		for i in parameters:
 			#获取query中有边界值的参数
-			
+			if i["in"] == "query":
+				query_params.append(i)
+
 			#获取header中有边界值的参数
-			
+		
 			#获取path中有边界值的参数
 
-			special_params.update(self.getSpecialParamConfig("query",parameters))
+		special_params.update(self.getSpecialParamConfig("query",parameters))
 
 		#获取request body中有边界值的参数
 		request_params = []
@@ -74,8 +79,8 @@ class ParseApiYaml:
 		for i in range(len(parameters)):
 			parameter = parameters[i]
 
-			# if param_type == "query" and (not parameter.has_key("in") or (parameter["in"] and parameter["in"] != "query")):
-				# continue
+			if param_type == "query" and (not parameter.has_key("in") or (parameter["in"] and parameter["in"] != "query")):
+				continue
 
 			param = parameter["name"]
 			param_schema = parameter["schema"]
@@ -105,4 +110,5 @@ class ParseApiYaml:
 		return response_schema
 
 if __name__ == '__main__':
-	auth_login = ParseApiYaml("auth","login","post")
+	auth_login = ParseApiYaml("auth","query_test","get")
+	auth_login.getSpecialParam()
