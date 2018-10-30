@@ -1,6 +1,4 @@
 '200':
-  - email: linhong@ones.ai
-    password: 'Lh264822'
   - email: linhong+mobile@ones.ai
     password: '12345678'
 '401AuthFailure.InvalidPassword':

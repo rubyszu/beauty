@@ -11,9 +11,11 @@ class ParseApiYaml:
 		node = ["paths",self.path,self.method]
 		self.api_config = findNodeByList(schema,node)
 
+	#获取请求方法
 	def getMethod(self):
 		return self.method
 
+	#获取请求接口
 	def getApiUrl(self):
 		http_base = httpBase()
 		api_url = "%s/%s/%s%s" %(http_base["host"],self.product,http_base["branch"],self.path)
@@ -38,32 +40,36 @@ class ParseApiYaml:
 		'''
 			path 和 header的参数，暂不需要处理
 		'''
-		#query
+		#获取query中有边界值的参数
 		special_params = {}
 		if self.api_config.has_key("parameters"):
 			parameters = self.api_config["parameters"]
+			print parameters
 			special_params.update(self.getSpecialParamConfig("query",parameters))
 
-		#request body
+		#获取request body中有边界值的参数
 		request_params = []
 		node = ["requestBody","schema"]
 		request_body = findNodeByList(self.api_config,node)
 		if request_body != None:
 			#oneOf情况，延后处理
-			if response_schema.has_key("oneOf"):
+			if request_body.has_key("oneOf"):
 				return
 			else:
 				request_params = request_body["properties"]
+				print request_params
 				special_params.update(self.getSpecialParamConfig("body",request_params))
 				
 		return special_params
 
 	'''
+		获取有边界值的参数的配置
 		param_type：["path","header","query","body"]
 	'''
 	def getSpecialParamConfig(self,param_type,parameters):
 		special_params = {}
 		for i in range(len(parameters)):
+
 			parameter = parameters[i]
 
 			if param_type == "query" and (not parameter.has_key("in") or (parameter["in"] and parameter["in"] != "query")):
@@ -97,4 +103,4 @@ class ParseApiYaml:
 		return response_schema
 
 if __name__ == '__main__':
-	auth_login = ParseApiYaml("auth","login","post")
+	auth_login = ParseApiYaml("auth","query_test","get")

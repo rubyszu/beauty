@@ -64,6 +64,6 @@ template = env.from_string(json.dumps(jsonData))
 # template = json.dumps(jsonData)
 
 # print(template.render(name='variables'))
-print(template.render(context=context))
+print(template.render(context=context,special_param = {}))
 # print sendRequest()
 

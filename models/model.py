@@ -7,9 +7,9 @@ from jinja2 import Environment
 
 class Model(object):
 	def __init__(self,module,operation,method,product="project"):
-		self.apiOperation = ApiOperation(module,operation,method,product)
-		self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
-		self.dependent_models = self.templates["dependent_model"]
+		self.api_operation = ApiOperation(module,operation,method,product)
+		# self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
+		# self.dependent_models = self.templates["dependent_model"]
 
 	def str2Class(self):
 		new_arr = []
@@ -19,7 +19,7 @@ class Model(object):
 			new_arr.append(getattr(sys.modules[__name__], self.dependent_models[i]))
 		return new_arr
 
-	def get_dependent_models(self):
+	def getDependentModels(self):
 		self.dependent_models = self.str2Class()
 		if not len(self.dependent_models):
 			return []
@@ -34,32 +34,32 @@ class Model(object):
 		
 		return all_dependent_models
 
-	def sendRequest(self,param):
-		return self.apiOperation.sendRequest(param)
-
+	#获取errcode对应的接口模板
 	def getTemplate(self,code,errcode = ""):
 		template = self.templates[code+errcode]
-
 		return template
 
-	def buildParam(self,context,code,errcode = ""):
+	#构造请求参数
+	def buildParam(self,code,errcode = "",context = {}):
 		#自定义函数加入到jinja2 filter中
-		env = Environment()
+		# env = Environment()
 		# env.filters['randomString'] = randomString
 		# env.filters['randomNum'] = randomNum
 		#获取构造请求参数模板
-		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
+		# template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
 		#构造有边界值的参数
-		# special_params = self.ApiOperation.getSpecialParam()
-		# sets_of_special_params = randomSetsOfSpecialParams(special_params)
+		valid_values = self.api_operation.getSpecialParam()
+		print valid_values
+		# sets_of_special_params = randomSetsOfSpecialParams(valid_values)
 
 		# params = []
 		# for sets_param in sets_of_special_params:
-			# templates.append(template.render(context = context, special_params = sets_param))
-		params = template.render(context = context)
+		# 	templates.append(template.render(context = context, special_params = sets_param))
+		# params = template.render(context = context)
 
-		return params
+		# return params
 
+	#获取请求需要的参数
 	def getRequestParam(self,code,errcode="",context={}):
 		if not context:
 			dependent_api_list = [AuthLogin().sendSuccessRequestByRandomParam]
@@ -76,13 +76,16 @@ class Model(object):
 		context.update(response)
 		return context
 
+	#发送请求
 	def sendRequest(self,param):
 		return self.apiOperation.sendRequest(param)
 
-
+	#验证response的数据结构
 	def validateResponse(self,response,status_code,errcode = ""):
 		return self.apiOperation.validateResponse(response,status_code,errcode)
 
 if __name__ == '__main__':
-	login = Model("auth","login","post")
+	login = Model("auth","query_test","get")
+	login.buildParam(200)
+
     	

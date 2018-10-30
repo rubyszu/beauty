@@ -10,8 +10,10 @@ import re
 class ApiOperation:
 	def __init__(self,module,operation,method,product="project"):
 		self.ApiYaml = ParseApiYaml(module,operation,method,product)
-        # super(ParseApiYaml, self).__init__(module,path,method,product)
 
+	def getSpecialParam(self):
+		return self.ApiYaml.getSpecialParam()
+    
     #当api url包含path参数，需要传入参数替换成新的api url
 	def ReplaceApiUrl(self,api_url,params):
 		path_rex = re.compile(r'\{([^\}]*)\}')
@@ -29,11 +31,8 @@ class ApiOperation:
   	'''
 	def sendRequest(self,param):
 
-		# api_url = self.getApiUrl()
 		api_url = self.ApiYaml.getApiUrl()
-		# method = self.getMethod()
 		method = self.ApiYaml.getMethod()
-		#api_config
 		api_config = self.ApiYaml.api_config
 
 		#headers
@@ -50,14 +49,11 @@ class ApiOperation:
 					del param["path_params"]
 	
 		response = requests.request(method,api_url,**param)
-		# print response.status_code
-		# print response.json()
 		return response
 
 	def validateResponse(self,response,status_code,errcode = ""):
 		print response
 		print response.json()
-		# response_schema = super(ParseApiYaml,self).getResponseSchema(status_code,errcode)
 		response_schema = self.ApiYaml.getResponseSchema(status_code,errcode)
 		validate(response.json(),response_schema)
 

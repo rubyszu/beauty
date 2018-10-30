@@ -1,0 +1,37 @@
+{
+	"Ones-User-ID": {
+		"schema": {
+			"minLength": 0,
+			"type": "string",
+			"maxLength": 16
+		},
+		"required": True,
+		"description": "Ones user id",
+		"name": "Ones-User-ID",
+		"in": "header"
+	},
+	"teamUUID": {
+		"required": True,
+		"description": "\u56e2\u961fUUID",
+		"minLength": 8,
+		"in": "path",
+		"maxLength": 8,
+		"schema": {
+			"minLength": 0,
+			"type": "string",
+			"maxLength": 16
+		},
+		"name": "teamUUID"
+	},
+	"Ones-Auth-Token": {
+		"schema": {
+			"minLength": 0,
+			"type": "string",
+			"maxLength": 16
+		},
+		"required": True,
+		"description": "Ones auth token",
+		"name": "Ones-Auth-Token",
+		"in": "header"
+	}
+}
