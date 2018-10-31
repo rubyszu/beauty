@@ -15,6 +15,7 @@ models/context.py
 models/model.py
 models/auth/__init__.py
 models/auth/login.py
+models/auth/token_info.py
 models/component/__init__.py
 models/component/component_templates.py
 models/issue_type/__init__.py

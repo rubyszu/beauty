@@ -26,5 +26,5 @@ class Login(Model):
 
 if __name__ == '__main__':
 	login = Login()
-	print login.getRequestParam('200')
+	login.getRequestParam('200')
     	

@@ -36,10 +36,11 @@ class ApiOperation:
 		api_config = self.ApiYaml.api_config
 
 		#headers
-		if param.has_key("headers"):
-			param["headers"]["Content-Type"] = "application/json"
-		else:
-			param["headers"] = {"Content-Type": "application/json"}
+		if not self.method == "get": 
+			if param.has_key("headers"):
+				param["headers"].update({"Content-Type": "application/json"})
+			else:
+				param.update({"headers": {"Content-Type": "application/json"}})
 		#path
 		if api_config.has_key("parameters"):
 			for i in range(len(api_config["parameters"])):

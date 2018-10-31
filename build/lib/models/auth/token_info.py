@@ -7,7 +7,7 @@ import json
 
 class Login(Model):
 	def __init__(self):
-		super(Login,self).__init__("auth","login","post")
+		super(Login,self).__init__("auth","token_info","get")
 	
 	#构造请求参数
 	def getRequestParam(self,code,errcode=""):
@@ -26,5 +26,5 @@ class Login(Model):
 
 if __name__ == '__main__':
 	login = Login()
-	login.getRequestParam('200')
+	print login.getRequestParam('200')
     	

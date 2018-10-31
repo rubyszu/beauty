@@ -8,8 +8,8 @@ from jinja2 import Environment
 class Model(object):
 	def __init__(self,module,operation,method,product="project"):
 		self.api_operation = ApiOperation(module,operation,method,product)
-		# self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
-		# self.dependent_models = self.templates["dependent_model"]
+		self.templates = loadFile("./template/%s/%s.yaml" %(module,operation))
+		self.dependent_models = self.templates["dependent_model"]
 
 	def str2Class(self):
 		new_arr = []
@@ -37,16 +37,11 @@ class Model(object):
 	#获取errcode对应的接口模板
 	def getTemplate(self,code,errcode = ""):
 		template = self.templates[code+errcode]
+		print type(template)
 		return template
 
 	#构造请求参数
-	def buildParam(self,code,errcode = "",context = {}):
-		#自定义函数加入到jinja2 filter中
-		# env = Environment()
-		# env.filters['randomString'] = randomString
-		# env.filters['randomNum'] = randomNum
-		#获取构造请求参数模板
-		# template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
+	def buildSpecialParam(self,code,errcode = "",context = {}):
 		#构造有边界值的参数
 		valid_values = self.api_operation.getSpecialParam()
 		# sets_of_special_params = randomSetsOfSpecialParams(valid_values)

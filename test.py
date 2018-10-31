@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from jinja2 import Environment
+from jinja2 import Environment,Template
 import os,sys,json
 import random
 import requests
@@ -60,10 +60,12 @@ env = Environment()
 env.globals['randomString'] = randomString
 env.filters['randomNum'] = randomNum
 env.filters['randomSetsOfString'] = randomSetsOfString
+# t = Template(json.dumps(jsonData))
 template = env.from_string(json.dumps(jsonData))
+print(template.module)
 # template = json.dumps(jsonData)
 
 # print(template.render(name='variables'))
-print(template.render(context=context,special_param = {}))
+# print(template.render(context=context,special_param = {}))
 # print sendRequest()
 

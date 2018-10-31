@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from common import loadFile,findNode,findNodeByList
 from common.http_base import httpBase
+import os
 
 class ParseApiYaml:
 	def __init__(self,module,operation,method,product="project"):
 		schema = loadFile("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation))
+		if not os.path.getsize("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation)):
+			print 1
 		self.path = findNode(schema,"paths").keys()[0]
 		self.product = product
 		self.method = method
@@ -63,8 +66,8 @@ class ParseApiYaml:
 
 		#处理special_params为空的情况
 		if not special_params:
-			print special_params
 			return parameters
+			
 		special_params = self.getSpecialParamConfig(special_params)
 		return special_params
 
@@ -101,5 +104,5 @@ class ParseApiYaml:
 		return response_schema
 
 if __name__ == '__main__':
-	auth_login = ParseApiYaml("auth","query_test","get")
-	auth_login.getSpecialParam()
+	auth_login = ParseApiYaml("auth","login1","post")
+	# auth_login.getSpecialParam()
