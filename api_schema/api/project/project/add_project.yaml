@@ -30,6 +30,7 @@ parameters:
     maxLength: 8
     schema:
       type: string
+
 paths:
   /team/{teamUUID}/projects/add:
     post:
@@ -48,13 +49,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '/spec/api/project/project/schemas.yaml#/AddProjectRequest'
+              $ref: './api_schema/api/project/project/schemas.yaml#/AddProjectRequest'
       responses:
         "200":
           description: 返回组件模版列表
           content:
             application/json:
               schema:
-                $ref: '/spec/api/project/project/schemas.yaml#/AddProjectResponse'
+                $ref: './api_schema/api/project/project/schemas.yaml#/AddProjectResponse'
         "500":
           description: 服务端错误

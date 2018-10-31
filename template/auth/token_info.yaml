@@ -1,0 +1,17 @@
+dependent_model: 
+  - Login
+
+'200':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{context.user.token}}"
+
+'401AuthFailure.InvalidToken':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-Auth-Token: "{{64|randomString()}}"
+    
+'400AuthFailure.MissingToken':
+  headers:
+    Ones-User-Id: "{{context.user.uuid}}"
+    

@@ -1,4 +1,56 @@
 openapi: 3.0.0
+ProjectInfo:
+  description: 返回项目信息
+  type: object
+  properties:
+    uuid:
+      description: 项目uuid
+      type: string
+      maxLength: 16
+    name:
+      description: 项目名称
+      type: string
+      minLength: 0
+      maxLength: 128
+    status:
+      description: >-
+        项目状态
+        1.进行中
+        2.已删除
+        3.归档
+      type: integer
+      format: int32
+      enum:
+        - 1
+        - 2
+        - 3
+    announcement:
+      description: 项目公告
+      type: string
+      minLength: 0
+      maxLength: 512
+    deadline:
+      description: 截止时间，与1970的秒差
+      type: integer
+      format: int64
+    is_pin:
+      description: 是否置顶
+      type: boolean
+    is_open_email_notify:
+      description: 是否开通邮件通知
+      type: boolean
+    admins:
+      description: 项目管理员（user_uuid数组）
+      type: array
+      items:
+        type: string
+    task_update_time:
+      description: 项目下任务更新时间（单位秒）
+      type: integer
+      format: int64
+server_update_stamp:
+  type: integer
+  format: int64
 Project:
   properties:
     uuid:
@@ -61,7 +113,7 @@ AddProjectRequest:
           type: string
           maxLength: 128
           required: true
-          description:  项目名称
+          description: 	项目名称
         announcement:
           type: string
           maxLength: 512

@@ -12,7 +12,7 @@ paths:
             minLength: 0
             maxLength: 16
         - name: Ones-User-ID
-          in: query
+          in: header
           description: Ones user id
           required: true
           schema:
@@ -20,10 +20,9 @@ paths:
             minLength: 0
             maxLength: 16
         - name: teamUUID
-          in: path
+          in: header
           description: 团队UUID
           required: true
           schema:
             type: string
-            minLength: 0
             maxLength: 16

@@ -1,70 +1,61 @@
 {
-    "views": [{
-        "layout": "narrow",
-        "group_by": "",
-        "query": {
-            "must": [{
-                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]}
-            }]
-        },
-        "sort": [{
-            "field_values.field009": {"order": "desc"}
-        }],
-        "table_field_settings": [],
-        "uuid": "HppUgf56",
-        "team_uuid": "LmUgBPWU",
-        "project_uuid": "7AmuvvhRN51lGB51",
-        "component_uuid": "EymUjYLz",
-        "name": "全部任务",
-        "create_time": 1540620498,
-        "built_in": true,
-        "include_subtasks": true,
-        "is_fold_all_groups": false
-    }, {
-        "layout": "narrow",
-        "group_by": "",
-        "query": {
-            "must": [{
-                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]},
-                "in": {"field_values.field004": ["7AmuvvhRN"]}
-            }]
-        },
-        "sort": [{
-            "field_values.field009": {"order": "desc"}
-        }],
-        "table_field_settings": [],
-        "uuid": "XPYnvWRN",
-        "team_uuid": "LmUgBPWU",
-        "project_uuid": "7AmuvvhRN51lGB51",
-        "component_uuid": "EymUjYLz",
-        "name": "我负责的任务",
-        "create_time": 1540620498,
-        "built_in": false,
-        "owner":"7AmuvvhRN",
-        "include_subtasks": true,
-        "is_fold_all_groups": false
-    }, {
-        "layout": "narrow",
-        "group_by": "",
-        "query": {
-            "must": [{
-                "in": {"field_values.field006": ["7AmuvvhRN51lGB51"]},
-                "in": {"field_values.field008": ["7AmuvvhRN"]}
-            }]
-        },
-        "sort": [{
-            "field_values.field009": {"order": "desc"}
-        }],
-        "table_field_settings": [],
-        "uuid": "XPYnvWRN",
-        "team_uuid": "LmUgBPWU",
-        "project_uuid": "7AmuvvhRN51lGB51",
-        "component_uuid": "EymUjYLz",
-        "name": "我关注的任务",
-        "create_time": 1540620498,
-        "built_in": false,
-        "owner":"7AmuvvhRN",
-        "include_subtasks": true,
-        "is_fold_all_groups": false
-    }]
+	"status": {
+		"enum": [1, 2, 3],
+		"type": "integer",
+		"description": "1.\u7528\u6237\u72b6\u6001\u6b63\u5e38UserStatusNormal 2.\u7528\u6237\u72b6\u6001\u5df2\u5220\u9664UserStatusDeleted 3.\u7528\u6237\u72b6\u6001\u5f85\u786e\u8ba4UserStatusPending",
+		"format": "int64"
+	},
+	"uuid": {
+		"type": "string",
+		"description": "\u7528\u6237uuid",
+		"maxLength": 8
+	},
+	"name_pinyin": {
+		"minLength": 0,
+		"type": "string",
+		"description": "\u7528\u6237\u540d\u62fc\u97f3",
+		"maxLength": 128
+	},
+	"phone": {
+		"pattern": "\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$",
+		"maxLength": 32,
+		"type": "string",
+		"description": "\u624b\u673a",
+		"minLength": 0
+	},
+	"token": {
+		"minLength": 0,
+		"type": "string",
+		"description": "\u7528\u6237\u6240\u5c5e\u7684\u63a8\u9001\u9891\u9053",
+		"maxLength": 64
+	},
+	"create_time": {
+		"type": "integer",
+		"description": "\u7528\u6237\u6ce8\u518c\u65f6\u95f4",
+		"format": "int64"
+	},
+	"avatar": {
+		"minLength": 0,
+		"type": "string",
+		"description": "\u5934\u50cfurl",
+		"maxLength": 255
+	},
+	"email": {
+		"pattern": "^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+		"maxLength": 128,
+		"type": "string",
+		"description": "\u90ae\u7bb1",
+		"minLength": 0
+	},
+	"channel": {
+		"minLength": 0,
+		"type": "string",
+		"maxLength": 32
+	},
+	"name": {
+		"minLength": 0,
+		"type": "string",
+		"description": "\u7528\u6237\u540d\u79f0",
+		"maxLength": 16
+	}
 }

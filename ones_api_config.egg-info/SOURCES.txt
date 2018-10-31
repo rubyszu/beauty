@@ -11,6 +11,7 @@ common/load_file.py
 common/parse_api_yaml.py
 models/__init__.py
 models/compose.py
+models/context.py
 models/model.py
 models/auth/__init__.py
 models/auth/login.py

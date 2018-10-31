@@ -49,7 +49,6 @@ class Model(object):
 		# template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
 		#构造有边界值的参数
 		valid_values = self.api_operation.getSpecialParam()
-		print valid_values
 		# sets_of_special_params = randomSetsOfSpecialParams(valid_values)
 
 		# params = []
@@ -85,6 +84,7 @@ class Model(object):
 		return self.apiOperation.validateResponse(response,status_code,errcode)
 
 if __name__ == '__main__':
+	# login = Model("auth","login","post")
 	login = Model("auth","query_test","get")
 	login.buildParam(200)
 

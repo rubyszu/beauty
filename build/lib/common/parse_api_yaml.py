@@ -41,16 +41,14 @@ class ParseApiYaml:
 			path 和 header的参数，暂不需要处理
 		'''
 		special_params = {}
+
 		if self.api_config.has_key("parameters"):
 			parameters = self.api_config["parameters"]
-			print parameters
-			#获取query中有边界值的参数
-			
-			#获取header中有边界值的参数
-			
-			#获取path中有边界值的参数
-
-			special_params.update(self.getSpecialParamConfig("query",parameters))
+		
+			for i in parameters:
+				# 获取query中有边界值的参数
+				if i["in"] == "query":
+					special_params.update({i["name"]:i["schema"]})
 
 		#获取request body中有边界值的参数
 		request_params = []
@@ -58,37 +56,34 @@ class ParseApiYaml:
 		request_body = findNodeByList(self.api_config,node)
 		if request_body != None:
 			#oneOf情况，延后处理
-			if response_schema.has_key("oneOf"):
+			if request_body.has_key("oneOf"):
 				return
 			else:
-				request_params = request_body["properties"]
-				special_params.update(self.getSpecialParamConfig("body",request_params))
-				
+				special_params.update(request_body["properties"])
+
+		#处理special_params为空的情况
+		if not special_params:
+			print special_params
+			return parameters
+		special_params = self.getSpecialParamConfig(special_params)
 		return special_params
 
 	'''
 		获取有边界值的参数的配置
 		param_type：["path","header","query","body"]
 	'''
-	def getSpecialParamConfig(self,param_type,parameters):
+	def getSpecialParamConfig(self,parameters):
+		
 		special_params = {}
-		for i in range(len(parameters)):
-			parameter = parameters[i]
-
-			if param_type == "query" and (not parameter.has_key("in") or (parameter["in"] and parameter["in"] != "query")):
-				continue
-
-			param = parameter["name"]
-			param_schema = parameter["schema"]
+		for key,value in parameters.items():
 
 			#目前只处理param_type in ("string","int")的参数
-			if not param_schema.has_key("type") or ( param_schema["type"] and param_schema["type"] not in ("int","string")):
+			if not value.has_key("type") or (value["type"] not in ("int","string")):
 				continue
 
-			if param_schema["maxLength"] > param_schema["minLength"] or param_schema["maximum"] > param_schema["minimum"]:
-				value = {key:value for key,value in param_schema.items() if key in ("type","maximum","minimum","maxLength","minLength")}
-				spec_params.update({param: value})
-
+			if ("maxLength" in value and "minLength" in value) or ("maximum" in value and "minimum" in value):
+				value = {k:v for k,v in value.items() if k in ("type","maximum","minimum","maxLength","minLength")}
+				special_params.update({key: value})
 		return special_params
 
 	'''
@@ -106,5 +101,5 @@ class ParseApiYaml:
 		return response_schema
 
 if __name__ == '__main__':
-	auth_login = ParseApiYaml("auth","query_test","post")
+	auth_login = ParseApiYaml("auth","query_test","get")
 	auth_login.getSpecialParam()

@@ -40,16 +40,9 @@ class Model(object):
 		return template
 
 	#构造请求参数
-	def buildParam(self,code,errcode = "",context = {}):
-		#自定义函数加入到jinja2 filter中
-		# env = Environment()
-		# env.filters['randomString'] = randomString
-		# env.filters['randomNum'] = randomNum
-		#获取构造请求参数模板
-		# template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
+	def buildSpecialParam(self,code,errcode = "",context = {}):
 		#构造有边界值的参数
 		valid_values = self.api_operation.getSpecialParam()
-		print valid_values
 		# sets_of_special_params = randomSetsOfSpecialParams(valid_values)
 
 		# params = []
@@ -85,6 +78,7 @@ class Model(object):
 		return self.apiOperation.validateResponse(response,status_code,errcode)
 
 if __name__ == '__main__':
+	# login = Model("auth","login","post")
 	login = Model("auth","query_test","get")
 	login.buildParam(200)
 

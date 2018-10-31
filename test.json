@@ -1,31 +1,37 @@
-[{
-	"schema": {
-		"minLength": 0,
-		"type": "string",
-		"maxLength": 16
+{
+	'name_pinyin': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 128
 	},
-	"required": True,
-	"description": "Ones auth token",
-	"name": "Ones-Auth-Token",
-	"in": "header"
-}, {
-	"schema": {
-		"minLength": 0,
-		"type": "string",
-		"maxLength": 16
+	'phone': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 32
 	},
-	"required": True,
-	"description": "Ones user id",
-	"name": "Ones-User-ID",
-	"in": "query"
-}, {
-	"schema": {
-		"minLength": 0,
-		"type": "string",
-		"maxLength": 16
+	'token': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 64
 	},
-	"required": True,
-	"description": "\u56e2\u961fUUID",
-	"name": "teamUUID",
-	"in": "path"
-}]
+	'avatar': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 255
+	},
+	'email': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 128
+	},
+	'channel': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 32
+	},
+	'name': {
+		'minLength': 0,
+		'type': 'string',
+		'maxLength': 16
+	}
+}
