@@ -3,9 +3,9 @@ import json
 import os
 from common.http_base import httpBase
 from common import loadFile
-# 读、写
+
 # 1. 读内存
-# # 2. 永久化 - 读写文件
+# 2. 永久化 - 读写文件
 
 ## @todo 判断有没有数据存在 从 template 识别
 '''
