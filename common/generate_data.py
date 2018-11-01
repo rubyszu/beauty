@@ -10,7 +10,7 @@ def randomString(num=8):
 	random_string = ''.join(salt)
 	return random_string
 
-def randomItem(Array):
+def randomItem(arr):
 	random_item = random.choice(arr)
 	return random_item
 
