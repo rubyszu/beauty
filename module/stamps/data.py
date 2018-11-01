@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import os, sys
-sys.path.append(os.path.realpath(os.path.join(os.path.dirname(__file__), '../../')))
-from config import GlobalVariable
+
+current_file_path = os.path.dirname(__file__)
+sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
+from config import GlobalVariable, branch
 import time
 import requests
 import json
 import unittest
 reload(sys)
 sys.setdefaultencoding('utf-8')
+args = branch.get_args()
+branch = args[0]
+# print(branch)
 
 def request(variable):
 	url = variable["url"]
@@ -51,8 +55,9 @@ def request(variable):
 
 class TestResponse(unittest.TestCase):
 	def setUp(self):
-		self.setting = GlobalVariable("./config/setting.json").json
-		self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		# self.setting = GlobalVariable("./config/setting.json").json
+		# self.global_variable = GlobalVariable("./config/variable_%s.json" %(self.setting["branch"]))
+		self.global_variable = GlobalVariable("./config/variable_%s.json" %(branch))
 		self.variable = self.global_variable.json
 		self.request = request(self.variable)
 		self.status_code = self.request.status_code
@@ -60,31 +65,30 @@ class TestResponse(unittest.TestCase):
 
 	def test_result(self):
 
-		with open('response.json','w') as f:
-			f.write(self.request.text)
-		print(self.status_code)
-		print(self.request.text)
+		#field:priority
+		fields = self.response_json.get("field").get("fields")
+		prioritys = []
+		
+		for i in range(len(fields)):
+			if fields[i].get("uuid") == "field012":
+				options = fields[i].get("options")
+				for y in range(len(options)):
+					prioritys.append(options[y].get("uuid"))
 
-		sprints = self.response_json.get("sprint").get("sprints")
-		uuids = []
-		for i in range(len(sprints)):
-			uuids.append(sprints[i].get("uuid"))
 
 
-		if(self.variable.__contains__("sprints")):
-			sprints = self.variable["sprints"]
-			sprints = uuids
-		else:
-			sprints = uuids
-		self.global_variable.store("sprints",uuids)
+		#store data
+		self.global_variable.store("prioritys",prioritys)
 
 		self.global_variable.write()
+
 		
 	def tearDown(self):
-		pass
+		with open('response.json','w') as f:
+			f.write(self.request.text)
 
 def main():
-	unittest.main(verbosity = 2)
+	unittest.main(argv=args[1])
 	
 if __name__ == '__main__':
 	main()

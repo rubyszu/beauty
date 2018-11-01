@@ -8,10 +8,15 @@ import time
 import requests
 import json
 import unittest
+import random
 reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
+
+def randomItem(data):
+	random_item = random.choice(data)
+	return random_item
 
 
 def request(variable):
@@ -19,6 +24,8 @@ def request(variable):
 	owner_token = variable["owner_token"]
 	owner_uuid = variable["owner_uuid"]
 	team_uuid = variable["team_uuid"]
+	priority = randomItem(variable["prioritys"])
+	tasks = variable["tasks"]
 
 	api_url = "%s/team/%s/tasks/update2" %(url, team_uuid)
 	headers = {
@@ -26,21 +33,23 @@ def request(variable):
 		"Ones-User-Id": "%s" %(owner_uuid),
 		"Content-Type": "application/json"
 	}
-	
+	tasks_config = []
+	for i in range(len(tasks)):
+		if i < 2000:
+			config = {
+				"uuid": tasks[i],
+				"priority": priority
+			}
+			tasks_config.append(config)
+		else:
+			break
+
+
+
 	body = {
-		"tasks": [
-			{
-				"uuid": "5e8N85ZNAwwWj0zZ",
-				"summary": "任务是打飞机了；是的；分1更改名称奥斯卡冯绍峰"
-			},
-			{
-				"uuid": "5e8N85ZNeXpl7Kw3",
-				"summary": "任务圣诞节；理发哪里的奶粉2更改名称奥斯卡冯绍峰"
-			},
-		]
+		"tasks": tasks_config
 	}
-	# print(headers)
-	# print(body)
+
 	r = requests.post(api_url, headers=headers, data=json.dumps(body))
 	return r
 
@@ -64,6 +73,7 @@ class TestTaskUpdate(unittest.TestCase):
 	def tearDown(self):
 		with open('response.json','w') as f:
 			f.write(self.request.text)
+
 
 
 def main():

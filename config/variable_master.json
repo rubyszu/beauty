@@ -2912,6 +2912,13 @@
   "project_uuid": "A5GHW6saTvTJjKJY", 
   "url": "https://api.ones.team/project/master", 
   "owner_email": "linhong+do@ones.ai", 
+  "prioritys": [
+    "Dputp7di", 
+    "Yb1CN35X", 
+    "2CgdEhmq", 
+    "F4xESjpS", 
+    "rrebK8YH"
+  ], 
   "owner_uuid": "GAy6uL3m", 
   "owner_token": "WNRs1eyyF8JMYb7bzXSU3rxqRgORsMvJ0mLMa00sI7h2GlGJaGG0OX6e63W1kaZd", 
   "team_uuid": "GBczhVCs"
