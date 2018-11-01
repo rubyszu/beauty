@@ -62,10 +62,9 @@ env.filters['randomNum'] = randomNum
 env.filters['randomSetsOfString'] = randomSetsOfString
 # t = Template(json.dumps(jsonData))
 template = env.from_string(json.dumps(jsonData))
-print(template.module)
 # template = json.dumps(jsonData)
 
 # print(template.render(name='variables'))
-# print(template.render(context=context,special_param = {}))
+print(template.render(context=context,special_param = {}))
 # print sendRequest()
 

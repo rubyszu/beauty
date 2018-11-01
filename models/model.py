@@ -55,23 +55,22 @@ class Model(object):
 		return template
 
 	#构造有边界值的请求参数
-	def buildSpecialParam(self,code,errcode = "",context = {}):
+	def buildSpecialParam(self,code,errcode = ""):
 		#构造有边界值的参数
-		valid_values = self.api_operation.getSpecialParam()
-		# sets_of_special_params = randomSetsOfSpecialParams(valid_values)
+		special_params = self.api_operation.getSpecialParam()
+		sets_of_special_params = iterator(special_params)
 
 		# params = []
-		# for sets_param in sets_of_special_params:
-		# 	templates.append(template.render(context = context, special_params = sets_param))
-		# params = template.render(context = context)
 
-		# return params
+		return params
 
 	#构造请求参数
 	def buildParam(self,code,errcode = "",context = {}):
+		#special_param
+		special_params = self.buildSpecialParam(code,errcode)
 		env = Environment()
 		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
-		params = json.loads(str(template.render(context = context)))
+		params = json.loads(str(template.render(context = context,special_params = special_params)))
 		return params
 
 	#获取请求需要的参数
