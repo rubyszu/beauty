@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os,sys
 import random
+from common.iterator import iterator
 
 def randomString(num=8):
 	seed = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
@@ -52,21 +53,20 @@ def randomSetsOfString(Min,Max,is_inside = True):
 				'field018': ['1', '2', '10']}
 			}
 	'''
-# def randomSetsOfSpecialParams(special_params,errcode = 200):
-# 	if not special_params:
-# 		return None
-# 	keys,values = special_params.keys(),special_params.values()
-# 	sets_of_special_params = {}
-# 	for i in range(len(values)):
-# 		spec_item = values[i]
-# 		value = []
-# 		if spec_item["type"] == "string":
-# 			value.extend(randomSetsOfString(spec_item["minLength"],spec_item["maxLength"]))
-# 		elif spec_item["type"]  == "int":
-# 			value.extend(randomSetsOfNum(spec_item["minimum"], spec_item["maximum"]))
-# 		sets_of_special_params.update({keys[i]:value})
-# 	return sets_of_special_params
-
+def randomSetsOfSpecialParams(special_params):
+	if not special_params:
+		return None
+	keys,values = special_params.keys(),special_params.values()
+	sets_of_special_params = {}
+	for i in range(len(values)):
+		spec_item = values[i]
+		value = []
+		if spec_item["type"] == "string":
+			value.extend(randomSetsOfString(spec_item["minLength"],spec_item["maxLength"]))
+		elif spec_item["type"]  == "int":
+			value.extend(randomSetsOfNum(spec_item["minimum"], spec_item["maximum"]))
+		sets_of_special_params.update({keys[i]:value})
+	return sets_of_special_params
 
 
 if __name__ == '__main__':
@@ -84,7 +84,7 @@ if __name__ == '__main__':
 	}
 
 	special_params = randomSetsOfSpecialParams(spec_params)
-	print spec_params
+	print special_params
 	print iterator(special_params)
 
 

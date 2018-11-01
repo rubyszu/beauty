@@ -3,6 +3,7 @@ from common.http_base import httpBase
 from common import *
 from models import *
 from models.compose import compose
+from models.context import Context
 import sys
 import time,itertools,json
 from datetime import datetime
@@ -58,11 +59,14 @@ class Model(object):
 	def buildSpecialParam(self,code,errcode = ""):
 		#构造有边界值的参数
 		special_params = self.api_operation.getSpecialParam()
-		sets_of_special_params = iterator(special_params)
+		# sets_of_special_params = iterator(special_params)
 
 		# params = []
 
-		return params
+		# return params
+
+	def hasContextNeeded(self, context):
+		return True;
 
 	#构造请求参数
 	def buildParam(self,code,errcode = "",context = {}):
@@ -70,16 +74,18 @@ class Model(object):
 		special_params = self.buildSpecialParam(code,errcode)
 		env = Environment()
 		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
-		params = json.loads(str(template.render(context = context,special_params = special_params)))
+		params = json.loads(str(template.render(context = context.data,special_params = special_params)))
 		return params
 
 	#获取请求需要的参数
-	def getRequestParam(self,code,errcode = "",context = {}):
-		if not context:
+	def getRequestParam(self,code,errcode = "",context = Context()):
+		if self.hasContextNeeded(context):
+			print("use context")
 			runner = compose(self.getDenpendentApiList())
-			context = runner({})
-
+			runner(context)
+		
 		params = self.buildParam(code,errcode,context)
+		context.write()
 		print params
 		return params
 

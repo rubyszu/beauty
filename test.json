@@ -1,37 +1,28 @@
-{
-	'name_pinyin': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 128
-	},
-	'phone': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 32
-	},
-	'token': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 64
-	},
-	'avatar': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 255
-	},
-	'email': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 128
-	},
-	'channel': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 32
-	},
-	'name': {
-		'minLength': 0,
-		'type': 'string',
-		'maxLength': 16
-	}
-}
+[{
+	'issue_type_name': 'minLength',
+	'field018': 'minimum'
+}, {
+	'issue_type_name': 'minLength',
+	'field018': 'type'
+}, {
+	'issue_type_name': 'minLength',
+	'field018': 'maximum'
+}, {
+	'issue_type_name': 'type',
+	'field018': 'minimum'
+}, {
+	'issue_type_name': 'type',
+	'field018': 'type'
+}, {
+	'issue_type_name': 'type',
+	'field018': 'maximum'
+}, {
+	'issue_type_name': 'maxLength',
+	'field018': 'minimum'
+}, {
+	'issue_type_name': 'maxLength',
+	'field018': 'type'
+}, {
+	'issue_type_name': 'maxLength',
+	'field018': 'maximum'
+}]

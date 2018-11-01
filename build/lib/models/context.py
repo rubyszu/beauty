@@ -17,13 +17,13 @@ from common import loadFile
 
 '''
 class Context(object):
-	def __init(self):
+	def __init__(self):
 		self.data = self.read()
 
 	def read(self):
 		#文件路径
 		branch = httpBase()["branch"]
-		self.file = "./test_data/%s/global_variable.yaml" %(branch)
+		self.file = "./test_data/%s/global_variable.json" %(branch)
 		#当文件不存在时，创建相同路径的文件名
 		if not os.path.exists(self.file):
 			open(self.file,"w").close()
@@ -31,7 +31,7 @@ class Context(object):
 		#加载文件
 		else:
 			#文件为空
-			if not op.path.getsize(self.file):
+			if not os.path.getsize(self.file):
 				return {}
 			#文件有内容
 			else:
@@ -39,18 +39,24 @@ class Context(object):
 				return data
 
 	def write(self):
-		self.data
-		pass
+		data = json.dumps(self.data, indent=2)
+		with open(self.file, 'w') as f:
+			f.write(data)
 
 	def update(self, data):
-		for key,value in data:
-			#当key不在self.data中
-			if key not in (for k in self.data.keys()):
-				self.data.update({key,value})
-			#当key在self.data中
-			else:
-				self.data[key].update(value)
+		self.data.update(data)
+		# for key,value in data.items():
+		# 	#当key不在self.data中
+		# 	if key not in self.data.keys():
+		# 		self.data.update({key:value})
+		# 	#当key在self.data中
+		# 	else:
+		# 		self.data[key].update(value)
 
-	def hasAllKeys(self,data):
-		pass
+if __name__ == '__main__':
+	context = Context()
+	context.update({"name":"sam"})
+	context.write()
+	print context.data
+
 

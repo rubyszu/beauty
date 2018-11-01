@@ -11,7 +11,7 @@ dependent_model:
   json:
     tasks:
     - uuid: "{{context.user.uuid + 8|randomString}}"
-      summary: "{{special_params.summary}}"
+      summary: "{{128|randomString}}"
       project_uuid: "{{special_params.project_uuid}}"
       issue_type_uuid: "{{special_params.issue_type_uuid}}"
       owner: "{{special_params.user.uuid}}"
@@ -33,7 +33,7 @@ dependent_model:
   json:
     tasks:
     - uuid: "{{context.user.uuid + 8|randomString}}"
-      summary: "{{special_params.summary}}"
+      summary: "{{128|randomString}}"
       project_uuid: "{{special_params.project_uuid}}"
       issue_type_uuid: "{{special_params.issue_type_uuid}}"
       owner: "{{special_params.user.uuid}}"

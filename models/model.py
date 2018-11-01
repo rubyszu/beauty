@@ -3,6 +3,7 @@ from common.http_base import httpBase
 from common import *
 from models import *
 from models.compose import compose
+from models.context import Context
 import sys
 import time,itertools,json
 from datetime import datetime
@@ -58,11 +59,19 @@ class Model(object):
 	def buildSpecialParam(self,code,errcode = ""):
 		#构造有边界值的参数
 		special_params = self.api_operation.getSpecialParam()
-		sets_of_special_params = iterator(special_params)
+		# sets_of_special_params = iterator(special_params)
 
 		# params = []
 
-		return params
+		# return params
+
+	def saveToContext(self, response):
+		# 业务 model 需要自己判断要存哪些数据 后续可写在模板里面
+		return response;
+
+	def isInContext(self, context):
+		# 业务 model 需要自己判断用不用文件里的数据
+		return True;
 
 	#构造请求参数
 	def buildParam(self,code,errcode = "",context = {}):
@@ -70,16 +79,18 @@ class Model(object):
 		special_params = self.buildSpecialParam(code,errcode)
 		env = Environment()
 		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
-		params = json.loads(str(template.render(context = context,special_params = special_params)))
+		params = json.loads(str(template.render(context = context.data,special_params = special_params)))
 		return params
 
 	#获取请求需要的参数
-	def getRequestParam(self,code,errcode = "",context = {}):
-		if not context:
+	def getRequestParam(self,code,errcode = "",context = Context()):
+		if not self.isInContext(context):
+			print("~~~~ not use context")
 			runner = compose(self.getDenpendentApiList())
-			context = runner({})
-
+			runner(context)
+		
 		params = self.buildParam(code,errcode,context)
+		context.write()
 		print params
 		return params
 
@@ -88,7 +99,7 @@ class Model(object):
 		params = self.getRequestParam("200")
 		ramdom_request_param = randomItem(params)
 		response = self.sendRequest(ramdom_request_param).json()
-		context.update(response)
+		context.update(self.saveToContext(response))
 		return context
 
 	#发送请求

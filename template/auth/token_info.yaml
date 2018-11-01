@@ -9,7 +9,7 @@ dependent_model:
 '401AuthFailure.InvalidToken':
   headers:
     Ones-User-Id: "{{context.user.uuid}}"
-    Ones-Auth-Token: "{{64|randomString()}}"
+    Ones-Auth-Token: "{{64|randomString}}"
     
 '400AuthFailure.MissingToken':
   headers:

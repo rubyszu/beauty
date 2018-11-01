@@ -1,0 +1,41 @@
+{
+  "org": {
+    "org_type": 0, 
+    "uuid": "2rhHw9jy", 
+    "name": "website mobile t"
+  }, 
+  "user": {
+    "status": 1, 
+    "uuid": "Qn32h4QJ", 
+    "title": "", 
+    "name_pinyin": "linhong+mobile", 
+    "phone": "", 
+    "token": "5BMMOAwUEM0QDbMCOY1wbPeLQDXMlRCTZEGPjPsrNWxb8gT1uqQfOPicWqBtnSSE", 
+    "create_time": 1527575859301968, 
+    "avatar": "", 
+    "email": "linhong+mobile@ones.ai", 
+    "channel": "uQn32h4QJb0sTeaB3amswr031B02Il2G", 
+    "name": "linhong+mobile"
+  }, 
+  "teams": [
+    {
+      "status": 1, 
+      "domain": "", 
+      "uuid": "Y9jdCJ32", 
+      "member_count": 2, 
+      "org_uuid": "2rhHw9jy", 
+      "cover_url": "", 
+      "expire_time": -1, 
+      "create_time": 1527575859302720, 
+      "owner": "Qn32h4QJ", 
+      "logo": "https://dl3.ones.ai/FgqXhs87WX-TJd1xCGKO9awU-eCg", 
+      "config": {
+        "sprint": {
+          "alias": ""
+        }
+      }, 
+      "type": "free", 
+      "name": "website mobile t"
+    }
+  ]
+}
