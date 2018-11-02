@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import jsonref
 
+#
 def findNode(data, key):
-
 	queue = [("", data)]
 	while len(queue) > 0:
 		_key, _value = queue[0]
@@ -20,5 +20,15 @@ def findNodeByList(data,arr):
 		if data == None:
 			break
 	return data
+
+if __name__ == '__main__':
+	d = {
+		"name": "ruby",
+		"config": {
+			"name": "ruby11",
+			"age":18
+		}
+	}
+	print findNode(d,"name")
 
 

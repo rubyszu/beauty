@@ -2,16 +2,18 @@
 from common import getCmdlineArgs
 
 def httpBase():
-	http_base = {
-		"host":	"https://api.ones.ai",
-		"branch": "v1"
-	}
 	env = getCmdlineArgs("env")
+	branch = getCmdlineArgs("branch")
+
+	http_base = {
+		"branch":branch
+	}
 	if env == "development":
-		branch = getCmdlineArgs("branch")
-		http_base["host"] = "https://api.ones.team"
-		http_base["branch"] = branch
+		http_base.update({"host":"https://api.ones.team"})
 		
+	elif env == "production":
+		http_base.update({"host":"https://api.ones.ai"})
+
 	return http_base
 
 

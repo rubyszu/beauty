@@ -11,6 +11,7 @@ class ApiOperation:
 	def __init__(self,module,operation,method,product="project"):
 		self.ApiYaml = ParseApiYaml(module,operation,method,product)
 
+	#获取
 	def getSpecialParam(self):
 		return self.ApiYaml.getSpecialParam()
     
