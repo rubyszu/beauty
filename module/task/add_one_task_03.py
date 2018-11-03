@@ -28,7 +28,7 @@ def random_num(a,b):
 	return random.randint(a,b)
 
 def request(variable):
-	owner_uuid = variable["owner_uuid"]
+	owner_uuid = "AvPCPB11"
 	prioritys = variable["prioritys"]
 	random_uuid = owner_uuid + generate_string()
 	random_issue_type = random_arg(variable["issue_types"])
@@ -39,7 +39,7 @@ def request(variable):
 
 	api_url = "%s/team/%s/tasks/add2" %(variable["url"], variable["team_uuid"])
 	headers = {
-		"Ones-Auth-Token": "%s" %(variable["owner_token"]),
+		"Ones-Auth-Token": "7ZvGT3lqGSH2hVoHr9LYJpnpt3PnPwqPopywU2E2CDA3BnQqieFGSrYsnmgIYUnb",
 		"Ones-User-Id": "%s" %(owner_uuid),
 		"Content-Type": "application/json"
 	}

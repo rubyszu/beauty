@@ -75,10 +75,23 @@ class TestResponse(unittest.TestCase):
 				for y in range(len(options)):
 					prioritys.append(options[y].get("uuid"))
 
+		#team members
+		members = self.response_json.get("team_member").get("members")
+		team_members = []
+		for i in range(len(members)):
+			if members[i].get("status") == 1:
+				team_members.append(members[i].get("uuid"))
 
+		#issue types
+		issue_types = self.response_json.get("issue_type").get("issue_types")
+		issue_type = []
+		for i in range(len(issue_types)):
+			issue_type.append(issue_types[i].get("uuid"))
 
 		#store data
 		self.global_variable.store("prioritys",prioritys)
+		self.global_variable.store("members",team_members)
+		self.global_variable.store("issue_types",issue_type)
 
 		self.global_variable.write()
 
