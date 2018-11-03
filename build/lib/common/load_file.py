@@ -12,6 +12,7 @@ else:
     import urlparse
     from urllib2 import urlopen
 
+#修改JsonLoader类方法，支持解析yaml文件$ref部分，转换成json
 class FileLoader(jsonref.JsonLoader):
     def is_yaml_file(self,uri):
         return re.search(r'\w+.yaml', uri) != None
@@ -28,14 +29,14 @@ class FileLoader(jsonref.JsonLoader):
             else:
                 return super(FileLoader,self).get_remote_json(uri,**kwargs)
 
-jsonloader = FileLoader()
 
+#读json/yaml格式的文件，转换成dictionary类型的数据
 def loadFile(filename):
-    """ Loads the given schema file """
+    #Loads the given schema file
     base_path = realpath('.')
     base_url = 'file://{}/'.format(base_path)
 
-    return jsonref.load_uri(urlparse.urljoin(base_url,filename), loader=jsonloader, base_uri=base_url, jsonschema=True)
+    return jsonref.load_uri(urlparse.urljoin(base_url,filename), loader=FileLoader(), base_uri=base_url, jsonschema=True)
 
 
 

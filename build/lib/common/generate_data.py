@@ -3,6 +3,7 @@ import os,sys
 import random
 from common.iterator import iterator
 
+#随机生成8位字符
 def randomString(num=8):
 	seed = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
 	salt = []
@@ -11,18 +12,15 @@ def randomString(num=8):
 	random_string = ''.join(salt)
 	return random_string
 
+#给定一个数据，返回随机元素
 def randomItem(arr):
 	random_item = random.choice(arr)
 	return random_item
 
+#给定整数的最大值和最小值，返回随机数字
 def randomNum(Min,Max):
 	random_num = random.randint(Min,Max)
 	return random_num
-
-# def randomTimestamp(Min = '1970-01-01 00:00:00',Max = '2030-01-01 00:00:00'):
-	
-# 	random_timestamp = random.randint(Min,Max)
-# 	return random_timestamp
 
 def randomSetsOfNum(Min,Max,is_inside = True):
 	if Min == Max:

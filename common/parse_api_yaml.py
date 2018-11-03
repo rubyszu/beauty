@@ -3,11 +3,11 @@ from common import loadFile,findNode,findNodeByList
 from common.http_base import httpBase
 import os
 
+#解析swagger文档
 class ParseApiYaml:
 	def __init__(self,module,operation,method,product="project"):
 		schema = loadFile("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation))
-		if not os.path.getsize("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation)):
-			print 1
+		print schema
 		self.path = findNode(schema,"paths").keys()[0]
 		self.product = product
 		self.method = method
@@ -104,5 +104,7 @@ class ParseApiYaml:
 		return response_schema
 
 if __name__ == '__main__':
-	auth_login = ParseApiYaml("auth","login1","post")
+	# auth_login = ParseApiYaml("auth","login","post")
+	# issue_type_add = ParseApiYaml("issue_type","issue_type_add","post")
+	project_add = ParseApiYaml("project","projects_add","post")
 	# auth_login.getSpecialParam()

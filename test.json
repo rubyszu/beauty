@@ -1,28 +1,19 @@
-[{
-	'issue_type_name': 'minLength',
-	'field018': 'minimum'
-}, {
-	'issue_type_name': 'minLength',
-	'field018': 'type'
-}, {
-	'issue_type_name': 'minLength',
-	'field018': 'maximum'
-}, {
-	'issue_type_name': 'type',
-	'field018': 'minimum'
-}, {
-	'issue_type_name': 'type',
-	'field018': 'type'
-}, {
-	'issue_type_name': 'type',
-	'field018': 'maximum'
-}, {
-	'issue_type_name': 'maxLength',
-	'field018': 'minimum'
-}, {
-	'issue_type_name': 'maxLength',
-	'field018': 'type'
-}, {
-	'issue_type_name': 'maxLength',
-	'field018': 'maximum'
-}]
+{
+	'info': {
+		'version': 'v1',
+		'description': u '\u8be5\u63a5\u53e3\u652f\u6301\u4ee5\u4e0b\u529f\u80fd\uff1a 1. \u521b\u5efa\u4e00\u4e2a\u4efb\u52a1\u7c7b\u578b',
+		'title': u '\u521b\u5efa\u4efb\u52a1\u7c7b\u578b'
+	},
+	'paths': {
+		'/auth/login': {
+			'post': {
+				'requestBody': {
+					'content': {
+						'application/json': {
+							'schema': {
+								'required': ['issue_type', 'name', 'icon'],
+								'properties': {
+									'issue_type': {
+										'type': 'object',
+										'properties': {
+											'name':

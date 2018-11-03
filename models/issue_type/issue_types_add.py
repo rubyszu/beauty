@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
 from common.http_base import httpBase
 from common import *
+from models.model import Model
 import json
 from jinja2 import Environment
 
 class IssueTypeAdd(Model):
 	def __init__(self):
-		super(Model,self).__init__("issue_type","/team/{teamUUID}/issue_types/add","post")
-		self.dependent_models = self.model_config["issue_type"]["IssueTypeAdd"]
-
-	def getTemplate(self,code,errcode=""):
-		templates = loadFile("template/issue_type/issue_types_add.json")
-		template = findNode(templates,code + errcode)
-		
-		return json.dumps(template)
+		super(IssueTypeAdd,self).__init__("issue_type","issue_type_add","post")
 
 	#构造请求参数
 	def getRequestParam(self,code,errcode="",context={}):

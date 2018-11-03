@@ -1,153 +1,146 @@
 openapi: 3.0.0
 info:
-  title: project项目
+  title: project 登陆
   description: >-
     该接口支持以下功能：
-    11.添加项目时导入模板接口
+    1. 用户登陆
   version: v1
 servers:
   - url: 'https://api.ones.ai/project/v1/'
 paths:
-  /team/{teamUUID}/projects/add:
+  /auth/login:
     post:
       tags:
-        - Project
-      description: 添加项目时导入模板接口
-      operationId: ProjectsAdd
-      parameters:
-        - $ref: './api_schema/common/parameters.yaml#/parameters/Ones-User-Id'
-        - $ref: './api_schema/common/parameters.yaml#/parameters/Ones-Auth-Token'
-        - $ref: './api_schema/common/parameters.yaml#/parameters/teamUUID'
-      requestBody:
-        description: 添加项目信息
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                project:
-                  $ref: '#/components/schemas/ProjectInfo'
-                issue_types:
-                  $ref: '#/components/schemas/uuids'
-                members:
-                  $ref: '#/components/schemas/uuids'
-                copy_from:
-                  type: object
-                  properties:
-                    project_uuid:
-                      $ref: '#/components/schemas/uuid'
-                  required:
-                    -project_uuid
-                  additionalProperties:
-                    description: key:project_uuid, value:issue_type_uuid
-                    $ref: '#/components/schemas/uuids'
-              required:
-                - project
+        - Auth
+      description: 用户登陆
+      operationId: authLogin
       responses:
         '200':
-          description: 添加成功
+          description: 返回用户信息
           content:
             application/json:
               schema:
+                description: 返回用户信息
                 type: object
                 properties:
-                  project:
-                    $ref: './api_schema/api/project/project/schemas.yaml#/ProjectInfo'
-                  server_update_stamp:
-                    $ref: './api_schema/api/project/project/schemas.yaml#/server_update_stamp'
+                  user:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/user'
+                  teams:
+                    type: array
+                    items:
+                      $ref: './api_schema/api/project/auth/schemas.yaml#/team'
+                  org:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/org'
         '400':
-          description: 未传必填参数
+          description: 返回400时出现的错误
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: './api_schema/api/project/project/errors.yaml#/MissingParameterProjectName'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/MissingParameterProject'
-        '403':
-          description: 无操作权限
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MalformedJSON'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/MissingParameterUserEmail'
+        '401':
+          description: 用户名或者密码不正确
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: './api_schema/api/project/project/errors.yaml#/AccessDeniedTeam'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/PermissionDeniedAdministerDo'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
+                  - $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureInvalidPassword'
+        '404':
+          description: 找不到组织
+          content:
+            application/json:
+              schema:
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundOrganization'
+        '630':
+          description: 用户不存在
+          content:
+            application/json:
+              schema:
+                $ref: './api_schema/api/project/auth/errors.yaml#/NotFoundUser'
         '801':
-          description: 传入参数不合法
+          description: 无效参数
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: './api_schema/api/project/project/errors.yaml#/InvalidParameterProjectNameTooLong'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/InvalidParameterProjectUUIDInvalidFormat'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/InvalidParameterProjectIssueTypeInvalidFormat'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/InvalidParameterProjectMemberInvalidFormat'
-                  - $ref: './api_schema/api/project/project/errors.yaml#/InvalidParameterProjectMemberNotTeamMember'
+                - description: password 格式不正确
+                  type: object
+                  properties:
+                    errcode:
+                      type: string
+                      enum:
+                        - InvalidParameter.User.Password.InvalidFormat
+                    code:
+                      type: integer
+                      format: int32
+                      enum:
+                        - 801
+                    type:
+                      type: string
+                      enum:
+                        - InvalidParameter
+                    model:
+                      type: string
+                      enum:
+                        - User
+                    field:
+                      type: string
+                      enum:
+                        - password
+                    reason:
+                      type: string
+                      enum:
+                        - InvalidFormat
+                  required:
+                    - errcode
+                    - code
+                    - type
+                    - model
+                    - field
+                    - reason
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserEmailInvalidFormat'
+                - $ref: './api_schema/api/project/auth/errors.yaml#/InvalidParameterUserPhoneInvalidFormat'
+        '813':
+          description: 登陆已过期
+          content:
+            application/json:
+              schema:
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureExpired'
+        '814':
+          description: 团队中找不到 status === 1 且 team_member_status === 1 的用户
+          content:
+            application/json:
+              schema:
+                $ref: './api_schema/api/project/auth/errors.yaml#/AuthFailureNotInAnyTeam'
         default:
-          description: 服务不可用
           content:
             application/json:
               schema:
                 $ref: './api_schema/common/errors.yaml#/UnknownError'
-components:
-  schemas:
-    ProjectInfo:
-      description: 添加项目信息
-      type: object
-      properties:
-        uuid:
-          description: 项目uuid
-          type: string
-          maxLength: 16
-        name:
-          description: 项目名称
-          type: string
-          minLength: 0
-          maxLength: 128
-        status:
-          description: >-
-            项目状态
-            1.进行中
-            2.已删除
-            3.归档
-          type: integer
-          format: int32
-          enum:
-            - 1
-            - 2
-            - 3
-        announcement:
-          description: 项目公告
-          type: string
-          minLength: 0
-          maxLength: 512
-        deadline:
-          description: 截止时间，与1970的秒差
-          type: integer
-          format: int64
-        is_pin:
-          description: 是否置顶
-          type: boolean
-        is_open_email_notify:
-          description: 是否开通邮件通知
-          type: boolean
-        admins:
-          description: 项目管理员（user_uuid数组）
-          type: array
-          items:
-            type: string
-        task_update_time:
-          description: 项目下任务更新时间（单位秒）
-          type: integer
-          format: int64
-      required:
-        - uuid
-        - name
-    uuid:
-      description: uuid
-      type: string
-      maxLength: 8
-    uuids:
-      description: uuid数组
-      type: array
-      items:
-        $ref: '#components/schemas/uuid'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - type: object
+                properties:
+                  email:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/email'
+                  password:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/password'
+                required:
+                  - email
+                  - password              
+              - type: object
+                properties:
+                  phone:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/phone'
+                  password:
+                    $ref: './api_schema/api/project/auth/schemas.yaml#/password'
+                required:
+                  - phone
+                  - password
+        description: 请求内容为用户的信息
+        required: true

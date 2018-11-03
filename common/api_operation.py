@@ -11,11 +11,11 @@ class ApiOperation:
 	def __init__(self,module,operation,method,product="project"):
 		self.ApiYaml = ParseApiYaml(module,operation,method,product)
 
-	#获取
+	#获取有边界值的参数
 	def getSpecialParam(self):
 		return self.ApiYaml.getSpecialParam()
     
-    #当api url包含path参数，需要传入参数替换成新的api url
+    #当API URL包含path参数，需要传入参数替换成新的API URL
 	def ReplaceApiUrl(self,api_url,params):
 		path_rex = re.compile(r'\{([^\}]*)\}')
   		path_params = re.findall(path_rex, self.api_url)
@@ -25,6 +25,7 @@ class ApiOperation:
   		return api_url
 
   	'''
+  		#发送请求
   		param:
  			#请求接口需要的参数
 			#如果path有参数，需要传"param.path_params"
@@ -53,9 +54,8 @@ class ApiOperation:
 		response = requests.request(method,api_url,**param)
 		return response
 
+	#验证response的数据结构
 	def validateResponse(self,response,status_code,errcode = ""):
-		print response
-		print response.json()
 		response_schema = self.ApiYaml.getResponseSchema(status_code,errcode)
 		validate(response.json(),response_schema)
 

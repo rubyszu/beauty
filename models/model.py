@@ -16,7 +16,6 @@ class Model(object):
 		self.dependent_models = self.getDependentModels()
 
 	'''
-		string to Class
 		eg. ["Login","IssueTypeAdd"] -> [<class 'models.auth.login.Login'>,<class 'models.issue_type.issue_type_add.IssueTypeAdd'>]
 	'''
 	def str2Class(self):
@@ -120,9 +119,9 @@ class Model(object):
 
 if __name__ == '__main__':
 	# login = Model("auth","login","post")
-	token_info = Model("auth","token_info","get")
+	token_info = Model("task","tasks_add2","post")
 	print token_info.str2Class()
 	# token_info.getDenpendentApiList()
-	token_info.getRequestParam("200")
+	# token_info.getRequestParam("200")
 
     	

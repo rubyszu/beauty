@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from common import getCmdlineArgs
 
+#构造API域名和分支
 def httpBase():
 	env = getCmdlineArgs("env")
 	branch = getCmdlineArgs("branch")

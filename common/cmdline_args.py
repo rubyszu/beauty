@@ -2,6 +2,7 @@
 import sys
 import argparse
 
+#获取命令行参数
 def getCmdlineArgs(key):
   parser = argparse.ArgumentParser(description='get api testcase running args')
   parser.add_argument('--env',nargs='?',help='api running environment' , choices=['production','development'],default='production')
