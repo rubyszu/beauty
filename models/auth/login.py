@@ -11,6 +11,13 @@ class Login(Model):
 	def __init__(self):
 		super(Login,self).__init__("auth","login","post")
 	
+	# def isResponseInContext(self,context):
+	# 	if "user" in context:
+	# 		print "login"
+	# 		return True
+	# 	else:
+	# 		return False
+			
 	#构造请求参数
 	def getRequestParam(self,code,errcode=""):
 		#从test_data文件中读取login数据

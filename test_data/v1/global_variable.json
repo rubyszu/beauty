@@ -1,41 +1,5 @@
 {
-  "org": {
-    "org_type": 0, 
-    "uuid": "2rhHw9jy", 
-    "name": "website mobile t"
-  }, 
-  "user": {
-    "status": 1, 
-    "uuid": "Qn32h4QJ", 
-    "title": "", 
-    "name_pinyin": "linhong+mobile", 
-    "phone": "", 
-    "token": "5BMMOAwUEM0QDbMCOY1wbPeLQDXMlRCTZEGPjPsrNWxb8gT1uqQfOPicWqBtnSSE", 
-    "create_time": 1527575859301968, 
-    "avatar": "", 
-    "email": "linhong+mobile@ones.ai", 
-    "channel": "uQn32h4QJb0sTeaB3amswr031B02Il2G", 
-    "name": "linhong+mobile"
-  }, 
-  "teams": [
-    {
-      "status": 1, 
-      "domain": "", 
-      "uuid": "Y9jdCJ32", 
-      "member_count": 2, 
-      "org_uuid": "2rhHw9jy", 
-      "cover_url": "", 
-      "expire_time": -1, 
-      "create_time": 1527575859302720, 
-      "owner": "Qn32h4QJ", 
-      "logo": "https://dl3.ones.ai/FgqXhs87WX-TJd1xCGKO9awU-eCg", 
-      "config": {
-        "sprint": {
-          "alias": ""
-        }
-      }, 
-      "type": "free", 
-      "name": "website mobile t"
-    }
-  ]
+  "org": "{u'org_type': 0, u'uuid': u'2rhHw9jy', u'name': u'website mobile t'}", 
+  "user": "{u'status': 1, u'uuid': u'Qn32h4QJ', u'title': u'', u'name_pinyin': u'linhong+mobile', u'phone': u'', u'token': u'TiuvxoNMntJuhvCpq3CZd2O6F5CXZOCz6E3ZRkqH5UlC3vaZx8HxLHKIWACQGWvJ', u'create_time': 1527575859301968, u'avatar': u'', u'email': u'linhong+mobile@ones.ai', u'channel': u'uQn32h4QJb0sTeaB3amswr031B02Il2G', u'name': u'linhong+mobile'}", 
+  "teams": "[{u'status': 1, u'domain': u'', u'uuid': u'Y9jdCJ32', u'member_count': 2, u'config': {u'sprint': {u'alias': u''}}, u'org_uuid': u'2rhHw9jy', u'cover_url': u'', u'expire_time': -1, u'create_time': 1527575859302720, u'owner': u'Qn32h4QJ', u'logo': u'https://dl3.ones.ai/FgqXhs87WX-TJd1xCGKO9awU-eCg', u'type': u'free', u'name': u'website mobile t'}]"
 }

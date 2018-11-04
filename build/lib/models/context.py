@@ -39,13 +39,7 @@ class Context(object):
 	#更新文件内容
 	def update(self, data):
 		self.data.update(data)
-		# for key,value in data.items():
-		# 	#当key不在self.data中
-		# 	if key not in self.data.keys():
-		# 		self.data.update({key:value})
-		# 	#当key在self.data中
-		# 	else:
-		# 		self.data[key].update(value)
+		self.write()
 
 if __name__ == '__main__':
 	context = Context()

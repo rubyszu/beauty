@@ -15,3 +15,7 @@ dependent_model:
   headers:
     Ones-User-Id: "{{context.user.uuid}}"
     
+save:
+  user: "{{response.user}}"
+  teams: "{{response.teams}}"
+  org: "{{response.org}}"

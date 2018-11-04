@@ -7,7 +7,6 @@ import os
 class ParseApiYaml:
 	def __init__(self,module,operation,method,product="project"):
 		schema = loadFile("./api_schema/api/%s/%s/%s.yaml" %(product,module,operation))
-		print schema
 		self.path = findNode(schema,"paths").keys()[0]
 		self.product = product
 		self.method = method

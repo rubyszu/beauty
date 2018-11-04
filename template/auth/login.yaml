@@ -16,4 +16,9 @@ dependent_model: []
   json:
     email: '{{context.email}}'
     password: '{{context.password}}'
+
+save:
+  user: "{{response.user}}"
+  teams: "{{response.teams}}"
+  org: "{{response.org}}"
     
