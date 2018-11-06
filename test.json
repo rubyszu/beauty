@@ -1,19 +1,577 @@
 {
-	'info': {
-		'version': 'v1',
-		'description': u '\u8be5\u63a5\u53e3\u652f\u6301\u4ee5\u4e0b\u529f\u80fd\uff1a 1. \u521b\u5efa\u4e00\u4e2a\u4efb\u52a1\u7c7b\u578b',
-		'title': u '\u521b\u5efa\u4efb\u52a1\u7c7b\u578b'
-	},
-	'paths': {
-		'/auth/login': {
-			'post': {
-				'requestBody': {
-					'content': {
-						'application/json': {
-							'schema': {
-								'required': ['issue_type', 'name', 'icon'],
-								'properties': {
-									'issue_type': {
-										'type': 'object',
-										'properties': {
-											'name':
+    "info": {
+        "version": "v1",
+        "description": "\u8be5\u63a5\u53e3\u652f\u6301\u4ee5\u4e0b\u529f\u80fd\uff1a 1. \u6dfb\u52a0\u4efb\u52a1\u7c7b\u578b",
+        "title": "project \u767b\u9646"
+    },
+    "paths": {
+        "/team/{teamUUID}/issue_types/add": {
+            "post": {
+                "responses": {
+                    "630": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": ["errcode", "code", "type", "model"],
+                                    "type": "object",
+                                    "description": "\u7528\u6237\u4e0d\u5b58\u5728",
+                                    "properties": {
+                                        "model": {
+                                            "enum": ["User"],
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "enum": [615, 620, 630],
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "type": {
+                                            "enum": ["NotFound"],
+                                            "type": "string"
+                                        },
+                                        "errcode": {
+                                            "enum": ["NotFound.User"],
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "\u7528\u6237\u4e0d\u5b58\u5728"
+                    },
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "description": "\u8fd4\u56de\u7528\u6237\u4fe1\u606f",
+                                    "properties": {
+                                        "org": {
+                                            "type": "object",
+                                            "description": "\u7ec4\u7ec7\u7b80\u7565\u4fe1\u606f",
+                                            "properties": {
+                                                "uuid": {
+                                                    "type": "string",
+                                                    "description": "\u7ec4\u7ec7UUID"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "description": "\u7ec4\u7ec7\u540d\u79f0"
+                                                }
+                                            }
+                                        },
+                                        "user": {
+                                            "type": "object",
+                                            "description": "\u7528\u6237\u767b\u9646\u4fe1\u606f",
+                                            "properties": {
+                                                "status": {
+                                                    "enum": [1, 2, 3],
+                                                    "type": "integer",
+                                                    "description": "1.\u7528\u6237\u72b6\u6001\u6b63\u5e38UserStatusNormal 2.\u7528\u6237\u72b6\u6001\u5df2\u5220\u9664UserStatusDeleted 3.\u7528\u6237\u72b6\u6001\u5f85\u786e\u8ba4UserStatusPending",
+                                                    "format": "int64"
+                                                },
+                                                "uuid": {
+                                                    "type": "string",
+                                                    "description": "\u7528\u6237uuid",
+                                                    "maxLength": 8
+                                                },
+                                                "name_pinyin": {
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "description": "\u7528\u6237\u540d\u62fc\u97f3",
+                                                    "maxLength": 128
+                                                },
+                                                "phone": {
+                                                    "pattern": "\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$",
+                                                    "maxLength": 32,
+                                                    "type": "string",
+                                                    "description": "\u624b\u673a",
+                                                    "minLength": 0
+                                                },
+                                                "token": {
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "description": "\u7528\u6237\u6240\u5c5e\u7684\u63a8\u9001\u9891\u9053",
+                                                    "maxLength": 64
+                                                },
+                                                "create_time": {
+                                                    "type": "integer",
+                                                    "description": "\u7528\u6237\u6ce8\u518c\u65f6\u95f4",
+                                                    "format": "int64"
+                                                },
+                                                "avatar": {
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "description": "\u5934\u50cfurl",
+                                                    "maxLength": 255
+                                                },
+                                                "email": {
+                                                    "pattern": "^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+                                                    "maxLength": 128,
+                                                    "type": "string",
+                                                    "description": "\u90ae\u7bb1",
+                                                    "minLength": 0
+                                                },
+                                                "channel": {
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "maxLength": 32
+                                                },
+                                                "name": {
+                                                    "minLength": 0,
+                                                    "type": "string",
+                                                    "description": "\u7528\u6237\u540d\u79f0",
+                                                    "maxLength": 16
+                                                }
+                                            }
+                                        },
+                                        "teams": {
+                                            "items": {
+                                                "type": "object",
+                                                "description": "\u7528\u6237\u5f53\u524d\u6240\u5c5e\u56e2\u961f\u4fe1\u606f",
+                                                "properties": {
+                                                    "status": {
+                                                        "enum": [1, 2],
+                                                        "type": "integer",
+                                                        "description": "1.\u56e2\u961f\u72b6\u6001\u6b63\u5e38TeamStatusNormal 2.\u56e2\u961f\u72b6\u6001\u5f02\u5e38TeamStatusDisabled",
+                                                        "format": "int32"
+                                                    },
+                                                    "uuid": {
+                                                        "minLength": 0,
+                                                        "type": "string",
+                                                        "description": "\u7528\u6237\u5f53\u524d\u6240\u5c5e\u56e2\u961fUUID",
+                                                        "maxLength": 8
+                                                    },
+                                                    "name": {
+                                                        "minLength": 0,
+                                                        "type": "string",
+                                                        "description": "\u7528\u6237\u5f53\u524d\u6240\u5c5e\u56e2\u961f\u540d\u79f0",
+                                                        "maxLength": 255
+                                                    }
+                                                }
+                                            },
+                                            "type": "array"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "\u8fd4\u56de\u7528\u6237\u4fe1\u606f"
+                    },
+                    "default": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": ["errcode", "code", "type"],
+                                    "type": "object",
+                                    "description": "Unknown Error",
+                                    "properties": {
+                                        "code": {
+                                            "enum": [500],
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "type": {
+                                            "enum": ["Unknown"],
+                                            "type": "string"
+                                        },
+                                        "errcode": {
+                                            "enum": ["Unknown"],
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": ["errcode", "code", "type", "model"],
+                                    "type": "object",
+                                    "description": "\u627e\u4e0d\u5230\u7ec4\u7ec7",
+                                    "properties": {
+                                        "model": {
+                                            "enum": ["Organization"],
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "enum": [404],
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "type": {
+                                            "enum": ["NotFound"],
+                                            "type": "string"
+                                        },
+                                        "errcode": {
+                                            "enum": ["NotFound.Organization"],
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "\u627e\u4e0d\u5230\u7ec4\u7ec7"
+                    },
+                    "401": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [{
+                                        "required": ["errcode", "code", "type", "reason"],
+                                        "type": "object",
+                                        "description": "\u627e\u4e0d\u5230 User.status === 1 \u7684\u7528\u6237",
+                                        "properties": {
+                                            "reason": {
+                                                "enum": ["NotInAnyTeam"],
+                                                "type": "string"
+                                            },
+                                            "code": {
+                                                "enum": [401, 814],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "type": {
+                                                "enum": ["AuthFailure"],
+                                                "type": "string"
+                                            },
+                                            "errcode": {
+                                                "enum": ["AuthFailure.NotInAnyTeam"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }, {
+                                        "required": ["errcode", "code", "type", "reason"],
+                                        "type": "object",
+                                        "description": "\u5bc6\u7801\u4e0d\u6b63\u786e",
+                                        "properties": {
+                                            "reason": {
+                                                "enum": ["InvalidPassword"],
+                                                "type": "string"
+                                            },
+                                            "code": {
+                                                "enum": [401],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "type": {
+                                                "enum": ["AuthFailure"],
+                                                "type": "string"
+                                            },
+                                            "errcode": {
+                                                "enum": ["AuthFailure.InvalidPassword"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }]
+                                }
+                            }
+                        },
+                        "description": "\u7528\u6237\u540d\u6216\u8005\u5bc6\u7801\u4e0d\u6b63\u786e"
+                    },
+                    "400": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [{
+                                        "required": ["errcode", "code", "type", "format"],
+                                        "type": "object",
+                                        "description": "JSON \u89e3\u6790\u9519\u8bef",
+                                        "properties": {
+                                            "code": {
+                                                "enum": [400],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "type": {
+                                                "enum": ["Malformed"],
+                                                "type": "string"
+                                            },
+                                            "errcode": {
+                                                "enum": ["Malformed.JSON"],
+                                                "type": "string"
+                                            },
+                                            "format": {
+                                                "enum": ["JSON"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }, {
+                                        "required": ["errcode", "code", "type", "model", "field"],
+                                        "type": "object",
+                                        "description": "\u90ae\u7bb1\u4e3a\u7a7a",
+                                        "properties": {
+                                            "field": {
+                                                "enum": ["Email"],
+                                                "type": "string"
+                                            },
+                                            "model": {
+                                                "enum": ["User"],
+                                                "type": "string"
+                                            },
+                                            "code": {
+                                                "enum": [400],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "type": {
+                                                "enum": ["MissingParameter"],
+                                                "type": "string"
+                                            },
+                                            "errcode": {
+                                                "enum": ["MissingParameter.User.Email"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }]
+                                }
+                            }
+                        },
+                        "description": "\u8fd4\u56de400\u65f6\u51fa\u73b0\u7684\u9519\u8bef"
+                    },
+                    "801": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [{
+                                        "required": ["errcode", "code", "type", "model", "field", "reason"],
+                                        "type": "object",
+                                        "description": "password \u683c\u5f0f\u4e0d\u6b63\u786e",
+                                        "properties": {
+                                            "code": {
+                                                "enum": [801],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "errcode": {
+                                                "enum": ["InvalidParameter.User.Password.InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "field": {
+                                                "enum": ["password"],
+                                                "type": "string"
+                                            },
+                                            "reason": {
+                                                "enum": ["InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "model": {
+                                                "enum": ["User"],
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "enum": ["InvalidParameter"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }, {
+                                        "required": ["errcode", "code", "type", "model", "field", "reason"],
+                                        "type": "object",
+                                        "description": "email \u683c\u5f0f\u4e0d\u6b63\u786e",
+                                        "properties": {
+                                            "code": {
+                                                "enum": [600],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "errcode": {
+                                                "enum": ["InvalidParameter.User.Email.InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "field": {
+                                                "enum": ["Email"],
+                                                "type": "string"
+                                            },
+                                            "reason": {
+                                                "enum": ["InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "model": {
+                                                "enum": ["User"],
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "enum": ["InvalidParameter"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }, {
+                                        "required": ["errcode", "code", "type", "model", "field", "reason"],
+                                        "type": "object",
+                                        "description": "phone \u683c\u5f0f\u4e0d\u6b63\u786e",
+                                        "properties": {
+                                            "code": {
+                                                "enum": [622, 801],
+                                                "type": "integer",
+                                                "format": "int32"
+                                            },
+                                            "errcode": {
+                                                "enum": ["InvalidParameter.User.Phone.InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "field": {
+                                                "enum": ["phone"],
+                                                "type": "string"
+                                            },
+                                            "reason": {
+                                                "enum": ["InvalidFormat"],
+                                                "type": "string"
+                                            },
+                                            "model": {
+                                                "enum": ["User"],
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "enum": ["InvalidParameter"],
+                                                "type": "string"
+                                            }
+                                        }
+                                    }]
+                                }
+                            }
+                        },
+                        "description": "\u65e0\u6548\u53c2\u6570"
+                    },
+                    "813": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": ["errcode", "code", "type", "reason"],
+                                    "type": "object",
+                                    "description": "\u767b\u9646\u5df2\u8fc7\u671f",
+                                    "properties": {
+                                        "reason": {
+                                            "enum": ["Expired"],
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "enum": [813],
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "type": {
+                                            "enum": ["AuthFailure"],
+                                            "type": "string"
+                                        },
+                                        "errcode": {
+                                            "enum": ["AuthFailure.Expired"],
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "\u767b\u9646\u5df2\u8fc7\u671f"
+                    },
+                    "814": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "required": ["errcode", "code", "type", "reason"],
+                                    "type": "object",
+                                    "description": "\u627e\u4e0d\u5230 User.status === 1 \u7684\u7528\u6237",
+                                    "properties": {
+                                        "reason": {
+                                            "enum": ["NotInAnyTeam"],
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "enum": [401, 814],
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "type": {
+                                            "enum": ["AuthFailure"],
+                                            "type": "string"
+                                        },
+                                        "errcode": {
+                                            "enum": ["AuthFailure.NotInAnyTeam"],
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "\u56e2\u961f\u4e2d\u627e\u4e0d\u5230 status === 1 \u4e14 team_member_status === 1 \u7684\u7528\u6237"
+                    }
+                },
+                "description": "\u6dfb\u52a0\u4efb\u52a1\u7c7b\u578b",
+                "parameters": [{
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": True,
+                    "name": "Ones-User-Id",
+                    "in": "header"
+                }, {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": True,
+                    "name": "Ones-Auth-Token",
+                    "in": "header"
+                }, {
+                    "schema": {
+                        "type": "string"
+                    },
+                    "required": True,
+                    "name": "teamUUID",
+                    "in": "path"
+                }],
+                "tags": ["IssueType"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "oneOf": [{
+                                    "required": ["email", "password"],
+                                    "type": "object",
+                                    "properties": {
+                                        "password": {
+                                            "pattern": "^[\\x21-\\x7E]{8,32}$",
+                                            "type": "string",
+                                            "description": "\u5bc6\u7801"
+                                        },
+                                        "email": {
+                                            "pattern": "^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
+                                            "maxLength": 128,
+                                            "type": "string",
+                                            "description": "\u90ae\u7bb1",
+                                            "minLength": 0
+                                        }
+                                    }
+                                }, {
+                                    "required": ["phone", "password"],
+                                    "type": "object",
+                                    "properties": {
+                                        "phone": {
+                                            "pattern": "\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$",
+                                            "maxLength": 32,
+                                            "type": "string",
+                                            "description": "\u624b\u673a",
+                                            "minLength": 0
+                                        },
+                                        "password": {
+                                            "pattern": "^[\\x21-\\x7E]{8,32}$",
+                                            "type": "string",
+                                            "description": "\u5bc6\u7801"
+                                        }
+                                    }
+                                }]
+                            }
+                        }
+                    },
+                    "required": True,
+                    "description": "\u8bf7\u6c42\u5185\u5bb9\u4e3a\u7528\u6237\u7684\u4fe1\u606f"
+                },
+                "operationId": "issueType"
+            }
+        }
+    },
+    "servers": [{
+        "url": "https://api.ones.ai/project/v1/"
+    }],
+    "openapi": "3.0.0"
+}

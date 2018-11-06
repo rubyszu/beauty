@@ -69,7 +69,7 @@ class Model(object):
 
 		# params = []
 
-		# return params
+		return special_params
 
 	def saveResponseToContext(self, response):
 		# 业务 model 需要自己判断要存哪些数据 后续可写在模板里面
@@ -77,7 +77,7 @@ class Model(object):
 			return {}
 		env = Environment()
 		save_data_template = env.from_string(json.dumps(self.templates["save"]))
-		save_data = json.loads(str(save_data_template.render(response = response)))
+		save_data = json.loads(save_data_template.render(response = response))
 
 		print("~~ saveResponseToContext ")
 		return save_data;
@@ -87,22 +87,22 @@ class Model(object):
 		flag = True
 		#save为空
 		if not self.templates.has_key("save"):
-			print flag
 			return flag
 		for key in self.templates["save"].keys():
 			if key not in context:
 				flag = False
 				break
-		print flag
 		return flag
 
 	#构造请求参数
-	def buildParam(self,code,errcode = "",context = {}):
+	def buildParam(self,code,errcode = "",context = Context()):
 		#special_param
 		special_params = self.buildSpecialParam(code,errcode)
 		env = Environment()
 		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
 		params = json.loads(str(template.render(context = context.data,special_params = special_params)))
+		print type(params)
+		print params
 		return params
 
 	#获取请求需要的参数
@@ -133,9 +133,11 @@ class Model(object):
 
 if __name__ == '__main__':
 	# login = Model("auth","login","post")
-	token_info = Model("auth","token_info","get")
-	print token_info.str2Class()
-	# token_info.getDenpendentApiList()
-	# token_info.getRequestParam("200")
+	# token_info = Model("auth","token_info","get")
+	# print token_info.str2Class()
+	issue_type_add = Model("issue_type","issue_type_add","post")
+	# print issue_type_add.str2Class()
+	# issue_type_add.getRequestParam("200")
+	issue_type_add.buildParam("200")
 
     	

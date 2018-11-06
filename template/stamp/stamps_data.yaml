@@ -1,6 +1,7 @@
 dependent_model:
 - TokenInfo
 
+#获取stamps data
 '200':
   headers:
     Ones-User-Id: "{{context.user.uuid}}"

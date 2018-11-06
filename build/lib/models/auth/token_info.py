@@ -10,14 +10,7 @@ class TokenInfo(Model):
 	def __init__(self):
 		super(TokenInfo,self).__init__("auth","token_info","get")
 	
-	# def isResponseInContext(self,context):
-	# 	if "user" in context:
-	# 		print "token_info"
-	# 		return True
-	# 	else:
-	# 		return False
-
 if __name__ == '__main__':
 	token_info = TokenInfo()
-	print token_info.getRequestParam('200')
+	print token_info.getRequestParam("200")
     	

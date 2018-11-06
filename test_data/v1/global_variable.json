@@ -1,5 +1,5 @@
 {
   "org": "{u'org_type': 0, u'uuid': u'2rhHw9jy', u'name': u'website mobile t'}", 
-  "user": "{u'status': 1, u'uuid': u'Qn32h4QJ', u'title': u'', u'name_pinyin': u'linhong+mobile', u'phone': u'', u'token': u'TiuvxoNMntJuhvCpq3CZd2O6F5CXZOCz6E3ZRkqH5UlC3vaZx8HxLHKIWACQGWvJ', u'create_time': 1527575859301968, u'avatar': u'', u'email': u'linhong+mobile@ones.ai', u'channel': u'uQn32h4QJb0sTeaB3amswr031B02Il2G', u'name': u'linhong+mobile'}", 
+  "user": "{u'status': 1, u'uuid': u'Qn32h4QJ', u'title': u'', u'name_pinyin': u'linhong+mobile', u'phone': u'', u'token': u'kKumbGdh3cxfMys3TRa2uy1HQI27OlzJfpgSpI2BOfjcPpVop50voeLrcGlSX9oT', u'create_time': 1527575859301968, u'avatar': u'', u'email': u'linhong+mobile@ones.ai', u'channel': u'uQn32h4QJb0sTeaB3amswr031B02Il2G', u'name': u'linhong+mobile'}", 
   "teams": "[{u'status': 1, u'domain': u'', u'uuid': u'Y9jdCJ32', u'member_count': 2, u'config': {u'sprint': {u'alias': u''}}, u'org_uuid': u'2rhHw9jy', u'cover_url': u'', u'expire_time': -1, u'create_time': 1527575859302720, u'owner': u'Qn32h4QJ', u'logo': u'https://dl3.ones.ai/FgqXhs87WX-TJd1xCGKO9awU-eCg', u'type': u'free', u'name': u'website mobile t'}]"
 }

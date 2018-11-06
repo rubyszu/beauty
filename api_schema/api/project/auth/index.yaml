@@ -19,7 +19,6 @@ info:
 paths:
   /auth/login:
     $ref: './api_schema/api/project/auth/login.yaml#/paths/~1auth~1login'
-    # $ref: './api_schema/api/project/auth/login.yaml#/paths~1auth~1login'
   # /auth/request_reset_code:
   #   $ref: './api_schema/api/project/auth/request_reset_code.yaml#/paths/~1auth~1request_reset_code'    
   # /auth/reset_password:

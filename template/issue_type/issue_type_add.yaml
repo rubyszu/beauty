@@ -1,24 +1,29 @@
 dependent_model:
-- AuthLogin
+- Login
 
+#添加任务类型
 '200':
   headers:
     Ones-User-Id: "{{context.user.uuid}}"
     Ones-Auth-Token: "{{context.user.token}}"
   path_params:
-    teamUUID: "{{context.team.uuid}}"
+    teamUUID: "{{context.teams[0].uuid}}"
   json:
     issue_type:
       name: "{{special_params.name}}"
       icon: "{{special_params.icon}}"
     copy_from: null
+
+#缺失必填项：任务类型名称，添加任务类型失败
 '400MissingParameter.IssueType.Name':
   headers:
     Ones-User-Id: "{{context.Ones-User-Id}}"
     Ones-Auth-Token: "{{context.Ones-Auth-Token}}"
   path_params:
-    teamUUID: "{{context.teamUUID}}"
+    teamUUID: "{{context.teams[0].uuid}}"
   json:
     issue_type:
       icon: "{{special_params.icon}}"
     copy_from: null
+
+

@@ -3,17 +3,21 @@ info:
   title: project 登陆
   description: >-
     该接口支持以下功能：
-    1. 用户登陆
+    1. 添加任务类型
   version: v1
 servers:
   - url: 'https://api.ones.ai/project/v1/'
 paths:
-  /auth/login:
+  /team/{teamUUID}/issue_types/add:
     post:
       tags:
-        - Auth
-      description: 用户登陆
-      operationId: authLogin
+        - IssueType
+      description: 添加任务类型
+      operationId: issueType
+      parameters:
+        - $ref: './api_schema/common/parameters.yaml#/parameters/Ones-User-Id'
+        - $ref: './api_schema/common/parameters.yaml#/parameters/Ones-Auth-Token'
+        - $ref: './api_schema/common/parameters.yaml#/parameters/teamUUID'
       responses:
         '200':
           description: 返回用户信息

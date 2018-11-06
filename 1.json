@@ -1,61 +1,1416 @@
-{
-	"status": {
-		"enum": [1, 2, 3],
-		"type": "integer",
-		"description": "1.\u7528\u6237\u72b6\u6001\u6b63\u5e38UserStatusNormal 2.\u7528\u6237\u72b6\u6001\u5df2\u5220\u9664UserStatusDeleted 3.\u7528\u6237\u72b6\u6001\u5f85\u786e\u8ba4UserStatusPending",
-		"format": "int64"
-	},
-	"uuid": {
-		"type": "string",
-		"description": "\u7528\u6237uuid",
-		"maxLength": 8
-	},
-	"name_pinyin": {
-		"minLength": 0,
-		"type": "string",
-		"description": "\u7528\u6237\u540d\u62fc\u97f3",
-		"maxLength": 128
-	},
-	"phone": {
-		"pattern": "\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$",
-		"maxLength": 32,
-		"type": "string",
-		"description": "\u624b\u673a",
-		"minLength": 0
-	},
-	"token": {
-		"minLength": 0,
-		"type": "string",
-		"description": "\u7528\u6237\u6240\u5c5e\u7684\u63a8\u9001\u9891\u9053",
-		"maxLength": 64
-	},
-	"create_time": {
-		"type": "integer",
-		"description": "\u7528\u6237\u6ce8\u518c\u65f6\u95f4",
-		"format": "int64"
-	},
-	"avatar": {
-		"minLength": 0,
-		"type": "string",
-		"description": "\u5934\u50cfurl",
-		"maxLength": 255
-	},
-	"email": {
-		"pattern": "^[a-zA-Z0-9.!#$%&"*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
-		"maxLength": 128,
-		"type": "string",
-		"description": "\u90ae\u7bb1",
-		"minLength": 0
-	},
-	"channel": {
-		"minLength": 0,
-		"type": "string",
-		"maxLength": 32
-	},
-	"name": {
-		"minLength": 0,
-		"type": "string",
-		"description": "\u7528\u6237\u540d\u79f0",
-		"maxLength": 16
-	}
-}
+"evaluated_permission": {
+        "evaluated_permissions": [
+            {
+                "key": "1--:8",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "administer_testcase"
+            },
+            {
+                "key": "1--:3",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "administer_wiki"
+            },
+            {
+                "key": "1--:2",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "administer_do"
+            },
+            {
+                "key": "1--:1",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "administer_team"
+            },
+            {
+                "key": "1--:4",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "invite_member"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1101",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "manage_project"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "3002-7Dr5FHgb-:1303",
+                "context_type": "testcase_library",
+                "context_param": {
+                    "library_uuid": "7Dr5FHgb"
+                },
+                "permission": "manage_library_cases"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1103",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "manage_sprints"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "3003-WMB5gjsS-:1304",
+                "context_type": "testcase_plan",
+                "context_param": {
+                    "plan_uuid": "WMB5gjsS"
+                },
+                "permission": "manage_plan_cases"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1105",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "manage_pipelines"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1102",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "browse_project"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1106",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned_to_sprint"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1104",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_project_reports"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "3001--:1301",
+                "context_type": "testcase",
+                "context_param": null,
+                "permission": "manage_plans"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1104",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "view_project_reports"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1--:9",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "manage_versions"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1106",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned_to_sprint"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1105",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "manage_pipelines"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "3001--:1302",
+                "context_type": "testcase",
+                "context_param": null,
+                "permission": "manage_library"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1202",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1102",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "browse_project"
+            },
+            {
+                "key": "1--:5",
+                "context_type": "team",
+                "context_param": null,
+                "permission": "view_team_reports"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-4keEPWpz:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "4keEPWpz",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-78BzM6RQ:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Gh6PJFJC:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-6SHDHfSm:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "6SHDHfSm",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1101",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "manage_project"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1103",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "manage_sprints"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-J2PLghhX:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-NvjZmJoi:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1105",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "manage_pipelines"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1101",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "manage_project"
+            },
+            {
+                "key": "1002-GAy6uL3m78lDPPFP-:1103",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "manage_sprints"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-XCScyK9t:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1106",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "be_assigned_to_sprint"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-Gh6PJFJC:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-FprN568w:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-XCScyK9t:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1002-GAy6uL3m3WDwkYTL-:1102",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "browse_project"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-J2PLghhX:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "J2PLghhX",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-Gh6PJFJC:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Gh6PJFJC",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-Euz5k7no:1207",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "Euz5k7no",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "be_assigned"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-NvjZmJoi:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m3WDwkYTL-XCScyK9t:1206",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "XCScyK9t",
+                    "project_uuid": "GAy6uL3m3WDwkYTL"
+                },
+                "permission": "transit_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3m78lDPPFP-FprN568w:1201",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "FprN568w",
+                    "project_uuid": "GAy6uL3m78lDPPFP"
+                },
+                "permission": "create_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-NvjZmJoi:1203",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "NvjZmJoi",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "update_tasks"
+            },
+            {
+                "key": "1002-GAy6uL3mg4R3fdiD-:1104",
+                "context_type": "project",
+                "context_param": {
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "view_project_reports"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-A6vqdF6F:1208",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "A6vqdF6F",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "export_tasks"
+            },
+            {
+                "key": "1003-GAy6uL3mg4R3fdiD-78BzM6RQ:1204",
+                "context_type": "issue_type",
+                "context_param": {
+                    "issue_type_uuid": "78BzM6RQ",
+                    "project_uuid": "GAy6uL3mg4R3fdiD"
+                },
+                "permission": "delete_tasks"
+            }
+        ],
+        "server_update_stamp": 1541402683337840
+    }

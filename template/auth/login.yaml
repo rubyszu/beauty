@@ -1,24 +1,32 @@
 dependent_model: []
 
+save:
+  user: '{{response.user}}'
+  teams: '{{response.teams}}'
+  org: '{{response.org}}'
+
+#通过email登录
 '200':
   json:
     email: '{{context.email}}'
     password: '{{context.password}}'
+
+#密码错误，登录失败
 '401AuthFailure.InvalidPassword':
   json:
     email: '{{context.email}}'
     password: '{{context.password}}'
+
+#缺失必填项：email
 '400MissingParameter.User.Email':
   json:
-    email: '{{context.email}}'
     password: '{{context.password}}'
+
+#用户不存在
 '630NotFound.User':
   json:
     email: '{{context.email}}'
     password: '{{context.password}}'
 
-save:
-  user: "{{response.user}}"
-  teams: "{{response.teams}}"
-  org: "{{response.org}}"
+
     

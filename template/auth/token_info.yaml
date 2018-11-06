@@ -1,21 +1,25 @@
 dependent_model: 
   - Login
 
+save:
+  user: '{{response.user}}'
+  teams: '{{response.teams}}'
+  org: '{{response.org}}'
+
+#获取token info
 '200':
   headers:
-    Ones-User-Id: "{{context.user.uuid}}"
-    Ones-Auth-Token: "{{context.user.token}}"
+    Ones-User-Id: '{{context.user.uuid}}'
+    Ones-Auth-Token: '{{context.user.token}}'
 
+#token无效，获取token info失败
 '401AuthFailure.InvalidToken':
   headers:
-    Ones-User-Id: "{{context.user.uuid}}"
-    Ones-Auth-Token: "{{64|randomString}}"
-    
+    Ones-User-Id: '{{context.user.uuid}}'
+    Ones-Auth-Token: '{{64|randomString}}'
+   
+#缺失必填项Ones-Auth-Token，获取token info失败
 '400AuthFailure.MissingToken':
   headers:
-    Ones-User-Id: "{{context.user.uuid}}"
+    Ones-User-Id: '{{context.user.uuid}}'
     
-save:
-  user: "{{response.user}}"
-  teams: "{{response.teams}}"
-  org: "{{response.org}}"

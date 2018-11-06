@@ -104,6 +104,7 @@ class ParseApiYaml:
 
 if __name__ == '__main__':
 	# auth_login = ParseApiYaml("auth","login","post")
-	# issue_type_add = ParseApiYaml("issue_type","issue_type_add","post")
-	project_add = ParseApiYaml("project","projects_add","post")
+	issue_type_add = ParseApiYaml("issue_type","issue_type_add","post")
+	# project_add = ParseApiYaml("project","projects_add","post")
+	# index = ParseApiYaml("auth","index","post")
 	# auth_login.getSpecialParam()
