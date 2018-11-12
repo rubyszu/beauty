@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from jinja2 import Environment,Template
+from jinja2.nativetypes import NativeEnvironment
 import os,sys,json
 import random
 import requests
@@ -42,26 +43,24 @@ def sendRequest():
 		response = requests.request(method,api_url+path,**params)
 		return response
 
-jsonData = {
+jsonData = """
 	"json":{
-		"uuid": '{{randomString()}}',
- 		"name": '{{context.name}}',
- 		# "name": '{{name}}',
- 		"number": '{{1|randomNum(5)}}'
+ 		"name": {{context.name}},
+ 		"number": {{1|randomNum(5)}}
 	}
- 
-}
+ 	"""
 
 context = {
-	"name": "ruby"
+	"name": 5
 }
 
-env = Environment()
-env.globals['randomString'] = randomString
+env = NativeEnvironment()
+# env.globals['randomString'] = randomString
 env.filters['randomNum'] = randomNum
 env.filters['randomSetsOfString'] = randomSetsOfString
 # t = Template(json.dumps(jsonData))
-template = env.from_string(json.dumps(jsonData))
+template = env.from_string(jsonData)
+# template = env.from_string(json.dumps(jsonData))
 # template = json.dumps(jsonData)
 
 # print(template.render(name='variables'))

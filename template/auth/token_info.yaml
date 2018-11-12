@@ -2,9 +2,9 @@ dependent_model:
   - Login
 
 save:
-  user: '{{response.user}}'
-  teams: '{{response.teams}}'
-  org: '{{response.org}}'
+  user: \{{response.user}}
+  teams: \{{response.teams}}
+  org: \{{response.org}}
 
 #获取token info
 '200':

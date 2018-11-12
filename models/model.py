@@ -7,6 +7,7 @@ from models.context import Context
 import time,itertools,json
 from datetime import datetime
 from jinja2 import Environment
+from jinja2.nativetypes import NativeEnvironment
 
 class Model(object):
 	def __init__(self,module,operation,method,product="project"):
@@ -75,11 +76,20 @@ class Model(object):
 		# 业务 model 需要自己判断要存哪些数据 后续可写在模板里面
 		if not self.templates.has_key("save"):
 			return {}
-		env = Environment()
-		save_data_template = env.from_string(json.dumps(self.templates["save"]))
-		save_data = json.loads(str(save_data_template.render(response = response)))
+		env = NativeEnvironment()
+		save_template = json.dumps(self.templates["save"])
+		print save_template
+		save_data_template = env.from_string(save_template)
+		render_string = save_data_template.render(response = response)
+		# save_data = json.loads(str(render_string))
+		# save_data = json.loads(render_string,encoding='utf-8')
 
 		print("~~ saveResponseToContext ")
+		print response
+		print type(render_string)
+		print render_string
+		print type(save_data)
+		print save_data
 		return save_data;
 
 	#判断API需要的请求参数是否在全局变量文件中
@@ -101,8 +111,6 @@ class Model(object):
 		env = Environment()
 		template = env.from_string(json.dumps(self.getTemplate(code,errcode)))
 		params = json.loads(str(template.render(context = context.data,special_params = special_params)))
-		print type(params)
-		print params
 		return params
 
 	#获取请求需要的参数
