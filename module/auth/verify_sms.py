@@ -4,7 +4,6 @@ import os, sys
 current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
-from common import *
 from jsonschema import validate
 from datetime import datetime
 import time,requests,json,unittest
@@ -16,7 +15,7 @@ branch = args[0]
 
 def request():
 
-	api_url = "https://api.ones.team/project/hotfix_sms/auth/verify_sms"
+	api_url = "https://api.ones.ai/project/v1/auth/verify_sms"
 	headers = {
 		"Content-Type": "application/json"
 	}
