@@ -13,6 +13,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
+print branch
 
 def generate_string():
 	seed = "0123456789AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
@@ -28,7 +29,7 @@ def random_num(a,b):
 	return random.randint(a,b)
 
 def request(variable):
-	owner_uuid = "TFRz1DRP"
+	owner_uuid = "QJW9Pnwb"
 	prioritys = variable["prioritys"]
 	random_uuid = owner_uuid + generate_string()
 	random_issue_type = random_arg(variable["issue_types"])
@@ -39,15 +40,15 @@ def request(variable):
 
 	api_url = "%s/team/%s/tasks/add2" %(variable["url"], variable["team_uuid"])
 	headers = {
-		"Ones-Auth-Token": "YUcwmpleSoc7MeUIq0GbvQcB0OCPaIx2Nm08x0rjR3k1pt3Ro1RuwmSRhgBUA6hA",
-		"Ones-User-Id": "%s" %(owner_uuid),
+		"Ones-Auth-Token": "AmP76Rk6bvibpMrXSxk9V6Lq4g1KZ66awSzZqOGwbg20xGRhytmxjY1J2FBDnLKk",
+		"Ones-User-Id": "QJW9Pnwb",
 		"Content-Type": "application/json"
 	}
 	tasks = []
 	task = {
 	  		"uuid":"%s" %(random_uuid),
 	    	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-	    	"project_uuid":"GAy6uL3mg4R3fdiD",
+	    	"project_uuid":"QJW9Pnwb3Gox3lwc",
 	    	"issue_type_uuid":"%s" %(random_issue_type),
 	    	"owner":"%s" %(owner_uuid),
 	    	"assign":"%s" %(random_assign),
@@ -60,7 +61,6 @@ def request(variable):
 	}
 	for i in range(10):
 		tasks.append(task)
-	print tasks
 	body = {
 	  "tasks":[task]}
 

@@ -8,7 +8,7 @@ PATH=${PATH}:/usr/local/bin
 # python run/run_all_test.py
 for i in {1..1000}
 do
-	python module/task/add_one_task_03.py --branch=master
+	python module/task/add_one_task_03.py --branch=$1
 done
 
 # cd module/login && py.test --junitxml results.xml test_login_200.py
