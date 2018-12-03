@@ -1,0 +1,7 @@
+request:
+  dependent_api: ./test_schemas/task/task_add2/tasks_add_200.yaml
+  path: /team/{teamUUID}/task/{taskUUID}/info
+  method: get
+
+response:
+  response_schema: ./api_schemas/task/task_info.yaml

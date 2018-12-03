@@ -1,0 +1,4 @@
+$ext:
+  function: rest.ApiOperation.validateResponse
+  extra_kwargs: 
+    status_code: 200

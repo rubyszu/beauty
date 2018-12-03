@@ -1,0 +1,8 @@
+setuptools >= 21.0.0
+requests >= 2.19.1
+jsonref >=0.1
+jsonschema >=2.6.0
+argparse >=1.4.0
+randomize >=0.14
+re >=0.1
+urlparse >=1.1.1

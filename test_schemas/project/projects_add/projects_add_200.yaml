@@ -1,0 +1,37 @@
+---
+
+test_name: 选择项目模板1，新建项目成功
+
+#引入其他文件，定义依赖的接口、路径和方法，也可以是特殊的测试数据
+variables: !include common.yaml
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+  path_params:
+      teamUUID: context.teams.0.uuid
+  json:
+    project:
+      uuid:
+        $ext:
+          function: rest.ApiOperation.validateResponse
+          extra_kwargs:
+            num: 8
+            string: context.user.uuid
+      owner: context.user.uuid
+      name:
+        $ext:
+          function: rest.ApiOperation.validateResponse
+          extra_kwargs:
+            num: 8
+      status: 1
+      members: []
+    template_id: project-t2
+    members:
+      - context.user.uuid
+  #验证response
+  response:
+    #验证状态码
+    status_code: 200

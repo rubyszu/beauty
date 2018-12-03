@@ -1,0 +1,28 @@
+---
+
+test_name: 添加任务关注者后，检查任务详情watchers
+
+#引入其他文件，定义依赖的接口、路径和方法，也可以是特殊的测试数据
+variables:
+  - !include common.yaml
+
+pre_stage:
+  - !include ../task_watchers_add/task_watchers_add_200.yaml
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+      teamUUID: context.teams.0.uuid
+      taskUUID: pre_stage.stage.request.josn.task.uuid
+  response:
+    status_code: 200
+    business:
+      exist:
+        - pre_stage.stage.request.josn.watchers
+        - response.wathcers
+
+    
+

@@ -1,0 +1,56 @@
+{
+  "401AuthFailure.InvalidPassword": {
+    "password": "11111111", 
+    "email": "linhong+f1119@ones.ai"
+  }, 
+  "Ok": {
+    "password": "12345678", 
+    "email": "linhong+mobile@ones.ai"
+  }, 
+  "teams": [
+    {
+      "status": 1, 
+      "domain": "", 
+      "uuid": "Y9jdCJ32", 
+      "member_count": 2, 
+      "type": "free", 
+      "owner": "Qn32h4QJ", 
+      "cover_url": "", 
+      "expire_time": -1, 
+      "create_time": 1527575859302720, 
+      "org_uuid": "2rhHw9jy", 
+      "logo": "https://dl3.ones.ai/FgqXhs87WX-TJd1xCGKO9awU-eCg", 
+      "config": {
+        "sprint": {
+          "alias": ""
+        }
+      }, 
+      "name": "website mobile t"
+    }
+  ], 
+  "400MissingParameter.User.Email": {
+    "password": "12345678"
+  }, 
+  "630NotFound.User": {
+    "password": "12345678", 
+    "email": "linhong+aaa@ones.ai"
+  }, 
+  "org": {
+    "org_type": 0, 
+    "uuid": "2rhHw9jy", 
+    "name": "website mobile t"
+  }, 
+  "user": {
+    "status": 1, 
+    "uuid": "Qn32h4QJ", 
+    "title": "", 
+    "name_pinyin": "linhong+mobile", 
+    "phone": "", 
+    "token": "UF5XMcmo2tycQom9bFj7V9Qlxy36VzhZS2SjpPKdVkfP9koZC1GKxlxpayzNduJK", 
+    "create_time": 1527575859301968, 
+    "avatar": "", 
+    "email": "linhong+mobile@ones.ai", 
+    "channel": "uQn32h4QJb0sTeaB3amswr031B02Il2G", 
+    "name": "linhong+mobile"
+  }
+}

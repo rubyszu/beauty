@@ -1,0 +1,10 @@
+operationId: <api name>
+
+request:
+  path: <path>
+  method: <method>
+  dependent_model: 
+    - !include: <test_schema file path>
+
+response:
+  response_schema: <schema file path>

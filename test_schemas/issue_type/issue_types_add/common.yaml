@@ -1,0 +1,8 @@
+operationId: issue_types_add
+
+request:
+  dependent_api: 
+    - './test_schemas/auth/login/login_200.yaml'
+  product: project
+  path: /team/{teamUUID}/issue_types/add
+  method: post

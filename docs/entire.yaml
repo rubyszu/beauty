@@ -1,0 +1,9 @@
+test_name: <desc>
+
+variables: !include <file path>
+
+pre_stage: !include <pre_stage file path>
+
+stage:
+  request: <request>
+  response: <response>

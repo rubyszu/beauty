@@ -1,0 +1,28 @@
+---
+
+test_name: 输入关键字，全局搜索项目
+
+variables: !include common.yaml
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+      teamUUID: context.teams.0.uuid
+    params:
+      q:
+        $ext:
+          function: rest.ApiOperation.validateResponse
+          extra_kwargs:
+            num: 8
+      types: project
+      start: 0
+      limit: 50
+  response:
+    status_code: 200
+
+
+    
+

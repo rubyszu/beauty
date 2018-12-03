@@ -1,0 +1,17 @@
+response:
+  #验证状态码
+  status_code: <status code>
+  #验证response body的数据结构
+  structure:
+    $ext:
+      function: rest.ApiOperation.validateResponse
+      extra_kwargs: 
+        status_code: 200
+  #验证业务逻辑
+  business:
+    equal:
+      - a
+      - b
+  #定义要保存的数据
+  save:
+    key: <key>

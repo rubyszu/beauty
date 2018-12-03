@@ -1,0 +1,14 @@
+operationId: login
+
+request:
+  #依赖的接口列表
+  dependent_api: []
+  #所属产品
+  product: project
+  #接口路径
+  path: /auth/login
+  #请求方法
+  method: post
+
+response:
+  schema: ./api_schemas/api/project/auth/login.yaml

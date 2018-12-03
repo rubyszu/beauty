@@ -1,0 +1,14 @@
+validate:
+  status_code: 200
+  structure:
+    $ext:
+      function: rest.ApiOperation.validateResponse
+      extra_kwargs: 
+        status_code: 200
+  business:
+    equal:
+      - response.user.email
+      - request.json.email
+    equal:
+      - response.user.status
+      - 1

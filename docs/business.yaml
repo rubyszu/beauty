@@ -1,0 +1,27 @@
+business:
+  #a = b
+  - equal:
+    - a
+    - b
+
+  #a != b
+  - not_equal:
+    - a
+    - b
+
+  #a in b
+  - exit:
+    - a
+    - b
+
+  #a not in b
+  - not_exit:
+    - a
+    - b
+
+  #(a in b) and a.position = n，从0开始计算，-1表示最后一个
+  - position:
+    - n
+    - a
+    - b
+

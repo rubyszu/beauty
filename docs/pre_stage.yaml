@@ -1,0 +1,1 @@
+pre_stage: !include <yaml file path>

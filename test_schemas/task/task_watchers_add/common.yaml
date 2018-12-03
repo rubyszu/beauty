@@ -1,0 +1,10 @@
+operationId: task_watchers_add
+
+request:
+  dependent_model:
+    - ./test_schema/task/tasks_add2/tasks_add2_200.yaml
+  path: /team/{teamUUID}/task/{taskUUID}/watchers/add
+  method: post
+
+response:
+  response_schema: ./api_schemas/task/task_watchers_add.yaml

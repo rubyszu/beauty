@@ -1,0 +1,42 @@
+---
+
+test_name: 输入正确的邮箱和密码，登录成功
+
+#引入其他文件，定义依赖的接口、路径和方法，也可以是特殊的测试数据
+variables: !include common.yaml
+
+stage:
+  #构造request参数
+  request:
+    json:
+      email: context.Ok.email
+      password: context.Ok.password
+  #验证response
+  response:
+    #验证状态码
+    status_code: 200
+    #定义要保存的数据
+    save:
+      user: response.user
+      teams: response.teams
+      org: response.org
+    #验证response body的数据结构
+    # structure:
+    #   $ext:
+    #     function: core.response:validateResponseSchema
+    #     extra_kwargs: 
+    #       response: response
+    #验证业务逻辑
+    business:
+      - equal:
+        - response.user.email
+        - request.json.email
+      - equal:
+        - response.user.status
+        - 1
+      
+
+
+
+    
+

@@ -1,0 +1,11 @@
+operationId: search
+
+request:
+  dependent_api: 
+    - './test_schemas/auth/login/login_200.yaml'
+  product: Project
+  path: /team/{teamUUID}/search
+  method: get
+
+response:
+  response_schema: ./api_schemas/search/search.yaml

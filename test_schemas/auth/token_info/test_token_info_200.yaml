@@ -1,0 +1,36 @@
+---
+
+test_name: 获取token info成功
+
+variables: !include common.yaml
+
+stage:
+  #构造request参数
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+      teamUUID: context.teams.0.uuid
+  #验证response
+  response:
+    status_code: 200
+    #定义要保存的数据
+    # response_structure:
+    #   $ext:
+    #     function: rest.ApiOperation.validateResponse
+    #     extra_kwargs: 
+    #       status_code: 200
+    business:
+      equal:
+        - response.user.email
+        - request.json.email
+      equal:
+        - response.user.status
+        - 1
+      
+
+
+
+    
+

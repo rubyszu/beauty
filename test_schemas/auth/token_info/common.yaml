@@ -1,0 +1,15 @@
+operationId: token_info
+
+request:
+  #依赖的接口列表
+  dependent_api: 
+    - ./test_schemas/auth/login/test_login_200.yaml
+  #所属产品
+  product: project
+  #接口路径
+  path: /auth/token_info
+  #请求方法
+  method: get
+
+response:
+  schema: ./api_schemas/api/project/auth/login.yaml

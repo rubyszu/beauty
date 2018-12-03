@@ -1,0 +1,41 @@
+---
+test_name: 添加任务关注者成功
+
+#引入其他文件，定义依赖的接口、路径和方法，也可以是特殊的测试数据
+variables:
+  - !include common.yaml
+
+stage:
+  #构造request参数
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+      teamUUID: context.teams.0.uuid
+      taskUUID: context.task.uuid
+    json:
+      watchers:
+        ext:
+          function: rest.ApiOperation.validateResponse
+          extra_kwargs: 
+            status_code: 200
+        - contenxt.user.uuid
+  #验证response
+  response:
+    #验证状态码
+    status_code: 200
+    #验证response body的数据结构
+    structure:
+      $ext:
+        function: rest.ApiOperation.validateResponse
+        extra_kwargs: 
+          status_code: 200
+    #验证业务逻辑
+    business:
+      exit:
+        - request.json.watchers
+        - response.watcher
+
+    
+

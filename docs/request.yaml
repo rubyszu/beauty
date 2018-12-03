@@ -1,0 +1,13 @@
+request:
+  #请求头
+  headers:
+    key: <key>
+  #path参数
+  path_params:
+    key: <key>
+  #query参数
+  params:
+    key: <key>
+  #request body参数
+  json:
+    key: <key>
