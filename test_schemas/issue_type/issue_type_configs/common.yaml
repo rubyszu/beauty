@@ -1,8 +1,6 @@
-operationId: projects_add
-
 request:
   dependent_api: 
     - './test_schemas/auth/login/test_login_200.yaml'
   product: project
-  path: /team/{teamUUID}/projects/add
-  method: post
+  path: /team/{teamUUID}/issue_type_configs
+  method: get

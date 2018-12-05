@@ -2,9 +2,10 @@ operationId: stamps_data
 
 request:
   dependent_api: 
-    - './test_schemas/auth/login/login_200.yaml'
-  product: Project
+    - './test_schemas/auth/login/test_login_200.yaml'
+  product: project
   path: /team/{teamUUID}/stamps/data
+  method: post
 
 response:
-  response_schema: ./api_schemas/search/search.yaml
+  response_schema: ./api_schemas/stamp/stamps_data.yaml

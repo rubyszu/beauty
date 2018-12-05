@@ -1,0 +1,35 @@
+---
+
+test_name: 选择项目模板1，新建项目成功
+
+variables: !include common.yaml
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+        teamUUID: context.teams.0.uuid
+    json:
+      project:
+        uuid:
+          $ext:
+            function: util.generate_random:randomString
+            extra_kwargs:
+              num: 8
+              checked: context.user.uuid
+        owner: context.user.uuid
+        name:
+          $ext:
+            function: util.generate_random:randomString
+            extra_kwargs:
+              num: 32
+      template_id: project-t1
+      members:
+        - context.user.uuid
+  response:
+    status_code: 200
+    save:
+      project: response.project
+

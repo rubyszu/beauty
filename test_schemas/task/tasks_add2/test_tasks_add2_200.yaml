@@ -1,0 +1,35 @@
+---
+
+test_name: 拥有创建任务权限，新建任务成功
+
+variables: !include common.yaml
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+      teamUUID: context.teams.0.uuid
+    json:
+      tasks:
+        - uuid: 
+            $ext:
+              function: util.generate_random:randomString
+              extra_kwargs:
+                num: 16
+                checked: context.user.uuid
+          summary:
+            $ext:
+              function: util.generate_random:randomString
+              extra_kwargs:
+                num: 32
+          project_uuid: context.project.uuid
+          issue_type_uuid: context.project.issue_type.0.uuid
+          owner: context.user.uuid
+          assign: context.user.uuid
+          desc_rich: ''
+          parent_uuid: ''
+          priority: context.field012.0.uuid
+  response:
+    status_code: 200

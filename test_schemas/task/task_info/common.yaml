@@ -1,5 +1,6 @@
 request:
-  dependent_api: ./test_schemas/task/task_add2/tasks_add_200.yaml
+  dependent_api: 
+    - ./test_schemas/task/tasks_add2/test_tasks_add2_200.yaml
   path: /team/{teamUUID}/task/{taskUUID}/info
   method: get
 

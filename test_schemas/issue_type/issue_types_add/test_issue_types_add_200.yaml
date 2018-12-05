@@ -9,19 +9,19 @@ stage:
     headers:
       Ones-User-Id: context.user.uuid
       Ones-Auth-Token: context.user.token
-  path_params:
+    path_params:
       teamUUID: context.teams.0.uuid
-  json:
+    json:
       issue_type:
         name:
           $ext:
             function: util.generate_random:randomString
-            ext_kwargs:
-              num: 4
+            extra_kwargs:
+              num: 8
         icon:
           $ext:
             function: util.generate_random:randomNum
-            ext_kwargs:
+            extra_kwargs:
               Min: 1
               Max: 14
       copy_from: null

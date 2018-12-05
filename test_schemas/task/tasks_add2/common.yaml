@@ -1,0 +1,7 @@
+request:
+  dependent_api: 
+    - './test_schemas/issue_type/issue_type_configs/test_issue_type_configs_200.yaml'
+    - './test_schemas/stamp/stamps_data/test_stamps_data_200.yaml'
+  product: project
+  path: /team/{teamUUID}/tasks/add2
+  method: post

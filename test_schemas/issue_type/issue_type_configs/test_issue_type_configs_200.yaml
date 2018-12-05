@@ -1,0 +1,28 @@
+---
+
+test_name: 新建项目后，获取任务类型配置列表
+
+variables: !include common.yaml
+
+pre_stage: './test_schemas/project/projects_add/test_projects_add_200.yaml'
+
+stage:
+  request:
+    headers:
+      Ones-User-Id: context.user.uuid
+      Ones-Auth-Token: context.user.token
+    path_params:
+        teamUUID: context.teams.0.uuid
+  response:
+    status_code: 200
+    save:
+      project:
+        issue_types:
+          $ext:
+            function: util.save_value:saveSetsOfList
+            extra_kwargs:
+              check_list: response.issue_type_configs
+              save_key: issue_type_uuid
+              project_uuid: context.project.uuid
+
+

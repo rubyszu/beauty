@@ -1,0 +1,31 @@
+---
+
+test_name: 没有传必填参数email，登录失败
+
+variables: !include common.yaml
+
+stage:
+  request:
+    json:
+      password: context.400qqewqe.password
+  response:
+    status_code: 400
+    #验证response body的数据结构
+    # structure:
+    #   $ext:
+    #     function: core.response:validateResponseSchema
+    #     extra_kwargs: 
+    #       response: response
+    # business:
+    #   - equal:
+    #     - response.user.email
+    #     - request.json.email
+    #   - equal:
+    #     - response.user.status
+    #     - 1
+      
+
+
+
+    
+
