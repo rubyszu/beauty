@@ -3,7 +3,7 @@ from box import Box
 import requests
 from util.http_base import httpBase
 from util.dict_util import assign_value
-from util.replace_str import replaceString
+from util.str_util import replaceString, spliceString
 from resolve_stage import getStage
 from context.compose import compose
 from response import saveParamsToContext
@@ -12,7 +12,8 @@ class Request(object):
 	def __init__(self, stage):
 		self.stage = stage
 		self.dependent_stage_list = self.getDependentStageList()
-
+		import pdb;pdb.set_trace()
+		
 	def getDependentStageList(self):
 		'''
 			return: 依赖的stage列表
@@ -47,6 +48,7 @@ class Request(object):
 			stage(dict): stage
 			context(dict): context
 		'''
+		
 		http_base = Box(httpBase(context["cli_args"]))
 		host = http_base.host
 		branch = http_base.branch
@@ -54,12 +56,13 @@ class Request(object):
 		request = self.stage.variables.request
 		product = request.product
 		path = request.path
-		api_url = "{}/{}/{}{}".format(host, product, branch, path)
-		
+		api_url = "".join([spliceString(host, product, branch), path])
+
 		request_schema = self.stage.stage.request
 		#处理api URL中包含path parameters的情况
 		if "path_params" in request_schema:
-			api_url = replaceString(api_url, context)
+			path_params = request_schema.path_params
+			api_url = replaceString(api_url, path_params)
 			del request_schema.path_params
 
 		return api_url
@@ -89,6 +92,7 @@ class Request(object):
 		context(dict): context
 		'''
 		dependent_stage_list = self.getDependentStageList()
+		import pdb;pdb.set_trace()
 		dependent_stage_send_request_list = [Request(i).sendSuccessRequest for i in dependent_stage_list]
 		runner = compose(dependent_stage_send_request_list)
 		runner(context)
@@ -105,13 +109,11 @@ class Request(object):
 		request_params = self.getRequestParam(context)
 		method = self.stage.variables.request.method
 		api_url = self.getApiUrl(context)
-
 		response = requests.request(method,api_url,**request_params)
 		#request
 		request = self.stage.stage.request
-		response_json = response.json()
-
-		self.stage = assign_value(self.stage, request = request, response = response.json())
+		self.stage = assign_value(self.stage, context = context, request = request, response = response.json())
+		
 		return self.stage, response
 
 	# 判断API需要的请求参数是否在context
@@ -133,7 +135,7 @@ class Request(object):
 	def sendSuccessRequest(self, context):
 		if self.isParamsInContext(context):
 			return context
-
+			
 		request_params = self.getRequestParam(context)
 		stage, response = self.sendRequest(context)
 		saveParamsToContext(self.stage, context)

@@ -15,3 +15,12 @@ def replaceString(string, params):
 		string = string.replace('{%s}' %i, params[i])
 
 	return string
+
+# combine string
+def spliceString(*string_list):
+	'''
+	Args:
+		string_list(list): a list of string
+	'''
+	string = "/".join(string_list)
+	return string
