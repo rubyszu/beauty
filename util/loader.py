@@ -20,6 +20,7 @@ class SchemaLoader(jsonref.JsonLoader):
     def get_remote_json(self, uri, **kwargs):
         if self.is_yaml_file(uri):
             #  yaml in ref
+            # import pdb;pdb.set_trace()
             ref_yaml, _ = urlparse.urldefrag(uri)
             result = yaml.load(urlopen(ref_yaml).read().decode("utf-8"))
             return result
@@ -32,9 +33,14 @@ class SchemaLoader(jsonref.JsonLoader):
 # 读json/yaml格式的文件，转换成dictionary类型的数据
 def loadSchema(file):
     # Loads the given schema file
-    base_path = os.path.realpath('.')
-    base_url = 'file://{}/'.format(base_path)
-    return jsonref.load_uri(urlparse.urljoin(base_url,file), loader=SchemaLoader(), base_uri=base_url, jsonschema=True)
+    real_path = os.path.realpath('.')
+    base_url = 'file://{}/'.format(real_path)
+
+    abs_path = os.path.abspath(file)
+    base_path = 'file://{}/'.format(abs_path)
+    dir_path = os.path.dirname(base_path)
+    
+    return jsonref.load_uri(urlparse.urljoin(base_url,file), loader=SchemaLoader(), base_uri=dir_path, jsonschema=True)
 
 class IncludeLoader(yaml.SafeLoader):
     """YAML Loader with `!include` constructor."""
@@ -70,6 +76,10 @@ def loadInclude(file):
     with open(file, 'r') as f:
         data = yaml.load(f, IncludeLoader)
     return data
+
+if __name__ == '__main__':
+    file = "./api_schemas/api/project/auth/login1.yaml"
+    print loadSchema(file)
 
 
 
