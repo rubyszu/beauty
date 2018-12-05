@@ -1,8 +1,24 @@
 # -*- coding: utf-8 -*-
 from core.extension import get_wrapped_create_function
 import jsonref
+import collections
 
-#给定一个字典类型的数据，深度优先查询是否有某个字段
+def mergeDict(target, expected):
+    '''Given two dict, recursively access the dicionary, merge to one dict
+    Args:
+        target(dict): the target dict
+        expected(dict): a dict wants to merge into target
+
+    '''
+    for key, value in expected.iteritems():
+        if isinstance(value, collections.Mapping):
+            replace_value = mergeDict(target.get(key, {}), value)
+            target[key] = replace_value
+        else:
+            target[key] = expected[key]
+    return target
+
+# 给定一个字典类型的数据，深度优先查询是否有某个字段
 def findNode(data, key):
     queue = [("", data)]
     while len(queue) > 0:
@@ -60,7 +76,6 @@ def recurse_access_key(current_val, keys):
 def isfotmat(string, **to_check):
 
     flag = False
-
     split_list = string.split(".")
     if "." in string and split_list[0] in to_check:
         flag = True
@@ -99,7 +114,7 @@ def assign_value(expected, **to_check):
 
                 #处理注入函数的情况
                 if joined_key.has_key("$ext"):
-                    ext = joined_key["$ext"]
+                    ext = assign_value(joined_key["$ext"], **to_check)
                     saved[save_as] = get_wrapped_create_function(ext)
 
             #list in dict
@@ -121,3 +136,66 @@ def assign_value(expected, **to_check):
         return expected
 
     return expected
+
+if __name__ == '__main__':
+    d = {
+      "project": {
+        "issue_types": {
+          "$ext": {
+            "function": "util.save_value:saveSetsOfList",
+            "extra_kwargs": {
+              "check_list": "response.issue_type_configs",
+              "save_key": "issue_type_uuid",
+              "project_uuid": "context.project.uuid"
+            }
+          }
+        }
+      }
+    }
+    response = {
+        "issue_type_configs": [
+            {
+                "project_uuid": "8yhRWBazBu4cW8ee",
+                "issue_type_uuid": "52hNsC6o"
+            },
+            {
+                "project_uuid": "8yhRWBazrwtHHTFO",
+                "issue_type_uuid": "PVRsTwjE"
+            },
+            {
+                "project_uuid": "8yhRWBazBu4cW8ee",
+                "issue_type_uuid": "PkLcqK56"
+            },
+            {
+                "project_uuid": "8yhRWBazrwtHHTFO",
+                "issue_type_uuid": "Cc3AK2XL"
+            }
+        ]
+    }
+    context = {
+        "project": {
+            "status": 1, 
+            "announcement": "", 
+            "uuid": "8yhRWBazrwtHHTFO", 
+            "status_category": "to_do", 
+            "is_open_email_notify": False, 
+            "status_uuid": "to_do", 
+            "deadline": 0, 
+            "is_pin": False, 
+            "task_update_time": 0, 
+            "assign": "8yhRWBaz", 
+            "name": "8H3pXXnxjL3IfrLx0nN6uAH6aBxSS3i1"
+        }
+    }
+
+    a = assign_value(d, response = response, context = context)
+    print a
+
+
+
+
+
+
+
+
+

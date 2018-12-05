@@ -3,7 +3,7 @@
 import inspect
 from jsonschema import validate
 from util.loader import loadSchema
-from util.dict_util import findNodeByList
+from util.dict_util import mergeDict
 from util import comparators
 
 comparators_functions = inspect.getmembers(comparators, inspect.isfunction)
@@ -14,7 +14,8 @@ def generateValidateRule():
 		validate_rule[name] = func
 
 def validateResponseSchema(stage, response):
-	schema_file = loadSchema(stage.variables.response.schema)
+	# schema_file = loadSchema(stage.variables.response.schema)
+	pass
 
 def validateResponse(stage, response):
 	'''
@@ -35,9 +36,12 @@ def validateResponse(stage, response):
 		generateValidateRule()
 
 	# business
+	if "business" not in stage.stage.response:
+		return
 	business = stage.stage.response.business
-	for key, value in business.items():
-		validate_rule[key](*value)
+	for i in business:
+		for key, value in i.items():
+			validate_rule[key](*value)
 
 def saveParamsToContext(stage, context):
 	'''
@@ -47,8 +51,7 @@ def saveParamsToContext(stage, context):
 	'''
 	if "save" not in stage:
 		return {}
-
-	context.update(stage.save)  
+	mergeDict(context, stage.save)
 
 if __name__ == '__main__':
 	generateValidateRule()
