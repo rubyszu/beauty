@@ -4,7 +4,6 @@ import os, sys
 current_file_path = os.path.dirname(__file__)
 sys.path.append(os.path.realpath(os.path.join(current_file_path, '../../')))
 from config import GlobalVariable, branch
-from common import *
 from jsonschema import validate
 from datetime import datetime
 import time,requests,json,unittest
@@ -30,10 +29,12 @@ def random_num(a,b):
 def request(variable):
 	owner_uuid = variable["owner_uuid"]
 	prioritys = variable["prioritys"]
+	sprints = variable["sprints"]
 	random_uuid = owner_uuid + generate_string()
 	random_issue_type = random_arg(variable["issue_types"])
 	random_assign = random_arg(variable["members"])
 	random_priority = random_arg(prioritys)
+	random_sprint = random_arg(sprints)
 	random_assess_hour = random_num(100000,500000)
 	# random_parent_uuid = random.random_arg(variable["task_uuids"])
 
@@ -43,11 +44,11 @@ def request(variable):
 		"Ones-User-Id": "%s" %(owner_uuid),
 		"Content-Type": "application/json"
 	}
-	tasks = []
+	# tasks = []
 	task = {
 	  		"uuid":"%s" %(random_uuid),
 	    	"summary": "任务标题" + datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-	    	"project_uuid":"GAy6uL3mg4R3fdiD",
+	    	"project_uuid":"GAy6uL3m1xR4AFr3",
 	    	"issue_type_uuid":"%s" %(random_issue_type),
 	    	"owner":"%s" %(owner_uuid),
 	    	"assign":"%s" %(random_assign),
@@ -55,12 +56,13 @@ def request(variable):
 	    	"parent_uuid":"",
 	    	"priority":"%s" %(random_priority),
 	    	"field_values":[
-	    		{"field_uuid":"field018","type":4,"value":random_assess_hour}
+	    		{"field_uuid":"field018","type":4,"value":random_assess_hour},
+	    		{"field_uuid":"011","type":7,"value":random_sprint}
 	    	]
 	}
-	for i in range(10):
-		tasks.append(task)
-	print tasks
+	# for i in range(10):
+	# 	tasks.append(task)
+	# print tasks
 	body = {
 	  "tasks":[task]}
 

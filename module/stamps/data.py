@@ -88,10 +88,18 @@ class TestResponse(unittest.TestCase):
 		for i in range(len(issue_types)):
 			issue_type.append(issue_types[i].get("uuid"))
 
+		sprints = self.response_json.get("sprint").get("sprints")
+		sprint = []
+		for i in range(len(sprints)):
+			if sprints[i].get("project_uuid") == "GAy6uL3m1xR4AFr3":
+				sprint.append(sprints[i].get("uuid"))
+
+
 		#store data
 		self.global_variable.store("prioritys",prioritys)
 		self.global_variable.store("members",team_members)
 		self.global_variable.store("issue_types",issue_type)
+		self.global_variable.store("sprints",sprint)
 
 		self.global_variable.write()
 
