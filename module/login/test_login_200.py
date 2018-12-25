@@ -12,7 +12,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 args = branch.get_args()
 branch = args[0]
-# print(branch)
+print(type(branch))
 
 def request(variable):
 	print(args[0])
@@ -61,7 +61,7 @@ class TestGroupSort(unittest.TestCase):
 		useruuid = user.get("uuid")
 		token = user.get("token")
 		teams = self.response_json.get("teams")
-		teamuuid = teams[0].get("uuid")
+		teamuuid = teams[1].get("uuid")
 
 		if(self.variable.__contains__("owner_uuid")):
 			owner_uuid = self.variable["owner_uuid"]
