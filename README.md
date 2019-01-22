@@ -1,4 +1,4 @@
-<p align="center">
+1<p align="center">
   <img src="https://github.com/killbill/killbill-docs/raw/v3/userguide/assets/img/logo.png" alt="Kill Bill logo" style="max-width:100%;">
 </p>
 
