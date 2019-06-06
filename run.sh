@@ -9,6 +9,7 @@
 # pip install -U tomorrow
 # pip install ones
 python run/run_all_test.py --branch=v1
+python module/auth/test.py
 # for i in $( seq 1 957 )
 # do
 #    python run/run_all_test.py --branch=$1
